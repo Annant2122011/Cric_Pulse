@@ -1,98 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latest Headlines | Cric Pulse</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+<head><link rel="stylesheet" href="style.css"><title>News | Cric Pulse</title></head>
 <body>
-
-    <nav class="navbar">
-        <div class="logo">CRIC<span>PULSE</span></div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html" class="active">Headlines</a></li>
-            <li><a href="teams.html">Teams</a></li>
-        </ul>
-    </nav>
-
+    <nav class="navbar"> <div class="logo">CRIC<span>PULSE</span></div> </nav>
     <div class="container">
-        <div class="news-header-section">
-            <h1>Latest Headlines</h1>
-            <p>Exclusive updates from the T20 World Cup 2026</p>
-        </div>
-
+        <h1 style="color:var(--gold); margin-bottom:20px;">Top Headlines</h1>
         <div class="news-grid-3x3">
-            
-            <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Ganguly Backs Samson', 'Sourav Ganguly has called Sanju Samson a white-ball regular after his match-winning 97* against West Indies. Samson steered India into the semi-finals in a high-pressure 196-run chase.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000')">
-                <div class="news-card">
-                    <div class="news-img-container">
-                        <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=600">
-                        <span class="category-tag">Exclusive</span>
-                    </div>
-                    <div class="news-text">
-                        <h4>Ganguly Backs Samson</h4>
-                        <p>Former skipper calls Sanju a "white-ball regular" after his heroics...</p>
-                        <span class="read-more">Full Story →</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Semi-Finals Locked!', 'The final four are here! South Africa vs New Zealand and India vs England.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=1000')">
-                <div class="news-card">
-                    <div class="news-img-container">
-                        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=600">
-                        <span class="category-tag">Tournament</span>
-                    </div>
-                    <div class="news-text">
-                        <h4>Semi-Finals Confirmed</h4>
-                        <p>The road to Ahmedabad is down to the final four giants...</p>
-                        <span class="read-more">Full Story →</span>
-                    </div>
-                </div>
-            </a>
-
-            <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Pakistan’s Bitter Exit', 'NRR heartbreak again as Pakistan fails to qualify for the SFs despite a win.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?auto=format&fit=crop&q=80&w=1000')">
-                <div class="news-card">
-                    <div class="news-img-container">
-                        <img src="https://images.unsplash.com/photo-1589487391730-58f20eb2c308?auto=format&fit=crop&q=80&w=600">
-                        <span class="category-tag">Analysis</span>
-                    </div>
-                    <div class="news-text">
-                        <h4>Pakistan Knocked Out</h4>
-                        <p>A look at where it all went wrong for the Green Shirts...</p>
-                        <span class="read-more">Full Story →</span>
-                    </div>
-                </div>
-            </a>
-
+            <div class="card" onclick="openNews('India vs Eng', 'A blockbuster semi-final awaits at Wankhede...', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600')">
+                <div class="news-img-container"><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600"></div>
+                <h4>India vs England SF</h4>
+                <p>The stage is set for a massive clash...</p>
             </div>
-
-        <a href="javascript:void(0)" class="featured-card-link" onclick="openNews('Final Venue Update', 'The Narendra Modi Stadium is prepared for the 2026 Final. 130,000 fans expected.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&q=80&w=1200')">
-            <div class="featured-news-card">
-                <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&q=80&w=1000" class="news-img-full">
-                <div class="featured-content">
-                    <span class="category-tag" style="position:static; display:inline-block; margin-bottom:15px;">Grand Finale</span>
-                    <h2>Destination: Ahmedabad</h2>
-                    <p>The world's largest stadium prepares for destiny as the final countdown begins.</p>
-                    <span class="read-more" style="font-size:1.1rem; margin-top:20px;">Open Report →</span>
-                </div>
-            </div>
-        </a>
+        </div>
     </div>
-
     <div id="newsModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeNews()">&times;</span>
-            <img id="modal-img" src="">
-            <div class="modal-body">
-                <h2 id="modal-title" style="color:var(--gold); margin:15px 0;"></h2>
-                <p id="modal-desc" style="line-height:1.7; color:#ccc;"></p>
-            </div>
+            <img id="modal-img" src="" style="width:100%; border-radius:10px;">
+            <h2 id="modal-title" style="margin:15px 0;"></h2>
+            <p id="modal-desc"></p>
         </div>
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>
