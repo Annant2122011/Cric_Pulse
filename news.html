@@ -1,22 +1,45 @@
-<div class="container">
-    <h1 style="color: var(--gold); margin-top: 30px;">Latest Headlines</h1>
-    
-    <div class="news-grid-3x3">
-        <div class="news-card" onclick="openNews('Hope Takes Blame', 'West Indies captain Shai Hope took full responsibility for the team’s Super 8 exit.', 'https://images.unsplash.com/photo-1533745848184-3db07256e163?auto=format&fit=crop&q=80&w=800')">
-            <img src="https://images.unsplash.com/photo-1533745848184-3db07256e163?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
-            <h4>WI Captain Speaks</h4><p>Heartbreak in the Caribbean...</p>
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Cric Pulse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <div class="news-card" onclick="openNews('Italy’s Surprise Debut', 'Cricket experts are praising Italy for their spirit in their debut World Cup.', 'https://images.unsplash.com/photo-1552667466-07fdd0a440b1?auto=format&fit=crop&q=80&w=800')">
-            <img src="https://images.unsplash.com/photo-1552667466-07fdd0a440b1?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
-            <h4>Italy’s Historic Run</h4><p>Inspiring a nation...</p>
-        </div>
-    </div> <div class="featured-news-card" onclick="openNews('Final Venue Update', 'The Narendra Modi Stadium is ready. A crowd of 130,000 is expected on March 8.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&q=80&w=1200')">
-        <img src="https://images.unsplash.com/photo-1577223625816-7546f13df25d?auto=format&fit=crop&q=80&w=1000" class="news-img-full">
-        <div class="featured-content">
-            <span style="background:var(--gold); color:#000; padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold;">GRAND FINALE</span>
-            <h2>Destination: Ahmedabad</h2>
-            <p>Preparations for the world's biggest cricket final reach their peak at the Narendra Modi Stadium.</p>
-        </div>
-    </div>
-</div>
+    <div class="container">
+        <h1 style="color: var(--gold); margin-top: 30px;">Latest Headlines</h1>
+        
+        <div class="news-grid-3x3">
+            <div class="news-card" onclick="openNews('Ganguly Backs Samson', 'Sourav Ganguly has called Sanju Samson a white-ball regular after his match-winning 97* against West Indies.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Ganguly Backs Samson</h4><p>Masterclass in Kolkata...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Semi-Finals Locked!', 'The final four are here! SA vs NZ and India vs England. The road to Ahmedabad is down to four teams.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Semi-Finals Confirmed</h4><p>The Big Four remain...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Pakistan’s Bitter Exit', 'Pakistan failed to restrict Sri Lanka enough to beat New Zealand’s Net Run Rate. They exit the WC today.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1589487391730-58f20eb2c308?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Pakistan Knocked Out</h4><p>NRR heartbreak again...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Gambhir: Data is Overrated', 'Coach Gautam Gambhir says he prefers instinct over numbers as India prepares for the England semi-final.', 'https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Gambhir’s Bold Strategy</h4><p>Instinct over data...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Proteas Finish Perfect', 'South Africa heads into the Semi-Finals as the only unbeaten team in the tournament.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Unstoppable SA</h4><p>Unbeaten streak continues...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Wankhede Ticket Rush', 'Tickets for the India vs England Semi-Final in Mumbai sold out within minutes today.', 'https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?auto=format&fit=crop&q=80&w=1000')">
+                <img src="https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?auto=format&fit=crop&q=80&w=500" class="news-img-thumb">
+                <h4>Mumbai Ticket Fever</h4><p>Sold out in seconds...</p>
+            </div>
+
+            <div class="news-card" onclick="openNews('Farhan Breaks Records', 'Sahibzada Farhan has surpassed Kohli for the most runs in a single T20 World Cup edition.', '
