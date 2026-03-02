@@ -1,7 +1,6 @@
-// 1. News Modal Logic
-function openNews(title, meta, desc, img) {
+// 1. Modal Logic
+function openNews(title, desc, img) {
     document.getElementById("modal-title").innerText = title;
-    document.getElementById("modal-meta").innerText = meta;
     document.getElementById("modal-desc").innerText = desc;
     document.getElementById("modal-img").src = img;
     document.getElementById("newsModal").style.display = "block";
@@ -14,7 +13,7 @@ function closeNews() {
 // 2. Countdown Logic (March 5, 2026)
 const target = new Date("March 5, 2026 19:00:00").getTime();
 
-setInterval(() => {
+function updateClock() {
     const now = new Date().getTime();
     const diff = target - now;
 
@@ -27,4 +26,14 @@ setInterval(() => {
     document.getElementById("h").innerText = h;
     document.getElementById("m").innerText = m;
     document.getElementById("s").innerText = s;
-}, 1000);
+}
+
+setInterval(updateClock, 1000);
+updateClock();
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target == document.getElementById("newsModal")) {
+        closeNews();
+    }
+}
