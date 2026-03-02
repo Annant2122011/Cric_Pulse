@@ -2,44 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CRIC PULSE | Premium Cricket Hub</title>
+    <title>Cric Pulse | Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="ticker-wrap">
+        <div class="ticker">
+            <span>🔥 BREAKING: Sanju Samson moves to #1 in T20 Rankings...</span>
+            <span style="margin-left:50px;">🏏 SF 1: South Africa vs New Zealand tickets SOLD OUT...</span>
+            <span style="margin-left:50px;">🇮🇳 Team India reaches Mumbai for England Clash...</span>
+        </div>
+    </div>
 
-    <nav>
-        <h1>🏏 CRIC PULSE</h1>
-        <div class="nav-links">
-            <a href="index.html">HOME</a>
-            <a href="live.html">LIVE</a>
-            <a href="matches.html">MATCHES</a>
-            <a href="news.html">NEWS</a>
+    <nav style="display:flex; justify-content:space-between; padding:20px 5%; border-bottom:1px solid rgba(255,255,255,0.1);">
+        <h2 style="color:var(--accent); margin:0;">CRIC PULSE.</h2>
+        <div>
+            <a href="index.html" style="color:white; text-decoration:none; margin-left:20px;">Home</a>
+            <a href="live.html" style="color:white; text-decoration:none; margin-left:20px;">Live</a>
         </div>
     </nav>
 
-    <div class="container">
-        <div class="card" style="text-align: center; background: linear-gradient(45deg, #001d3d, #003566);">
-            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">The Semi-Final Fever is Here!</h2>
-            <p>India vs England | Wankhede Stadium | March 5, 2026</p>
-            
-            <div id="countdown">
-                <div class="time-box" id="days">00 <span>Days</span></div>
-                <div class="time-box" id="hours">00 <span>Hours</span></div>
-                <div class="time-box" id="mins">00 <span>Mins</span></div>
+    <div style="max-width:900px; margin:40px auto; padding:0 20px;">
+        <div style="text-align:center; padding:40px; background:var(--glass); border-radius:30px; border:1px solid var(--accent);">
+            <h3 style="margin:0; text-transform:uppercase; letter-spacing:2px;">Semi-Final 2: IND vs ENG</h3>
+            <div class="timer-container">
+                <div class="t-box"><div id="d">00</div><span>Days</span></div>
+                <div class="t-box"><div id="h">00</div><span>Hours</span></div>
+                <div class="t-box"><div id="m">00</div><span>Mins</span></div>
+                <div class="t-box" style="border-color:var(--secondary);"><div id="s">00</div><span>Secs</span></div>
             </div>
         </div>
 
-        <div class="card">
-            <h3>🗳️ WHO WILL WIN T20 WORLD CUP 2026?</h3>
-            <p>Voters are currently leaning towards India after Samson's 97*.</p>
-            <div id="poll">
-                <button class="poll-btn" onclick="vote('India')">🇮🇳 India</button>
-                <button class="poll-btn" onclick="vote('England')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</button>
-                <button class="poll-btn" onclick="vote('South Africa')">🇿🇦 South Africa</button>
-                <button class="poll-btn" onclick="vote('New Zealand')">🇳🇿 New Zealand</button>
-            </div>
-            <p id="vote-thanks" style="display:none; color: var(--secondary); margin-top: 15px;">Thanks for voting, Annant! Your pick has been recorded.</p>
-        </div>
+        <h3>Super 8 Standings</h3>
+        <table>
+            <thead>
+                <tr><th>Team</th><th>W</th><th>L</th><th>PTS</th><th>NRR</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>🇿🇦 South Africa</td><td>3</td><td>0</td><td>6</td><td>+2.259</td></tr>
+                <tr><td>🇮🇳 India</td><td>2</td><td>1</td><td>4</td><td>+0.106</td></tr>
+                <tr style="opacity:0.5;"><td>🌴 West Indies</td><td>1</td><td>2</td><td>2</td><td>+0.993</td></tr>
+            </tbody>
+        </table>
     </div>
 
     <script src="script.js"></script>
