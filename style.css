@@ -35,6 +35,17 @@ body {
     position: relative;
     overflow: hidden;
 }
+/* Expert Verdict Text Styling */
+.hero-card p {
+    color: #e0e0e0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-card h2 {
+    margin-bottom: 0;
+    font-size: 1.8rem;
+}
 
 /* Flex row for the names and VS */
 .battle-flex {
