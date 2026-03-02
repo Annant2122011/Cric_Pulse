@@ -29,6 +29,15 @@
     color: #000;
     transform: scale(1.05);
 }
+.news-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.news-card:hover {
+    transform: translateY(-5px); /* Card lifts up when hovered */
+    box-shadow: 0 10px 20px rgba(255, 195, 0, 0.3); /* Gold glow */
+}
 /* Google Font for a premium look */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap');
 
