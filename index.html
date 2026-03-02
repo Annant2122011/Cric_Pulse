@@ -1,60 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cric Pulse | T20 World Cup 2026</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <nav>
-        <div class="logo">CRIC PULSE<span style="color:white">.</span></div>
-        <div class="nav-links">
-            <a href="index.html" class="active">Dashboard</a>
-            <a href="live.html">Match Center</a>
-            <a href="matches.html">Schedule</a>
-        </div>
-    </nav>
-
-    <div style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
-        <div style="text-align: center; margin-bottom: 60px;">
-            <div style="display: inline-block; border: 1px solid var(--live); padding: 5px 15px; border-radius: 30px; font-size: 12px; color: var(--live); font-weight: 700; margin-bottom: 20px;">
-                SEMI-FINAL 2 • MARCH 5
-            </div>
-            <h1 style="font-size: 64px; margin: 0; font-weight: 900; letter-spacing: -3px;">INDIA <span style="color: #444;">VS</span> ENGLAND</h1>
-            <p style="color: #888; font-size: 18px;">Wankhede Stadium, Mumbai | 7:00 PM IST</p>
-            
-            <div class="timer-grid">
-                <div class="time-unit"><span class="time-num" id="d">00</span><span class="time-label">Days</span></div>
-                <div class="time-unit"><span class="time-num" id="h">00</span><span class="time-label">Hours</span></div>
-                <div class="time-unit"><span class="time-num" id="m">00</span><span class="time-label">Minutes</span></div>
-                <div class="time-unit" style="border-color: var(--live);"><span class="time-num" id="s" style="color: var(--live);">00</span><span class="time-label">Seconds</span></div>
-            </div>
-        </div>
-
-        <h3 style="display: flex; justify-content: space-between; align-items: center;">
-            Super 8 Standings (Group 1)
-            <span style="font-size: 12px; color: #555;">UPDATED: 5 MINS AGO</span>
-        </h3>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr><th>Team</th><th>PLD</th><th>W</th><th>NRR</th><th style="text-align: right;">PTS</th></tr>
-                </thead>
-                <tbody>
-                    <tr style="background: rgba(0, 242, 255, 0.03);">
-                        <td class="team-name">🇿🇦 SOUTH AFRICA</td><td>3</td><td>3</td><td>+2.259</td><td class="pts" style="text-align: right;">6</td>
-                    </tr>
-                    <tr style="background: rgba(0, 242, 255, 0.03);">
-                        <td class="team-name">🇮🇳 INDIA</td><td>3</td><td>2</td><td>+0.106</td><td class="pts" style="text-align: right;">4</td>
-                    </tr>
-                    <tr style="opacity: 0.4;">
-                        <td class="team-name">🌴 WEST INDIES</td><td>3</td><td>1</td><td>+0.993</td><td class="pts" style="text-align: right;">2</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+<div class="news-grid">
+    <div class="news-card" onclick="openNews('Samson\'s 97* Masterclass', 'Sanju Samson played the innings of a lifetime at Eden Gardens yesterday, scoring 97* off 50 balls to chase down 196 against WI. This is the highest ever score by an Indian in a T20WC chase!', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067')">
+        <h4>Samson's 97* Heroics</h4>
+        <p>Click for full match report...</p>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+    <div class="news-card" onclick="openNews('SF2: IND vs ENG', 'Mumbai is ready! India faces England in a repeat of the 2024 semi-final on March 5. Wankhede pitch is expected to be a batting paradise.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000')">
+        <h4>SF2: India vs England</h4>
+        <p>Preview and Venue details...</p>
+    </div>
+    
+    </div>
+
+<div id="newsModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeNews()">&times;</span>
+        <img id="modal-img" src="" alt="News Image">
+        <h2 id="modal-title" style="color:var(--gold)"></h2>
+        <p id="modal-desc" style="line-height:1.8; color:#ccc"></p>
+    </div>
+</div>
