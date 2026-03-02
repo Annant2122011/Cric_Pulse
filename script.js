@@ -1,19 +1,30 @@
-const targetDate = new Date("March 5, 2026 19:00:00").getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("d").innerText = days.toString().padStart(2, '0');
-    document.getElementById("h").innerText = hours.toString().padStart(2, '0');
-    document.getElementById("m").innerText = minutes.toString().padStart(2, '0');
-    document.getElementById("s").innerText = seconds.toString().padStart(2, '0');
+// 1. News Modal Logic
+function openNews(title, meta, desc, img) {
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-meta").innerText = meta;
+    document.getElementById("modal-desc").innerText = desc;
+    document.getElementById("modal-img").src = img;
+    document.getElementById("newsModal").style.display = "block";
 }
 
-setInterval(updateCountdown, 1000);
-updateCountdown();
+function closeNews() {
+    document.getElementById("newsModal").style.display = "none";
+}
+
+// 2. Countdown Logic (March 5, 2026)
+const target = new Date("March 5, 2026 19:00:00").getTime();
+
+setInterval(() => {
+    const now = new Date().getTime();
+    const diff = target - now;
+
+    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("d").innerText = d;
+    document.getElementById("h").innerText = h;
+    document.getElementById("m").innerText = m;
+    document.getElementById("s").innerText = s;
+}, 1000);
