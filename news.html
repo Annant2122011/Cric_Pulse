@@ -1,26 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><link rel="stylesheet" href="style.css"><title>News | Cric Pulse</title></head>
-<body>
-    <nav class="navbar"> <div class="logo">CRIC<span>PULSE</span></div> </nav>
-    <div class="container">
-        <h1 style="color:var(--gold); margin-bottom:20px;">Top Headlines</h1>
-        <div class="news-grid-3x3">
-            <div class="card" onclick="openNews('India vs Eng', 'A blockbuster semi-final awaits at Wankhede...', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600')">
-                <div class="news-img-container"><img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=600"></div>
-                <h4>India vs England SF</h4>
-                <p>The stage is set for a massive clash...</p>
+<div class="container">
+    <div class="news-header-section">
+        <h1>Global Headlines</h1>
+        <p>40 Matches Down, 3 to Go. The Road to Ahmedabad Final.</p>
+    </div>
+
+    <div class="news-grid-4x3">
+        
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Wankhede Pitch Report', 'Curators at Wankhede predict a high-scoring belter for Ind vs Eng. Expected par score: 195.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=600">
+                    <span class="category-tag">Live Feed</span>
+                </div>
+                <div class="news-text">
+                    <h4>Wankhede Pitch Update</h4>
+                    <p>Expect a runs-fest in the 2nd Semi-Final...</p>
+                </div>
             </div>
-        </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Kohli’s Masterclass', 'Virat Kohli averages 96.4 in this tournament, nearing the record for most runs in a single edition.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=600">
+                    <span class="category-tag">Milestone</span>
+                </div>
+                <div class="news-text">
+                    <h4>King Kohli’s Dominance</h4>
+                    <p>The veteran batter eyes the 500-run mark...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('NZ Squad News', 'Trent Boult declared fit for the Semi-Final against South Africa after an ankle scare.', 'https://images.unsplash.com/photo-1594470117722-de43603ff3fa?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1594470117722-de43603ff3fa?q=80&w=600">
+                    <span class="category-tag">Injury Update</span>
+                </div>
+                <div class="news-text">
+                    <h4>Boult Ready to Fire</h4>
+                    <p>New Zealand’s pace spearhead cleared for SF...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Pakistan Post-Mortem', 'Babar Azam reflects on Pakistan’s early exit: We need a structural change in T20s.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1589487391730-58f20eb2c308?q=80&w=600">
+                    <span class="category-tag">Analysis</span>
+                </div>
+                <div class="news-text">
+                    <h4>Babar Breaks Silence</h4>
+                    <p>Skipper opens up after heartbreaking WC exit...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Tickets Sold Out', 'The Ahmedabad Final has officially sold out its 130,000 capacity in record time.', 'https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1513026705753-bc3fffca8bf4?q=80&w=600">
+                    <span class="category-tag">Tickets</span>
+                </div>
+                <div class="news-text">
+                    <h4>Grand Final: Full House</h4>
+                    <p>Resale prices hit all-time highs for March 8...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Buttler’s Warning', 'Jos Buttler warns India: We aren’t intimidated by the home crowd at Wankhede.', 'https://images.unsplash.com/photo-1533745848184-3db07256e163?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1533745848184-3db07256e163?q=80&w=600">
+                    <span class="category-tag">Rivalry</span>
+                </div>
+                <div class="news-text">
+                    <h4>England Ready for Heat</h4>
+                    <p>Buttler confident ahead of Mumbai clash...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Umpire Selection', 'ICC names Kumar Dharmasena and Chris Gaffaney as on-field umpires for Final.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1562077772-3bd90403f7f0?q=80&w=600">
+                    <span class="category-tag">ICC News</span>
+                </div>
+                <div class="news-text">
+                    <h4>Match Officials Named</h4>
+                    <p>Veteran umpires picked for the big dance...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Nortje’s Pace', 'Anrich Nortje clocks 156.2 kmph against Australia, the fastest ball of the tournament.', 'https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=600">
+                    <span class="category-tag">Speed</span>
+                </div>
+                <div class="news-text">
+                    <h4>Nortje’s Rocket Fire</h4>
+                    <p>Proteas pacer leads the speed charts...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Afghanistan Pride', 'Rashid Khan thanks fans after historic Super 8 run comes to an end.', 'https://images.unsplash.com/photo-1544690442-706f9d453896?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1544690442-706f9d453896?q=80&w=600">
+                    <span class="category-tag">Spirit</span>
+                </div>
+                <div class="news-text">
+                    <h4>Rashid: "We’ll Be Back"</h4>
+                    <p>Heartfelt message to the fans in Kabul...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Rain Threat?', 'Met department issues clear sky forecast for the upcoming Semi-Finals.', 'https://images.unsplash.com/photo-1516912481808-3406841bd33c?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1516912481808-3406841bd33c?q=80&w=600">
+                    <span class="category-tag">Weather</span>
+                </div>
+                <div class="news-text">
+                    <h4>Clear Skies for SFs</h4>
+                    <p>No rain interruption expected in Mumbai/Eden...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('USA Cricket Growth', 'ICC praises USA for a successful hosting of the Group Stages.', 'https://images.unsplash.com/photo-1453225211029-470003058866?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1453225211029-470003058866?q=80&w=600">
+                    <span class="category-tag">Future</span>
+                </div>
+                <div class="news-text">
+                    <h4>USA Stuns the World</h4>
+                    <p>A legacy tournament for American cricket...</p>
+                </div>
+            </div>
+        </a>
+
+        <a href="javascript:void(0)" class="news-card-wrapper" onclick="openNews('Closing Ceremony', 'A.R. Rahman and Dua Lipa rumored to perform at the Grand Final in Ahmedabad.', 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=600')">
+            <div class="news-card reveal">
+                <div class="news-img-container">
+                    <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=600">
+                    <span class="category-tag">Entertainment</span>
+                </div>
+                <div class="news-text">
+                    <h4>Final Night Spectacle</h4>
+                    <p>Massive line-up set for the closing ceremony...</p>
+                </div>
+            </div>
+        </a>
+
     </div>
-    <div id="newsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeNews()">&times;</span>
-            <img id="modal-img" src="" style="width:100%; border-radius:10px;">
-            <h2 id="modal-title" style="margin:15px 0;"></h2>
-            <p id="modal-desc"></p>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+</div>
