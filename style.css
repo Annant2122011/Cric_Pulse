@@ -38,6 +38,21 @@
     transform: translateY(-5px); /* Card lifts up when hovered */
     box-shadow: 0 10px 20px rgba(255, 195, 0, 0.3); /* Gold glow */
 }
+/* Qualified Team Glow */
+.q-team {
+    background: rgba(0, 255, 100, 0.1) !important;
+    border-left: 4px solid #00ff64;
+}
+
+/* Eliminated Team Fade */
+.eliminated {
+    opacity: 0.4;
+    filter: grayscale(80%);
+}
+
+.table-box p {
+    margin-bottom: 0;
+}
 /* Google Font for a premium look */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap');
 
