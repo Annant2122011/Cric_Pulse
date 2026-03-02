@@ -36,7 +36,21 @@
 }
 .c-box span { font-size: 2rem; font-weight: 900; display: block; color: var(--gold); }
 .c-box p { font-size: 0.6rem; margin: 0; font-weight: 700; opacity: 0.6; }
+.c-box {
+    background: rgba(255, 255, 255, 0.03); /* Glass effect */
+    border: 1px solid var(--glass-border);
+    padding: 15px;
+    min-width: 80px;
+    border-radius: 16px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
+#seconds {
+    /* Make the seconds pop since they are always moving */
+    transition: none; /* Prevents the 'jumpy' look during the 1s tick */
+}
 /* Buttons */
 .btn-primary { 
     background: var(--gold); color: black; border: none; padding: 15px 35px; 
