@@ -2,81 +2,77 @@
 
 :root {
     --bg: #05070a;
-    --glass: rgba(255, 255, 255, 0.03);
-    --border: rgba(255, 255, 255, 0.1);
-    --accent: #00f2ff; /* Neon Blue */
-    --secondary: #ff0055; /* Hot Pink for Live */
+    --glass: rgba(255, 255, 255, 0.05);
+    --accent: #00f2ff; /* Neon Cyan */
+    --secondary: #ff0055; /* Live Red */
 }
 
 body {
     font-family: 'Outfit', sans-serif;
-    background-color: var(--bg);
-    background-image: radial-gradient(circle at top right, #001d3d 0%, transparent 40%);
+    background: var(--bg);
     color: white;
     margin: 0;
-    overflow-x: hidden;
 }
 
-/* Glassmorphism Header */
-nav {
-    backdrop-filter: blur(20px);
-    background: rgba(5, 7, 10, 0.8);
-    padding: 20px 5%;
+/* 📺 News Ticker */
+.ticker-wrap {
+    background: rgba(0, 242, 255, 0.1);
+    padding: 10px 0;
+    border-bottom: 1px solid var(--accent);
+    overflow: hidden;
+}
+
+.ticker {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-    position: sticky; top: 0; z-index: 1000;
+    white-space: nowrap;
+    animation: ticker 20s linear infinite;
 }
 
-.logo { font-size: 24px; font-weight: 900; letter-spacing: -1px; color: var(--accent); }
-
-.nav-links a {
-    color: #888; text-decoration: none; margin-left: 25px; 
-    font-weight: 600; font-size: 14px; transition: 0.3s;
+@keyframes ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
 }
 
-.nav-links a:hover { color: white; text-shadow: 0 0 10px var(--accent); }
+/* 📊 Attractive Table Styling */
+table { 
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 0 8px; 
+    margin-top: 20px;
+}
 
-/* Interactive Match Cards */
-.container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+th { 
+    color: var(--accent); 
+    text-align: left; 
+    padding: 15px; 
+    font-size: 14px;
+    text-transform: uppercase;
+}
 
-.card {
+td { 
+    background: var(--glass); 
+    padding: 15px; 
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+td:first-child { border-radius: 12px 0 0 12px; border-left: 3px solid var(--accent); }
+td:last-child { border-radius: 0 12px 12px 0; font-weight: bold; color: var(--accent); }
+
+/* ⏰ Glowing Timer Boxes */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.t-box {
     background: var(--glass);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 30px;
-    margin-bottom: 25px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    animation: slideIn 0.8s ease-out;
+    border: 1px solid var(--accent);
+    padding: 15px;
+    border-radius: 15px;
+    min-width: 60px;
+    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
 }
 
-.card:hover {
-    transform: scale(1.02);
-    border-color: var(--accent);
-    box-shadow: 0 0 30px rgba(0, 242, 255, 0.1);
-}
-
-/* Pulsing Live Indicator */
-.live-dot {
-    height: 10px; width: 10px; background-color: var(--secondary);
-    border-radius: 50%; display: inline-block; margin-right: 8px;
-    box-shadow: 0 0 10px var(--secondary);
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse { 
-    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 85, 0.7); }
-    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 85, 0); }
-    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 85, 0); }
-}
-
-@keyframes slideIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-/* Modern Table */
-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
-th { color: #555; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; padding: 10px; }
-td { background: rgba(255,255,255,0.02); padding: 15px; }
-td:first-child { border-radius: 12px 0 0 12px; font-weight: 700; }
-td:last-child { border-radius: 0 12px 12px 0; color: var(--accent); }
+.t-box span { display: block; font-size: 10px; color: #888; }
