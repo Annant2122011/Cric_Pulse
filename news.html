@@ -1,52 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News | Cric Pulse</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<div class="news-grid">
-    <div class="news-card" onclick="openNews('Samson\'s 97* Masterclass', 'India beat WI by 5 wickets. Samson stayed 97* off 50 balls to seal the semi-final spot!', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=500')">
-        <h4>Samson's 97* Masterclass</h4><p>Relive the magic...</p>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">CRIC PULSE</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="standings.html">Standings</a></li>
+            <li><a href="teams.html">Teams</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1 style="color: var(--gold); margin-top: 30px;">Latest Headlines</h1>
+        
+        <div class="news-grid">
+            <div class="news-card" onclick="openNews('Samson\'s 97* Masterclass', 'Sanju Samson played the innings of a lifetime yesterday, scoring 97* to send India to the Semi-Finals.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=500')">
+                <h4>Samson\'s 97* Heroics</h4><p>Read more...</p>
+            </div>
+            <div class="news-card" onclick="openNews('England Top Group 2', 'Harry Brook\'s side remains unbeaten, setting up a massive SF2 clash with India.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=500')">
+                <h4>England Unstoppable</h4><p>Semis preview...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Pakistan Heartbreak', 'Despite a win over Sri Lanka, Pakistan exits the WC based on Net Run Rate.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?w=500')">
+                <h4>Pakistan Knocked Out</h4><p>Full analysis...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Farhan Records', 'Sahibzada Farhan becomes the first player to hit two centuries in one T20 World Cup.', 'https://images.unsplash.com/photo-1510133769068-68804e92a338?w=500')">
+                <h4>Farhan Makes History</h4><p>Statistical breakdown...</p>
+            </div>
+            <div class="news-card" onclick="openNews('SF1: SA vs NZ', 'The unbeaten Proteas take on the gritty Black Caps in Kolkata on March 4.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?w=500')">
+                <h4>Semi-Final 1 Preview</h4><p>Pitch report...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Gambhir\'s Warning', 'Gautam Gambhir tells Team India that the real tournament starts now.', 'https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?w=500')">
+                <h4>Coach Gambhir Speaks</h4><p>Strategy update...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Zimbabwean Spirit', 'The fans in Delhi give Zimbabwe a standing ovation after their brave campaign ends.', 'https://images.unsplash.com/photo-1431324155629-1a6eda1948da?w=500')">
+                <h4>Zimbabwe Exit Pride</h4><p>Fan reactions...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Mumbai Prep', 'Wankhede stadium prepares for the high-voltage India vs England Semi-Final.', 'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=500')">
+                <h4>Wankhede Ready</h4><p>Venue update...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Sachin on Sanju', 'Legend Sachin Tendulkar calls Samson\'s 97* one of the most technical knocks he has seen.', 'https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500')">
+                <h4>The Master\'s Praise</h4><p>Tendulkar's tweet...</p>
+            </div>
+            <div class="news-card" onclick="openNews('West Indies Exit', 'Captain Shai Hope apologizes to the fans after a disappointing Super 8 exit.', 'https://images.unsplash.com/photo-1519861155730-0b5fbf0dd889?w=500')">
+                <h4>WI Dream Over</h4><p>Skipper's message...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Italy\'s Historic Run', 'Debutants Italy finish with their heads held high after a victory against Nepal.', 'https://images.unsplash.com/photo-1523413555809-0fb1d4da238d?w=500')">
+                <h4>Italy\'s WC Debut</h4><p>Season wrap-up...</p>
+            </div>
+            <div class="news-card" onclick="openNews('Ahmedabad Final', 'Narendra Modi Stadium is officially ready for the March 8 Grand Finale.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=500')">
+                <h4>Road to Ahmedabad</h4><p>Final ticket info...</p>
+            </div>
+        </div>
     </div>
 
-    <div class="news-card" onclick="openNews('England Unstoppable', 'Harry Brook\'s side finishes the Super 8s unbeaten with 3 wins out of 3. They face India next.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=500')">
-        <h4>England Top Group 2</h4><p>Semis preview...</p>
+    <div id="newsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNews()">&times;</span>
+            <img id="modal-img" src="" style="width:100%; border-radius:10px; margin-bottom:15px;">
+            <h2 id="modal-title" style="color:var(--gold)"></h2>
+            <p id="modal-desc" style="line-height:1.6; color:#ccc;"></p>
+        </div>
     </div>
 
-    <div class="news-card" onclick="openNews('Pakistan Knocked Out', 'Despite Farhan\'s 100 and a win over SL, Pakistan fails to improve NRR enough to pass New Zealand.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?w=500')">
-        <h4>Pakistan Exit WC 2026</h4><p>What went wrong?</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Farhan Breaks Records', 'Sahibzada Farhan becomes the first player to score two centuries in a single T20 World Cup edition.', 'https://images.unsplash.com/photo-1510133769068-68804e92a338?w=500')">
-        <h4>Farhan's Twin Centuries</h4><p>History made...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('SF1: SA vs NZ', 'The unbeaten Proteas take on the gritty Black Caps at Eden Gardens on March 4.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?w=500')">
-        <h4>Semi-Final 1 Preview</h4><p>Kolkata awaits...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Gambhir Prepares India', 'Coach Gautam Gambhir warns Team India that England will be a tougher challenge than West Indies.', 'https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?w=500')">
-        <h4>Gambhir's Mission Semis</h4><p>Special effort needed...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Zimbabwean Spirit', 'Zimbabwe fans win hearts in Delhi despite team exit, bringing the stadium to life in final game.', 'https://images.unsplash.com/photo-1431324155629-1a6eda1948da?w=500')">
-        <h4>Zimbabwe Pride</h4><p>Fans celebrate...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Mumbai Pitch Report', 'The Wankhede track for India vs England is expected to be a batting paradise with some dew.', 'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=500')">
-        <h4>Wankhede Ready</h4><p>Pitch analysis...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Sachin on Samson', 'Legend Sachin Tendulkar calls Sanju Samson\'s 97* \"Wonderful to watch\" as India enters semis.', 'https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500')">
-        <h4>The Master\'s Praise</h4><p>Tendulkar speaks...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Hope Takes Blame', 'WI captain Shai Hope takes full responsibility for the exit after loss to India.', 'https://images.unsplash.com/photo-1519861155730-0b5fbf0dd889?w=500')">
-        <h4>West Indies Exit</h4><p>Skipper's message...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Italy\'s Heroic Debut', 'First-time participants Italy finish their campaign with a historic win over Nepal in the group stage.', 'https://images.unsplash.com/photo-1523413555809-0fb1d4da238d?w=500')">
-        <h4>Azzurri in WC</h4><p>Italy's journey...</p>
-    </div>
-
-    <div class="news-card" onclick="openNews('Ahmedabad Prepares', 'Narendra Modi Stadium begins final preparations for the grand finale on March 8.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=500')">
-        <h4>Road to Ahmedabad</h4><p>Grand Finale prep...</p>
-    </div>
-</div>
+    <script src="script.js"></script>
+</body>
+</html>
