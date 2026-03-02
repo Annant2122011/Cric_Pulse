@@ -1,16 +1,19 @@
-function updateTimer() {
-    const target = new Date("March 5, 2026 19:00:00").getTime();
+const targetDate = new Date("March 5, 2026 19:00:00").getTime();
+
+function updateCountdown() {
     const now = new Date().getTime();
-    const gap = target - now;
+    const distance = targetDate - now;
 
-    const second = 1000;
-    const minute = second * 60;
-    const hour = minute * 60;
-    const day = hour * 24;
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("d").innerText = Math.floor(gap / day);
-    document.getElementById("h").innerText = Math.floor((gap % day) / hour);
-    document.getElementById("m").innerText = Math.floor((gap % hour) / minute);
-    document.getElementById("s").innerText = Math.floor((gap % minute) / second);
+    document.getElementById("d").innerText = days.toString().padStart(2, '0');
+    document.getElementById("h").innerText = hours.toString().padStart(2, '0');
+    document.getElementById("m").innerText = minutes.toString().padStart(2, '0');
+    document.getElementById("s").innerText = seconds.toString().padStart(2, '0');
 }
-setInterval(updateTimer, 1000);
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
