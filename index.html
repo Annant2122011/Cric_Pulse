@@ -1,117 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cric Pulse | T20 World Cup 2026</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f0f2f5; color: #1c1e21; }
-        nav { background: #003566; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        nav h1 { margin: 0; font-size: 24px; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000'); background-size: cover; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
-        .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #ffc300; }
-        .live-tag { background: red; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        .score { font-size: 22px; font-weight: bold; margin: 15px 0; }
-        .status { color: #555; font-style: italic; }
-        footer { text-align: center; padding: 40px; color: #777; }
-    </style>
+    <title>Cric Pulse | Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <nav>
+    <nav>
         <h1>🏏 CRIC PULSE</h1>
         <div class="links">
-            <a href="index.html" style="color: white; text-decoration: none; margin-left: 15px;">Home</a>
-            <a href="matches.html" style="color: white; text-decoration: none; margin-left: 15px;">Matches</a>
+            <a href="index.html">Home</a>
+            <a href="live.html">Live</a>
+            <a href="matches.html">Matches</a>
+            <a href="news.html">News</a>
         </div>
     </nav>
-
-    <div class="hero">
-        <h1>T20 World Cup: Knockout Stage</h1>
-        <p>Live from the 2026 World Cup in India & Sri Lanka</p>
-    </div>
-
     <div class="container">
-        <h2>T20 World Cup 2026 - Knockouts</h2>
-        <div class="card-grid">
-            <div class="card" style="border-top-color: #28a745;">
-                <span class="live-tag" style="background: #28a745;">Result</span>
-                <p><strong>IND vs WI</strong> - Super 8s (Mar 1)</p>
-                <div class="score">🇮🇳 IND 199/5 (19.2)</div>
-                <p class="status">India won by 5 wickets!<br><b>Sanju Samson 97* (50)</b></p>
-            </div>
-
-            <div class="card">
-                <p><strong>SF 1: SA vs NZ</strong> - Mar 4</p>
-                <div class="score">Starts at 7:00 PM IST</div>
-                <p class="status">Venue: Eden Gardens, Kolkata</p>
-            </div>
-
-            <div class="card">
-                <p><strong>SF 2: IND vs ENG</strong> - Mar 5</p>
-                <div class="score">Starts at 7:00 PM IST</div>
-                <p class="status">Venue: Wankhede Stadium, Mumbai</p>
-            </div>
+        <div class="card" style="background: linear-gradient(to right, #003566, #001d3d); color: white;">
+            <h1>Samson Smashes India into Semis!</h1>
+            <p>After a historic 97* yesterday, India prepares to face England.</p>
+            <a href="news.html" class="btn" style="background: #ffc300; color: #000;">Read Full Story</a>
+        </div>
+        <h2>Latest from World Cup 2026</h2>
+        <div class="card">
+            <span class="live-tag" style="background: #28a745;">Final Super 8 Standing</span>
+            <p><b>Group 1:</b> 1. South Africa (Q), 2. India (Q)</p>
+            <p><b>Group 2:</b> 1. England (Q), 2. New Zealand (Q)</p>
         </div>
     </div>
-    <div class="container">
-        <h2>Super 8s - Final Standings</h2>
-        <div class="card" style="overflow-x: auto; border-top: 5px solid #003566;">
-            <table style="width: 100%; border-collapse: collapse; text-align: left;">
-                <thead>
-                    <tr style="background: #f8f9fa; border-bottom: 2px solid #dee2e6;">
-                        <th style="padding: 12px;">Group 1 Team</th>
-                        <th>PL</th>
-                        <th>W</th>
-                        <th>L</th>
-                        <th>PTS</th>
-                        <th>NRR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr style="border-bottom: 1px solid #eee; background: #e7f3ff;">
-                        <td style="padding: 12px;"><b>🇿🇦 South Africa (Q)</b></td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td><b>6</b></td>
-                        <td>+2.259</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background: #e7f3ff;">
-                        <td style="padding: 12px;"><b>🇮🇳 India (Q)</b></td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>1</td>
-                        <td><b>4</b></td>
-                        <td>+0.106</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; color: #888;">
-                        <td style="padding: 12px;">🌴 West Indies</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>+0.993</td>
-                    </tr>
-                    <tr style="color: #888;">
-                        <td style="padding: 12px;">🇿🇼 Zimbabwe</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>-3.415</td>
-                    </tr>
-                </tbody>
-            </table>
-            <p style="font-size: 12px; color: #666; margin-top: 10px;"><i>*Top 2 teams qualify for Semifinals.</i></p>
-        </div>
-    </div>
-
-    <footer>
-        &copy; 2026 Cric Pulse. Built by Annant.
-    </footer>
-
 </body>
 </html>
