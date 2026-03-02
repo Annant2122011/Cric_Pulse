@@ -3,77 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cric Pulse | Live Cricket Updates</title>
+    <title>Cric Pulse | T20 World Cup 2026</title>
     <style>
-        /* Modern Cricket Theme */
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f0f2f5; color: #1c1e21; }
-        
-        /* Navigation */
         nav { background: #003566; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-        nav h1 { margin: 0; font-size: 24px; letter-spacing: 1px; }
-        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
-
-        /* Hero Section */
-        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000'); background-size: cover; height: 300px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-
-        /* Main Content */
-        .container { max-width: 1000px; margin: -50px auto 20px; padding: 0 20px; }
-        
-        /* Match Cards */
+        nav h1 { margin: 0; font-size: 24px; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&q=80&w=1000'); background-size: cover; height: 200px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 0 20px; }
         .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
         .card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); border-top: 5px solid #ffc300; }
         .live-tag { background: red; color: white; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; text-transform: uppercase; }
-        
-        h2 { border-bottom: 2px solid #003566; padding-bottom: 10px; color: #003566; }
         .score { font-size: 22px; font-weight: bold; margin: 15px 0; }
         .status { color: #555; font-style: italic; }
-
-        footer { text-align: center; padding: 20px; color: #777; font-size: 14px; }
+        footer { text-align: center; padding: 40px; color: #777; }
     </style>
 </head>
 <body>
 
     <nav>
         <h1>🏏 CRIC PULSE</h1>
-        <div class="nav-links">
-            <a href="#">Matches</a>
-            <a href="#">News</a>
-            <a href="#">Teams</a>
-        </div>
     </nav>
 
     <div class="hero">
-        <h1>Catch Every Heartbeat of the Game</h1>
-        <p>Live Scores, Expert Analysis & Breaking News</p>
+        <h1>T20 World Cup: Knockout Stage</h1>
+        <p>Live from the 2026 World Cup in India & Sri Lanka</p>
     </div>
 
     <div class="container">
-        <h2>Current Matches</h2>
+        <h2>T20 World Cup 2026 - Knockouts</h2>
         <div class="card-grid">
-            <div class="card">
-                <span class="live-tag">Live</span>
-                <p><strong>IND vs AUS</strong> - 2nd Test</p>
-                <div class="score">🇮🇳 IND 342/4 (88.2 ov)</div>
-                <p class="status">Virat Kohli 112* (180)</p>
+            <div class="card" style="border-top-color: #28a745;">
+                <span class="live-tag" style="background: #28a745;">Result</span>
+                <p><strong>IND vs WI</strong> - Super 8s (Mar 1)</p>
+                <div class="score">🇮🇳 IND 199/5 (19.2)</div>
+                <p class="status">India won by 5 wickets!<br><b>Sanju Samson 97* (50)</b></p>
             </div>
 
             <div class="card">
-                <p><strong>IPL: MI vs CSK</strong> - Upcoming</p>
-                <div class="score">Match starts at 7:30 PM</div>
-                <p class="status">Wankhede Stadium, Mumbai</p>
+                <p><strong>SF 1: SA vs NZ</strong> - Mar 4</p>
+                <div class="score">Starts at 7:00 PM IST</div>
+                <p class="status">Venue: Eden Gardens, Kolkata</p>
             </div>
-        </div>
 
-        <h2>Latest News</h2>
-        <div class="card">
-            <h3>The Rise of the Middle Order</h3>
-            <p>Analysis by Annant: How India's new youngsters are changing the finishing game in T20s...</p>
-            <a href="#" style="color: #003566; font-weight: bold;">Read More →</a>
+            <div class="card">
+                <p><strong>SF 2: IND vs ENG</strong> - Mar 5</p>
+                <div class="score">Starts at 7:00 PM IST</div>
+                <p class="status">Venue: Wankhede Stadium, Mumbai</p>
+            </div>
         </div>
     </div>
 
     <footer>
-        &copy; 2026 Cric Pulse. Built with ❤️ for Cricket Fans.
+        &copy; 2026 Cric Pulse. Built by Annant.
     </footer>
 
 </body>
