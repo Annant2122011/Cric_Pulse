@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Cric Pulse | Home</title>
+    <title>Cric Pulse | 2026 T20 World Cup</title>
 </head>
 <body>
+
+    <div class="ticker-wrap">
+        <div class="ticker-title">LIVE UPDATES</div>
+        <div class="ticker">
+            <div class="ticker__item">IND vs ENG: Semi-Final 1 starts in 2 hours at Wankhede...</div>
+            <div class="ticker__item">BREAKING: 2026 World Cup Final sold out in Ahmedabad...</div>
+            <div class="ticker__item">PLAYER NEWS: SKY ranked #1 T20 batter for the 50th week...</div>
+            <div class="ticker__item">SA vs NZ: Proteas favorites according to win-probability metrics...</div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="logo">CRIC<span>PULSE</span></div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html" class="active">Home</a></li>
             <li><a href="news.html">News</a></li>
             <li><a href="matches.html">Matches</a></li>
             <li><a href="live.html">Live</a></li>
@@ -17,13 +30,53 @@
             <li><a href="faceoff.html">FaceOff</a></li>
         </ul>
     </nav>
+
     <div class="container">
-        <div class="card" style="text-align: center; padding: 60px;">
-            <h1 style="font-size: 3rem;">T20 WORLD CUP <span style="color:var(--gold)">2026</span></h1>
-            <p>Final Countdown: <span id="days">--</span> Days Remaining</p>
-            <button style="margin-top:20px; padding:10px 20px; background:var(--gold); border:none; border-radius:5px; font-weight:bold;">GET TICKETS</button>
+        <div class="hero-section reveal">
+            <div class="hero-content">
+                <span class="tournament-tag">INTERNATIONAL CRICKET COUNCIL</span>
+                <h1>T20 WORLD CUP <span class="gold-text">2026</span></h1>
+                <p>Witness the clash of titans as the road leads to Ahmedabad. Are you ready for the ultimate showdown?</p>
+                
+                <div class="countdown-boxes">
+                    <div class="c-box">
+                        <span id="days">00</span>
+                        <p>DAYS</p>
+                    </div>
+                    <div class="c-box">
+                        <span id="hours">00</span>
+                        <p>HRS</p>
+                    </div>
+                </div>
+
+                <div class="hero-btns">
+                    <button class="btn-primary">GET TICKETS</button>
+                    <button class="btn-secondary">MATCH CENTER</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-stats-grid">
+            <div class="card reveal" style="transition-delay: 0.2s;">
+                <h3 style="color:var(--gold)">LIVE WIN-BAR</h3>
+                <p>India vs England</p>
+                <div class="win-edge-bar">
+                    <div class="edge-fill" data-win="58%"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; font-size:0.7rem; margin-top:5px;">
+                    <span>IND 58%</span>
+                    <span>ENG 42%</span>
+                </div>
+            </div>
+
+            <div class="card reveal" style="transition-delay: 0.4s;">
+                <h3 style="color:var(--gold)">TOP PERFORMER</h3>
+                <p>Virat Kohli</p>
+                <p style="font-size: 0.8rem; opacity:0.6;">482 Runs | Avg 96.4</p>
+            </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
