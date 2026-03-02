@@ -1,31 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cric Pulse | Home</title>
+    <meta charset="UTF-8">
+    <title>CRIC PULSE | Premium Cricket Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <nav>
         <h1>🏏 CRIC PULSE</h1>
-        <div class="links">
-            <a href="index.html">Home</a>
-            <a href="live.html">Live</a>
-            <a href="matches.html">Matches</a>
-            <a href="news.html">News</a>
+        <div class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="live.html">LIVE</a>
+            <a href="matches.html">MATCHES</a>
+            <a href="news.html">NEWS</a>
         </div>
     </nav>
+
     <div class="container">
-        <div class="card" style="background: linear-gradient(to right, #003566, #001d3d); color: white;">
-            <h1>Samson Smashes India into Semis!</h1>
-            <p>After a historic 97* yesterday, India prepares to face England.</p>
-            <a href="news.html" class="btn" style="background: #ffc300; color: #000;">Read Full Story</a>
+        <div class="card" style="text-align: center; background: linear-gradient(45deg, #001d3d, #003566);">
+            <h2 style="font-size: 2.5rem; margin-bottom: 10px;">The Semi-Final Fever is Here!</h2>
+            <p>India vs England | Wankhede Stadium | March 5, 2026</p>
+            
+            <div id="countdown">
+                <div class="time-box" id="days">00 <span>Days</span></div>
+                <div class="time-box" id="hours">00 <span>Hours</span></div>
+                <div class="time-box" id="mins">00 <span>Mins</span></div>
+            </div>
         </div>
-        <h2>Latest from World Cup 2026</h2>
+
         <div class="card">
-            <span class="live-tag" style="background: #28a745;">Final Super 8 Standing</span>
-            <p><b>Group 1:</b> 1. South Africa (Q), 2. India (Q)</p>
-            <p><b>Group 2:</b> 1. England (Q), 2. New Zealand (Q)</p>
+            <h3>🗳️ WHO WILL WIN T20 WORLD CUP 2026?</h3>
+            <p>Voters are currently leaning towards India after Samson's 97*.</p>
+            <div id="poll">
+                <button class="poll-btn" onclick="vote('India')">🇮🇳 India</button>
+                <button class="poll-btn" onclick="vote('England')">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England</button>
+                <button class="poll-btn" onclick="vote('South Africa')">🇿🇦 South Africa</button>
+                <button class="poll-btn" onclick="vote('New Zealand')">🇳🇿 New Zealand</button>
+            </div>
+            <p id="vote-thanks" style="display:none; color: var(--secondary); margin-top: 15px;">Thanks for voting, Annant! Your pick has been recorded.</p>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
