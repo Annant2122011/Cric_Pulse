@@ -3,75 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cric Pulse | T20 World Cup 2026</title>
+    <title>Cric Pulse | 2026 World Cup Hub</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="ticker-wrap">
         <div class="ticker">
-            <span>🔥 SANJU SAMSON 97* VS WI: HIGHEST SCORE BY INDIAN IN T20WC CHASE...</span>
-            <span style="margin-left:50px;">🏏 SF1: SOUTH AFRICA VS NEW ZEALAND - MARCH 4, EDEN GARDENS...</span>
-            <span style="margin-left:50px;">🇮🇳 SF2: INDIA VS ENGLAND - MARCH 5, WANKHEDE STADIUM...</span>
-            <span style="margin-left:50px;">📉 PAKISTAN ELIMINATED DESPITE WIN OVER SRI LANKA...</span>
-            <span style="margin-left:50px;">🇿🇦 PROTEAS REMAIN ONLY UNBEATEN TEAM IN TOURNAMENT...</span>
+            <span>🔥 SANJU SAMSON 97* SECURES SEMI-FINAL SPOT...</span>
+            <span style="margin-left:50px;">🏏 SF1: SOUTH AFRICA VS NEW ZEALAND - MARCH 4...</span>
+            <span style="margin-left:50px;">🇮🇳 SF2: INDIA VS ENGLAND - MARCH 5...</span>
+            <span style="margin-left:50px;">🇿🇼 ZIMBABWE FANS PRAISE TEAM DESPITE SUPER 8 EXIT...</span>
         </div>
     </div>
 
     <div class="container">
         <div class="hero-card">
-            <div class="badge">SEMI-FINAL 2 • MARCH 5</div>
-            <h1>INDIA <span class="vs">VS</span> ENGLAND</h1>
-            <p>Wankhede Stadium, Mumbai | 7:00 PM IST</p>
-            
+            <p>UPCOMING SEMI-FINAL</p>
+            <h1>INDIA <span style="color:var(--gold)">VS</span> ENGLAND</h1>
             <div class="timer-grid">
-                <div class="time-unit"><span id="d">00</span><p>Days</p></div>
-                <div class="time-unit"><span id="h">00</span><p>Hrs</p></div>
-                <div class="time-unit"><span id="m">00</span><p>Mins</p></div>
-                <div class="time-unit neon-s"><span id="s">00</span><p>Secs</p></div>
+                <div class="t-box"><span id="d">00</span><small>Days</small></div>
+                <div class="t-box"><span id="h">00</span><small>Hours</small></div>
+                <div class="t-box"><span id="m">00</span><small>Mins</small></div>
+                <div class="t-box" style="border-color:white;"><span id="s">00</span><small>Secs</small></div>
             </div>
         </div>
 
-        <h2>World Cup Headlines</h2>
+        <h2>Latest Headlines</h2>
         <div class="news-grid">
-            <div class="news-card" onclick="openNews('Samson\'s 97* Masterclass', 'MARCH 1, 2026', 'Sanju Samson\'s incredible unbeaten 97 led India to a 5-wicket win over West Indies, booking a semi-final spot!', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067')">
+            <div class="news-card" onclick="openNews('Samson\'s Historic 97*', 'The highest chase score by an Indian in T20WC history. India defeated West Indies by 5 wickets to reach the semis.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=500')">
                 <h4>Samson\'s 97* Heroics</h4>
-                <p>Full match report...</p>
+                <p>Click for full report...</p>
             </div>
-            <div class="news-card" onclick="openNews('Zimbabwe Exit with Pride', 'MARCH 1, 2026', 'Zimbabwe finishes the Super 8s without a win, but Sikandar Raza remains hopeful for the future.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000')">
-                <h4>Zimbabwe\'s Journey Ends</h4>
-                <p>Skipper Raza speaks...</p>
+            <div class="news-card" onclick="openNews('Zimbabwe Pride', 'Despite losing all Super 8 games, Zimbabwe’s win over Australia in the Group Stage remains the upset of the tournament.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=500')">
+                <h4>Zimbabwe\'s Brave Run</h4>
+                <p>Tournament wrap-up...</p>
             </div>
+            <div class="news-card" onclick="openNews('Kolkata Ready', 'Eden Gardens pitch report suggests heavy spin for South Africa vs New Zealand SF1.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?w=500')">
+                <h4>SF1: Pitch Report</h4>
+                <p>Kolkata weather update...</p>
             </div>
+        </div>
 
         <h2>Super 8 - Group 1</h2>
         <div class="table-box">
             <table>
-                <thead><tr><th>Team</th><th>W</th><th>L</th><th>PTS</th><th>NRR</th></tr></thead>
+                <thead><tr><th>TEAM</th><th>W</th><th>L</th><th>PTS</th><th>NRR</th></tr></thead>
                 <tbody>
-                    <tr><td>🇿🇦 South Africa</td><td>3</td><td>0</td><td>6</td><td>+2.259</td></tr>
-                    <tr class="highlight"><td>🇮🇳 India</td><td>2</td><td>1</td><td>4</td><td>+0.106</td></tr>
-                    <tr class="fade"><td>🌴 West Indies</td><td>1</td><td>2</td><td>2</td><td>+0.993</td></tr>
-                    <tr class="fade"><td>🇿🇼 Zimbabwe</td><td>0</td><td>3</td><td>0</td><td>-3.415</td></tr>
+                    <tr class="q-team"><td>🇿🇦 South Africa (Q)</td><td>3</td><td>0</td><td>6</td><td>+2.259</td></tr>
+                    <tr class="q-team"><td>🇮🇳 India (Q)</td><td>2</td><td>1</td><td>4</td><td>+0.106</td></tr>
+                    <tr style="opacity:0.4"><td>🌴 West Indies</td><td>1</td><td>2</td><td>2</td><td>+0.993</td></tr>
+                    <tr style="opacity:0.4"><td>🇿🇼 Zimbabwe</td><td>0</td><td>3</td><td>0</td><td>-3.415</td></tr>
                 </tbody>
             </table>
-        </div>
-
-        <h2 style="margin-top:50px;">Group Stage Final Standings</h2>
-        <div class="group-grid">
-            <div class="table-box mini"><h4>Group A</h4><p>IND, PAK, NED, USA, NAM</p></div>
-            <div class="table-box mini"><h4>Group B</h4><p>ZIM, AUS, SL, IRE, OMA</p></div>
-            <div class="table-box mini"><h4>Group C</h4><p>ENG, WI, SCO, NEP, ITA</p></div>
-            <div class="table-box mini"><h4>Group D</h4><p>SA, NZ, AFG, UAE, CAN</p></div>
         </div>
     </div>
 
     <div id="newsModal" class="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeNews()">&times;</span>
-            <img id="modal-img" src="" alt="News Image">
+            <span class="close" onclick="closeNews()">&times;</span>
+            <img id="modal-img" src="">
             <h2 id="modal-title" style="color:var(--gold)"></h2>
-            <p id="modal-meta" style="font-size:12px; color:var(--gold); font-weight:700;"></p>
-            <p id="modal-desc"></p>
+            <p id="modal-desc" style="line-height:1.6; color:#ccc"></p>
         </div>
     </div>
 
