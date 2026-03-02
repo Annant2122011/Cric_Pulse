@@ -24,6 +24,39 @@ body {
     margin: auto;
     padding: 0 20px;
 }
+.battle-card {
+    display: flex;
+    flex-direction: column; /* Stack vertically to fit labels and bar better */
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Flex row for the names and VS */
+.battle-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.player h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.stat-val {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--gold);
+}
 
 /* 2. NAVIGATION BAR */
 .navbar {
