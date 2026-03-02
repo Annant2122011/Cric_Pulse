@@ -1,3 +1,64 @@
+/* --- LIVE TICKER SYSTEM --- */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--navy-light);
+    border-bottom: 2px solid var(--gold);
+    height: 40px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.ticker-title {
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0 20px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    position: relative;
+    z-index: 2;
+}
+
+.ticker {
+    display: flex;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: ticker 30s linear infinite;
+}
+
+.ticker__item {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 0.85rem;
+    color: var(--white);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+.ticker__item::before {
+    content: '•';
+    color: var(--gold);
+    margin-right: 15px;
+    font-weight: bold;
+}
+
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* Pause on hover so people can read */
+.ticker-wrap:hover .ticker {
+    animation-play-state: paused;
+}
 /* --- PREMIER THEME UPGRADE --- */
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;900&display=swap');
 
