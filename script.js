@@ -1,3 +1,19 @@
+/* --- DYNAMIC TICKER UPDATE --- */
+function updateTicker(messages) {
+    const tickerContainer = document.querySelector('.ticker');
+    if (tickerContainer) {
+        tickerContainer.innerHTML = ''; // Clear old news
+        messages.forEach(msg => {
+            const item = document.createElement('div');
+            item.className = 'ticker__item';
+            item.innerText = msg;
+            tickerContainer.appendChild(item);
+        });
+    }
+}
+
+// Example: Calling it to update scores
+// updateTicker(["IND 184/4 (20)", "ENG need 185 to win", "SKY hits 84*"]);
 /* --- SCROLL REVEAL LOGIC --- */
 function reveal() {
     var reveals = document.querySelectorAll(".reveal");
