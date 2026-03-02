@@ -1,56 +1,88 @@
-// 1. Modal Logic
-function openNews(title, desc, img) {
-    document.getElementById("modal-title").innerText = title;
-    document.getElementById("modal-desc").innerText = desc;
-    document.getElementById("modal-img").src = img;
-    document.getElementById("newsModal").style.display = "block";
-}
+/* =========================================
+   1. NEWS MODAL LOGIC
+   ========================================= */
+function openNews(title, description, imgSrc) {
+    const modal = document.getElementById('newsModal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalImg = document.getElementById('modal-img');
 
-function closeNews() {
-    document.getElementById("newsModal").style.display = "none";
-}
-
-// 2. Countdown Logic (March 5, 2026)
-const target = new Date("March 5, 2026 19:00:00").getTime();
-
-function updateClock() {
-    const now = new Date().getTime();
-    const diff = target - now;
-
-    const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((diff % (1000 * 60)) / 1000);
-
-    document.getElementById("d").innerText = d;
-    document.getElementById("h").innerText = h;
-    document.getElementById("m").innerText = m;
-    document.getElementById("s").innerText = s;
-}
-
-setInterval(updateClock, 1000);
-updateClock();
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    if (event.target == document.getElementById("newsModal")) {
-        closeNews();
-        // Open/Close News Modal
-function openNews(title, desc, img) {
-    document.getElementById("modal-title").innerText = title;
-    document.getElementById("modal-desc").innerText = desc;
-    document.getElementById("modal-img").src = img;
-    document.getElementById("newsModal").style.display = "block";
-}
-
-function closeNews() {
-    document.getElementById("newsModal").style.display = "none";
-}
-
-// Close modal if user clicks outside
-window.onclick = function(event) {
-    let modal = document.getElementById("newsModal");
-    if (event.target == modal) { modal.style.display = "none"; }
-}
+    if (modal && modalTitle && modalDesc && modalImg) {
+        modalTitle.innerText = title;
+        modalDesc.innerText = description;
+        modalImg.src = imgSrc;
+        modal.style.display = 'block';
+        // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
     }
 }
+
+function closeNews() {
+    const modal = document.getElementById('newsModal');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Close Modal if user clicks outside the content box
+window.onclick = function(event) {
+    const modal = document.getElementById('newsModal');
+    if (event.target == modal) {
+        closeNews();
+    }
+}
+
+/* =========================================
+   2. COUNTDOWN TIMER (For Home Page)
+   ========================================= */
+function updateTimer() {
+    // Target: March 8, 2026 (The Grand Finale)
+    const targetDate = new Date("March 8, 2026 19:30:00").getTime();
+    const now = new Date().getTime();
+    const gap = targetDate - now;
+
+    if (gap > 0) {
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+
+        const d = Math.floor(gap / day);
+        const h = Math.floor((gap % day) / hour);
+        const m = Math.floor((gap % hour) / minute);
+        const s = Math.floor((gap % minute) / second);
+
+        // Update HTML if elements exist
+        if(document.getElementById('days')) document.getElementById('days').innerText = d;
+        if(document.getElementById('hours')) document.getElementById('hours').innerText = h;
+        if(document.getElementById('minutes')) document.getElementById('minutes').innerText = m;
+        if(document.getElementById('seconds')) document.getElementById('seconds').innerText = s;
+    }
+}
+
+// Run timer every second
+setInterval(updateTimer, 1000);
+
+/* =========================================
+   3. WIN PROBABILITY BAR ANIMATION
+   ========================================= */
+function animateWinBars() {
+    const bars = document.querySelectorAll('.edge-fill');
+    bars.forEach(bar => {
+        const percentage = bar.getAttribute('data-win'); // Needs data-win="60%" in HTML
+        if(percentage) {
+            bar.style.width = percentage;
+        }
+    });
+}
+
+/* =========================================
+   4. INITIALIZE ON LOAD
+   ========================================= */
+document.addEventListener('DOMContentLoaded', () => {
+    updateTimer();
+    animateWinBars();
+    
+    console.log("Cric Pulse JS Loaded - Ready for 2026 World Cup!");
+});
