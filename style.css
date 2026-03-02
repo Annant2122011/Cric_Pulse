@@ -38,6 +38,43 @@
     transform: translateY(-5px); /* Card lifts up when hovered */
     box-shadow: 0 10px 20px rgba(255, 195, 0, 0.3); /* Gold glow */
 }
+/* XI Layout */
+.xi-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.xi-column {
+    flex: 1;
+    background: var(--glass);
+    padding: 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+}
+
+.xi-list {
+    list-style: none;
+    padding: 0;
+}
+
+.xi-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 0.95rem;
+}
+
+.xi-list li:last-child {
+    border-bottom: none;
+}
+
+/* Responsive Fix for Mobile */
+@media (max-width: 768px) {
+    .xi-container {
+        flex-direction: column;
+    }
+}
 /* Qualified Team Glow */
 .q-team {
     background: rgba(0, 255, 100, 0.1) !important;
