@@ -1,81 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cric Pulse | Semifinals Live</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="ticker-wrap">
-        <div class="ticker">
-            <span>🔥 SANJU SAMSON 97* VS WI: HIGHEST SCORE BY INDIAN IN T20WC CHASE...</span>
-            <span style="margin-left:50px;">🏏 SF1: SOUTH AFRICA VS NEW ZEALAND - MARCH 4, EDEN GARDENS...</span>
-            <span style="margin-left:50px;">🇮🇳 SF2: INDIA VS ENGLAND - MARCH 5, WANKHEDE STADIUM...</span>
-            <span style="margin-left:50px;">📉 PAKISTAN ELIMINATED DESPITE WIN OVER SRI LANKA...</span>
-            <span style="margin-left:50px;">🇿🇦 PROTEAS REMAIN ONLY UNBEATEN TEAM IN TOURNAMENT...</span>
-            <span style="margin-left:50px;">🏆 FINAL VENUE CONFIRMED: NARENDRA MODI STADIUM, MARCH 8...</span>
-        </div>
+<div class="news-grid">
+    <div class="news-card" onclick="openNews('Samson\'s 97* Masterclass', 'India beat WI by 5 wickets. Samson stayed 97* off 50 balls to seal the semi-final spot!', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=500')">
+        <h4>Samson's 97* Masterclass</h4><p>Relive the magic...</p>
     </div>
 
-    <div style="max-width: 1200px; margin: auto; padding: 40px 20px;">
-        <div style="text-align:center; padding:60px 20px; background: radial-gradient(circle, rgba(248,204,27,0.1) 0%, rgba(0,11,26,1) 100%); border-radius:30px;">
-            <h1 style="font-size: 50px; letter-spacing: -2px; margin:0;">INDIA <span style="color:var(--gold)">VS</span> ENGLAND</h1>
-            <p style="color:var(--gold); font-weight:700;">SF 2 • LIVE IN</p>
-            <div style="display:flex; justify-content:center; gap:20px; margin:20px 0;">
-                <div class="time-box"><span id="d" style="font-size:40px; font-weight:900;">00</span><br>DAYS</div>
-                <div class="time-box"><span id="h" style="font-size:40px; font-weight:900;">00</span><br>HRS</div>
-                <div class="time-box"><span id="m" style="font-size:40px; font-weight:900;">00</span><br>MINS</div>
-                <div class="time-box" style="color:var(--gold);"><span id="s" style="font-size:40px; font-weight:900;">00</span><br>SECS</div>
-            </div>
-        </div>
-
-        <h2 style="border-left: 4px solid var(--gold); padding-left: 15px; margin-top: 60px;">World Cup Headlines</h2>
-        <div class="news-grid">
-            <div class="news-card"><h4>Samson Masterclass</h4><p>Sanju Samson's 97* sends India to the Semis.</p></div>
-            <div class="news-card"><h4>Proteas Unstoppable</h4><p>South Africa beats Zimbabwe to stay 6-0.</p></div>
-            <div class="news-card"><h4>Pakistani Heartbreak</h4><p>NRR knocks Pakistan out; Sri Lanka also exits.</p></div>
-            <div class="news-card"><h4>Brook's Warning</h4><p>England Captain Harry Brook says 'We are ready for Mumbai'.</p></div>
-            <div class="news-card"><h4>Ticket Frenzy</h4><p>Final tickets in Ahmedabad selling for ₹50k+.</p></div>
-            <div class="news-card"><h4>Bumrah's Rhythm</h4><p>Jasprit Bumrah leads wicket-takers list with 14 scalps.</p></div>
-            <div class="news-card"><h4>Zimbabwe's Pride</h4><p>Sikandar Raza praises team despite Super 8 exit.</p></div>
-            <div class="news-card"><h4>The Debutants</h4><p>Italy wins hearts in maiden T20 World Cup appearance.</p></div>
-            <div class="news-card"><h4>Kolkata Prep</h4><p>Eden Gardens pitch expected to favor spin for NZ vs SA.</p></div>
-            <div class="news-card"><h4>Zaheer Joins</h4><p>Zaheer Khan joins Team India as Pace Consultant.</p></div>
-            <div class="news-card"><h4>Scotland's Run</h4><p>Scotland finishes 3rd in Group C, eyes direct 2028 entry.</p></div>
-            <div class="news-card"><h4>New Zealand's Grit</h4><p>Blackcaps secure 5th consecutive T20WC semifinal spot.</p></div>
-        </div>
-
-        <h2>Super 8 Standings</h2>
-        <div class="table-box">
-            <h3>Group 1 (India's Group)</h3>
-            <table>
-                <thead><tr><th>Team</th><th>W</th><th>L</th><th>PTS</th><th>NRR</th></tr></thead>
-                <tbody>
-                    <tr><td class="pos">1. 🇿🇦 SA</td><td>3</td><td>0</td><td>6</td><td>+2.259</td></tr>
-                    <tr style="background:rgba(248,204,27,0.05);"><td class="pos">2. 🇮🇳 IND</td><td>2</td><td>1</td><td>4</td><td>+0.106</td></tr>
-                    <tr style="opacity:0.5;"><td>3. 🌴 WI</td><td>1</td><td>2</td><td>2</td><td>+0.993</td></tr>
-                    <tr style="opacity:0.5;"><td>4. 🇿🇼 ZIM</td><td>0</td><td>3</td><td>0</td><td>-1.450</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <h2 style="margin-top: 60px;">Final Group Stage Standings (All 20 Teams)</h2>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-            <div class="table-box"><h4>Group A</h4><table><tr><td>🇮🇳 IND</td><td>8pt</td></tr><tr><td>🇵🇰 PAK</td><td>6pt</td></tr><tr><td>🇳🇱 NED</td><td>4pt</td></tr><tr><td>🇺🇸 USA</td><td>2pt</td></tr><tr><td>🇳🇦 NAM</td><td>0pt</td></tr></table></div>
-            <div class="table-box"><h4>Group B</h4><table><tr><td>🇿🇼 ZIM</td><td>6pt</td></tr><tr><td>🇦🇺 AUS</td><td>6pt</td></tr><tr><td>🇱🇰 SL</td><td>4pt</td></tr><tr><td>🇮🇪 IRE</td><td>4pt</td></tr><tr><td>🇴🇲 OMA</td><td>0pt</td></tr></table></div>
-            <div class="table-box"><h4>Group C</h4><table><tr><td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 ENG</td><td>8pt</td></tr><tr><td>🌴 WI</td><td>6pt</td></tr><tr><td>🏴󠁧󠁢󠁳󠁣󠁴󠁿 SCO</td><td>4pt</td></tr><tr><td>🇳🇵 NEP</td><td>2pt</td></tr><tr><td>🇮🇹 ITA</td><td>0pt</td></tr></table></div>
-            <div class="table-box"><h4>Group D</h4><table><tr><td>🇿🇦 SA</td><td>8pt</td></tr><tr><td>🇳🇿 NZ</td><td>6pt</td></tr><tr><td>🇦🇫 AFG</td><td>4pt</td></tr><tr><td>🇨🇦 CAN</td><td>2pt</td></tr><tr><td>🇦🇪 UAE</td><td>0pt</td></tr></table></div>
-        </div>
+    <div class="news-card" onclick="openNews('England Unstoppable', 'Harry Brook\'s side finishes the Super 8s unbeaten with 3 wins out of 3. They face India next.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=500')">
+        <h4>England Top Group 2</h4><p>Semis preview...</p>
     </div>
-    <script src="script.js"></script>
-    <nav class="navbar">
-    <div class="logo">CRIC PULSE</div>
-    <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="news.html">News</a></li>
-        <li><a href="teams.html">Teams</a></li>
-        <li><a href="standings.html">Standings</a></li>
-    </ul>
-</nav>
-</body>
-</html>
+
+    <div class="news-card" onclick="openNews('Pakistan Knocked Out', 'Despite Farhan\'s 100 and a win over SL, Pakistan fails to improve NRR enough to pass New Zealand.', 'https://images.unsplash.com/photo-1589487391730-58f20eb2c308?w=500')">
+        <h4>Pakistan Exit WC 2026</h4><p>What went wrong?</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Farhan Breaks Records', 'Sahibzada Farhan becomes the first player to score two centuries in a single T20 World Cup edition.', 'https://images.unsplash.com/photo-1510133769068-68804e92a338?w=500')">
+        <h4>Farhan's Twin Centuries</h4><p>History made...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('SF1: SA vs NZ', 'The unbeaten Proteas take on the gritty Black Caps at Eden Gardens on March 4.', 'https://images.unsplash.com/photo-1562077772-3bd90403f7f0?w=500')">
+        <h4>Semi-Final 1 Preview</h4><p>Kolkata awaits...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Gambhir Prepares India', 'Coach Gautam Gambhir warns Team India that England will be a tougher challenge than West Indies.', 'https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?w=500')">
+        <h4>Gambhir's Mission Semis</h4><p>Special effort needed...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Zimbabwean Spirit', 'Zimbabwe fans win hearts in Delhi despite team exit, bringing the stadium to life in final game.', 'https://images.unsplash.com/photo-1431324155629-1a6eda1948da?w=500')">
+        <h4>Zimbabwe Pride</h4><p>Fans celebrate...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Mumbai Pitch Report', 'The Wankhede track for India vs England is expected to be a batting paradise with some dew.', 'https://images.unsplash.com/photo-1593341646782-e0b495cff86d?w=500')">
+        <h4>Wankhede Ready</h4><p>Pitch analysis...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Sachin on Samson', 'Legend Sachin Tendulkar calls Sanju Samson\'s 97* \"Wonderful to watch\" as India enters semis.', 'https://images.unsplash.com/photo-1508341591423-4347099e1f19?w=500')">
+        <h4>The Master\'s Praise</h4><p>Tendulkar speaks...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Hope Takes Blame', 'WI captain Shai Hope takes full responsibility for the exit after loss to India.', 'https://images.unsplash.com/photo-1519861155730-0b5fbf0dd889?w=500')">
+        <h4>West Indies Exit</h4><p>Skipper's message...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Italy\'s Heroic Debut', 'First-time participants Italy finish their campaign with a historic win over Nepal in the group stage.', 'https://images.unsplash.com/photo-1523413555809-0fb1d4da238d?w=500')">
+        <h4>Azzurri in WC</h4><p>Italy's journey...</p>
+    </div>
+
+    <div class="news-card" onclick="openNews('Ahmedabad Prepares', 'Narendra Modi Stadium begins final preparations for the grand finale on March 8.', 'https://images.unsplash.com/photo-1577223625816-7546f13df25d?w=500')">
+        <h4>Road to Ahmedabad</h4><p>Grand Finale prep...</p>
+    </div>
+</div>
