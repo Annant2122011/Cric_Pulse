@@ -1,3 +1,31 @@
+// Target: T20 World Cup Final - March 8, 2026, 19:00:00 IST
+const targetDate = new Date("March 8, 2026 19:00:00").getTime();
+
+const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Time calculations
+    const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Function to add leading zero (e.g., 05 instead of 5)
+    const format = (num) => num < 10 ? `0${num}` : num;
+
+    // Update the UI
+    document.getElementById("days").innerText = format(d);
+    document.getElementById("hours").innerText = format(h);
+    document.getElementById("minutes").innerText = format(m);
+    document.getElementById("seconds").innerText = format(s);
+
+    // If the countdown is finished
+    if (distance < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown-boxes").innerHTML = "<h2 style='color:var(--gold);'>FINAL IS LIVE!</h2>";
+    }
+}, 1000);
 /* --- DYNAMIC TICKER UPDATE --- */
 function updateTicker(messages) {
     const tickerContainer = document.querySelector('.ticker');
