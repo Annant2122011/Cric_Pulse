@@ -35,5 +35,22 @@ updateClock();
 window.onclick = function(event) {
     if (event.target == document.getElementById("newsModal")) {
         closeNews();
+        // Open/Close News Modal
+function openNews(title, desc, img) {
+    document.getElementById("modal-title").innerText = title;
+    document.getElementById("modal-desc").innerText = desc;
+    document.getElementById("modal-img").src = img;
+    document.getElementById("newsModal").style.display = "block";
+}
+
+function closeNews() {
+    document.getElementById("newsModal").style.display = "none";
+}
+
+// Close modal if user clicks outside
+window.onclick = function(event) {
+    let modal = document.getElementById("newsModal");
+    if (event.target == modal) { modal.style.display = "none"; }
+}
     }
 }
