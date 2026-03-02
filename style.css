@@ -1,78 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
 
 :root {
-    --bg: #05070a;
-    --glass: rgba(255, 255, 255, 0.05);
+    --bg: #030508;
+    --card-bg: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
     --accent: #00f2ff; /* Neon Cyan */
-    --secondary: #ff0055; /* Live Red */
+    --live: #ff0055;   /* Hot Pink/Red */
 }
 
 body {
     font-family: 'Outfit', sans-serif;
-    background: var(--bg);
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(0, 242, 255, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(255, 0, 85, 0.05) 0px, transparent 50%);
     color: white;
     margin: 0;
+    line-height: 1.6;
 }
 
-/* 📺 News Ticker */
-.ticker-wrap {
-    background: rgba(0, 242, 255, 0.1);
-    padding: 10px 0;
-    border-bottom: 1px solid var(--accent);
-    overflow: hidden;
-}
-
-.ticker {
+/* 🏆 Premium Navigation */
+nav {
     display: flex;
-    white-space: nowrap;
-    animation: ticker 20s linear infinite;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    backdrop-filter: blur(20px);
+    background: rgba(3, 5, 8, 0.8);
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0; z-index: 1000;
 }
 
-@keyframes ticker {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
+.logo { font-size: 22px; font-weight: 900; letter-spacing: -1px; color: var(--accent); }
+
+.nav-links a {
+    color: #888; text-decoration: none; margin-left: 30px; 
+    font-weight: 600; font-size: 13px; text-transform: uppercase; transition: 0.3s;
 }
 
-/* 📊 Attractive Table Styling */
-table { 
-    width: 100%; 
-    border-collapse: separate; 
-    border-spacing: 0 8px; 
-    margin-top: 20px;
+.nav-links a:hover, .nav-links a.active { color: white; text-shadow: 0 0 10px var(--accent); }
+
+/* 📊 Dark Mode Professional Table */
+.table-container {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-th { 
-    color: var(--accent); 
-    text-align: left; 
-    padding: 15px; 
-    font-size: 14px;
-    text-transform: uppercase;
-}
+table { width: 100%; border-collapse: collapse; }
+th { text-align: left; color: #555; font-size: 11px; text-transform: uppercase; padding: 15px; }
+td { padding: 18px 15px; border-bottom: 1px solid var(--border); font-size: 15px; }
+tr:last-child td { border-bottom: none; }
 
-td { 
-    background: var(--glass); 
-    padding: 15px; 
-    border: 1px solid rgba(255,255,255,0.1);
-}
+.team-name { font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.pts { color: var(--accent); font-weight: 900; }
 
-td:first-child { border-radius: 12px 0 0 12px; border-left: 3px solid var(--accent); }
-td:last-child { border-radius: 0 12px 12px 0; font-weight: bold; color: var(--accent); }
-
-/* ⏰ Glowing Timer Boxes */
-.timer-container {
-    display: flex;
-    justify-content: center;
+/* ⏰ Neon Timer Grid */
+.timer-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 15px;
-    margin-top: 20px;
+    margin: 25px 0;
 }
 
-.t-box {
-    background: var(--glass);
-    border: 1px solid var(--accent);
-    padding: 15px;
+.time-unit {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid var(--border);
+    padding: 20px;
     border-radius: 15px;
-    min-width: 60px;
-    box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+    text-align: center;
 }
 
-.t-box span { display: block; font-size: 10px; color: #888; }
+.time-num { font-size: 32px; font-weight: 900; display: block; color: var(--accent); }
+.time-label { font-size: 10px; text-transform: uppercase; color: #666; letter-spacing: 1px; }
+
+/* 🔴 Pulsing Live Indicator */
+.live-badge {
+    background: var(--live);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 900;
+    animation: blink 1.2s infinite;
+}
+
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
