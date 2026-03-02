@@ -1,0 +1,11 @@
+body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f0f2f5; color: #1c1e21; }
+nav { background: #003566; color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+nav h1 { margin: 0; font-size: 22px; cursor: pointer; }
+nav .links a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; transition: 0.3s; }
+nav .links a:hover { color: #ffc300; }
+.container { max-width: 900px; margin: 20px auto; padding: 20px; }
+.card { background: white; border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); border-top: 5px solid #003566; }
+.live-tag { background: #d00000; color: white; padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+.btn { display: inline-block; background: #003566; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; margin-top: 10px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #eee; }
