@@ -144,7 +144,41 @@ function showVenuePopup() {
     document.getElementById('venuePopup').style.display = 'block';
     document.body.style.overflow = 'hidden'; 
 }
+<script>
+    // 1. Get the elements
+    const overlay = document.querySelector('.modal-overlay');
+    const closeBtn = document.querySelector('.close-btn');
+    const openBtn = document.querySelector('.btn-primary'); // Assumes your main button has this class
 
+    // 2. Function to Open Modal
+    function openVenuePopup() {
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Stops background from scrolling
+    }
+
+    // 3. Function to Close Modal
+    function closeVenuePopup() {
+        overlay.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Background can scroll again
+    }
+
+    // 4. Attach Click Events
+    // Make sure your HTML button looks like this: <button onclick="openVenuePopup()">
+    if(openBtn) {
+        openBtn.addEventListener('click', openVenuePopup);
+    }
+    
+    if(closeBtn) {
+        closeBtn.addEventListener('click', closeVenuePopup);
+    }
+
+    // Close if user clicks outside the box
+    window.onclick = function(event) {
+        if (event.target == overlay) {
+            closeVenuePopup();
+        }
+    }
+</script>
 function closeVenuePopup() {
     document.getElementById('venuePopup').style.display = 'none';
     document.body.style.overflow = 'auto';
