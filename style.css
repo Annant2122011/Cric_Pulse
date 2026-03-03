@@ -783,11 +783,11 @@ details[open] .date-header::after {
     left: 50%;
     transform: translate(-50%, -50%);
     background: #111827; /* Deeper dark for better contrast */
-    padding: 25px;       /* Reduced from 30px */
+    padding: 20px;       /* Reduced from 30px */
     border-radius: 16px;
     border: 1px solid rgba(255, 215, 0, 0.2);
     width: 85%;          /* Narrower on mobile */
-    max-width: 350px;    /* Reduced from 400px */
+    max-width: 300px;    /* Reduced from 400px */
     color: white;
 }
 
