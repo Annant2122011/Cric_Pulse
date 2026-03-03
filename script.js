@@ -145,41 +145,31 @@ function showVenuePopup() {
     document.body.style.overflow = 'hidden'; 
 }
 <script>
-    // 1. Get the elements
-    const overlay = document.querySelector('.modal-overlay');
-    const closeBtn = document.querySelector('.close-btn');
-    const openBtn = document.querySelector('.btn-primary'); // Assumes your main button has this class
-
-    // 2. Function to Open Modal
-    function openVenuePopup() {
-        overlay.style.display = 'block';
-        document.body.style.overflow = 'hidden'; // Stops background from scrolling
+    // OPEN THE POPUP
+    function showVenuePopup() {
+        const modal = document.getElementById('venuePopup');
+        if (modal) {
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Stop background scroll
+        } else {
+            console.error("Error: Could not find an element with id='venuePopup'");
+        }
     }
 
-    // 3. Function to Close Modal
+    // CLOSE THE POPUP
     function closeVenuePopup() {
-        overlay.style.display = 'none';
-        document.body.style.overflow = 'auto'; // Background can scroll again
+        const modal = document.getElementById('venuePopup');
+        if (modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scroll
+        }
     }
 
-    // 4. Attach Click Events
-    // Make sure your HTML button looks like this: <button onclick="openVenuePopup()">
-    if(openBtn) {
-        openBtn.addEventListener('click', openVenuePopup);
-    }
-    
-    if(closeBtn) {
-        closeBtn.addEventListener('click', closeVenuePopup);
-    }
-
-    // Close if user clicks outside the box
+    // CLOSE IF USER CLICKS OUTSIDE THE BOX
     window.onclick = function(event) {
-        if (event.target == overlay) {
+        const modal = document.getElementById('venuePopup');
+        if (event.target == modal) {
             closeVenuePopup();
         }
     }
 </script>
-function closeVenuePopup() {
-    document.getElementById('venuePopup').style.display = 'none';
-    document.body.style.overflow = 'auto';
-}
