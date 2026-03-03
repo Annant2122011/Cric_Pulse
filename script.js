@@ -70,3 +70,50 @@ function openNews(title, desc, img) {
     modal.style.display = 'flex'; // Centered flex for better UI
     modal.classList.add('fade-in');
 }
+/**
+ * Opens the News Modal with specific content
+ * @param {string} title - Headline of the news
+ * @param {string} desc - Full description text
+ * @param {string} img - URL of the image
+ */
+function openNews(title, desc, img) {
+    const modal = document.getElementById('newsModal');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDesc = document.getElementById('modal-desc');
+    const modalImg = document.getElementById('modal-img');
+
+    if (modal && modalTitle && modalDesc && modalImg) {
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+        modalImg.src = img;
+        
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden"; // Disable background scroll
+    }
+}
+
+/**
+ * Closes the News Modal
+ */
+function closeNews() {
+    const modal = document.getElementById('newsModal');
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable scroll
+    }
+}
+
+// Close modal if user clicks anywhere outside the content box
+window.onclick = function(event) {
+    const modal = document.getElementById('newsModal');
+    if (event.target == modal) {
+        closeNews();
+    }
+}
+
+// Close modal on 'Escape' key press
+document.addEventListener('keydown', function(event) {
+    if (event.key === "Escape") {
+        closeNews();
+    }
+});
