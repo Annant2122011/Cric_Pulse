@@ -139,3 +139,14 @@ function updateTimers() {
 }
 
 setInterval(updateTimers, 1000);
+function showVenuePopup() {
+    document.getElementById('venuePopup').style.display = 'block';
+    // Lock background scroll
+    document.body.style.overflow = 'hidden'; 
+}
+
+function closeVenuePopup() {
+    document.getElementById('venuePopup').style.display = 'none';
+    // Restore background scroll
+    document.body.style.overflow = 'auto';
+}
