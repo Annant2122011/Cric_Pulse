@@ -1240,7 +1240,103 @@ details[open] .phase-master-header::after {
 details[open] .table-container {
     animation: slideDown 0.4s ease-out;
 }
+/* Face-Off Layout */
+.faceoff-wrapper {
+    margin-bottom: 60px;
+    animation: fadeIn 0.8s ease-in-out;
+}
 
+.battle-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    border-radius: 20px;
+}
+
+.player-profile {
+    text-align: center;
+    width: 40%;
+}
+
+.player-img-bg {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    padding: 5px;
+    background: var(--glass-border);
+    border: 2px solid transparent;
+}
+
+.player-img-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Team Specific Glows */
+.ind-glow .player-img-bg { border-color: #FF9933; box-shadow: 0 0 20px rgba(255, 153, 51, 0.4); }
+.eng-glow .player-img-bg { border-color: #3b82f6; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4); }
+.sa-glow .player-img-bg { border-color: #22c55e; box-shadow: 0 0 20px rgba(34, 197, 94, 0.4); }
+.nz-glow .player-img-bg { border-color: #94a3b8; box-shadow: 0 0 20px rgba(148, 163, 184, 0.4); }
+
+.player-profile h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.player-stat {
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+/* The VS Circle */
+.vs-circle, .vs-circle-gold {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-style: italic;
+    background: #1e293b;
+    border: 2px solid var(--glass-border);
+    z-index: 10;
+}
+
+.vs-circle-gold {
+    background: var(--gold);
+    color: #000;
+    box-shadow: 0 0 15px var(--gold-glow);
+}
+
+.battle-footer {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 0 0 15px 15px;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.india-sf-border {
+    border: 1px solid rgba(255, 153, 51, 0.3) !important;
+}
+
+/* Mobile Fix */
+@media (max-width: 768px) {
+    .battle-card { flex-direction: column; gap: 30px; }
+    .player-profile { width: 100%; }
+}
 @keyframes slideDown {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
