@@ -1341,71 +1341,57 @@ details[open] .table-container {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-/* --- FIXED & ENHANCED TILES --- */
-/* --- FIXED ATTRACTIVE TILES --- */
+/* PLAYER TILES */
 .player-faceoff-row, .player-faceoff-rowkp {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px 18px;
+    padding: 12px 18px;
     margin-bottom: 12px;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
     cursor: pointer;
-    z-index: 1;
-}
-
-/* Fix: Allowing clicks to pass through the glow effect */
-.player-faceoff-row::after, .player-faceoff-rowkp::after {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 50%; height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: skewX(-25deg);
-    transition: 0.5s;
-    pointer-events: none; /* CRITICAL: This allows you to click the player! */
-    z-index: -1;
-}
-
-.player-faceoff-row:hover::after, .player-faceoff-rowkp:hover::after {
-    left: 150%;
+    position: relative;
 }
 
 .player-faceoff-row:hover {
     background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-3px);
     border-color: var(--gold);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: translateX(8px); /* Moves right slightly on hover */
 }
 
-/* Frame Fix: Stop the "Ugly" Stretching */
+/* THE IMAGE FRAME */
 .faceoff-img-frame {
-    width: 55px; height: 55px;
-    min-width: 55px; /* Keeps it a perfect circle */
+    width: 55px;
+    height: 55px;
+    min-width: 55px; /* Critical: Stops it from squishing */
     border-radius: 50%;
-    padding: 2px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    background: #0f172a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: #000;
 }
 
 .faceoff-img-frame img {
-    width: 100%; height: 100%;
-    object-fit: cover; /* This makes headshots look professional */
-    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Critical: Fits headshot perfectly */
 }
 
+/* TEAM BORDERS */
 .sa-frame { border-color: #007a4d; }
 .nz-frame { border-color: #ffffff; }
 .ind-frame { border-color: #ff9933; }
-.eng-frame { border-color: #ce1124; }
+.eng-frame { border-color: #00247d; }
+
+/* STATS BUTTON */
+.view-stats {
+    display: inline-block;
+    margin-top: 4px;
+    font-size: 0.7rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
