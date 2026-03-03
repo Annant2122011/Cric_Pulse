@@ -32,71 +32,55 @@ const playerStats = {
 
 // 2. OPEN STATS
 // 2. OPEN STATS
+// 2. OPEN STATS (Fixed)
 window.openStats = function(name) {
-    console.log("Attempting to open stats for:", name);
+    console.log("Opening:", name);
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
     const data = playerStats[name];
 
-    if (!data) {
-        console.error("No data found for: " + name);
-        // Alert will help you find typos in player names
-        alert("Stats for " + name + " are coming soon!"); 
-        return;
-    }
-
-    if (modal && body) {
+    if (data && modal && body) {
         body.innerHTML = `
-            <h2 style="color:#f59e0b; margin-bottom:10px; font-size:2rem;">${name}</h2>
-            <p style="margin-bottom:20px; color:#cbd5e1; font-style:italic;">"${data.bio}"</p>
-            <div style="display:flex; gap:15px; justify-content:center;">
-                <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; flex:1; border:1px solid rgba(255,255,255,0.1);">
-                    <b style="font-size:1.6rem; display:block; color:white;">${data.runs || data.wickets}</b>
-                    <small style="color:#f59e0b; font-weight:bold; letter-spacing:1px;">${data.runs ? 'RUNS' : 'WKTS'}</small>
+            <h2 style="color:#f59e0b">${name}</h2>
+            <p style="margin:15px 0; color:#cbd5e1">${data.bio}</p>
+            <div style="display:flex; gap:10px; justify-content:center;">
+                <div style="background:#0f172a; padding:10px; border-radius:8px; flex:1; border:1px solid #334155;">
+                    <b style="font-size:1.2rem">${data.runs || 'N/A'}</b><br><small>RUNS</small>
                 </div>
-                <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; flex:1; border:1px solid rgba(255,255,255,0.1);">
-                    <b style="font-size:1.6rem; display:block; color:white;">${data.sr || data.econ}</b>
-                    <small style="color:#f59e0b; font-weight:bold; letter-spacing:1px;">${data.sr ? 'S/R' : 'ECON'}</small>
+                <div style="background:#0f172a; padding:10px; border-radius:8px; flex:1; border:1px solid #334155;">
+                    <b style="font-size:1.2rem">${data.sr || 'N/A'}</b><br><small>S/R</small>
                 </div>
             </div>
         `;
         modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Stop background scroll
+        document.body.style.overflow = "hidden";
     }
 };
 
-// 3. CLOSE MODALS
-// 3. MASTER CLOSE FUNCTION (Fixed Naming)
+// 3. MASTER CLOSE (Unlocks the screen)
 window.closeNews = function() {
-    console.log("Close trigger activated"); // Check F12 to see this
-    
-    const newsModal = document.getElementById("newsModal");
-    const playerModal = document.getElementById("playerModal");
-
-    if (newsModal) newsModal.style.display = "none";
-    if (playerModal) playerModal.style.display = "none";
-    
-    // Re-enable scrolling
+    const pModal = document.getElementById("playerModal");
+    const nModal = document.getElementById("newsModal");
+    if (pModal) pModal.style.display = "none";
+    if (nModal) nModal.style.display = "none";
     document.body.style.overflow = "auto";
 };
-// 4. NEWS FUNCTION (Restored)
+
+// 4. NEWS FUNCTION (Added safety checks to prevent crashes)
 window.openNews = function(title, desc, img) {
     const modal = document.getElementById('newsModal');
-    if (modal) {
-        document.getElementById('modal-title').innerText = title;
+    const titleEl = document.getElementById('modal-title');
+    if (modal && titleEl) {
+        titleEl.innerText = title;
         document.getElementById('modal-desc').innerText = desc;
         document.getElementById('modal-img').src = img;
         modal.style.display = "block";
     }
 };
 
-// Initialize
+// Close on background click
 window.onclick = function(event) {
-    const newsModal = document.getElementById('newsModal');
-    const playerModal = document.getElementById('playerModal');
-    
-    if (event.target == newsModal || event.target == playerModal) {
-        // Change this to match your close function name
-        window.closeNews(); 
+    if (event.target.classList.contains('modal')) {
+        window.closeNews();
     }
 };
