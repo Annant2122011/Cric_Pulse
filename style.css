@@ -839,3 +839,43 @@ details[open] .date-header::after {
     font-size: 1.1rem;
     margin-top: 8px;
 }
+.final-highlight {
+    background: linear-gradient(145deg, #2c1f05, #000000) !important;
+    border: 2px solid #ffd700 !important;
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+    padding: 20px !important;
+    margin-bottom: 25px !important;
+}
+
+.final-badge {
+    background: #ffd700;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 900;
+    padding: 4px 12px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.gold-glow-text {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+    font-size: 1.6rem !important;
+}
+
+.countdown-large {
+    font-size: 1.5rem;
+    color: #ffd700;
+    font-weight: 900;
+    margin-top: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.modal-subtitle {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
