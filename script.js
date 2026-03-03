@@ -91,12 +91,12 @@ window.openNews = function(title, desc, img) {
 };
 
 // Initialize
-window.addEventListener('click', function(event) {
+window.onclick = function(event) {
     const newsModal = document.getElementById('newsModal');
     const playerModal = document.getElementById('playerModal');
     
-    // If the user clicks the dark area (the modal itself), close it
-    if (event.target === newsModal || event.target === playerModal) {
-        window.closeNews();
+    if (event.target == newsModal || event.target == playerModal) {
+        // Change this to match your close function name
+        window.closeNews(); 
     }
-});
+};
