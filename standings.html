@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css"><title>Standings | Cric Pulse</title></head>
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Standings | Cric Pulse</title>
+</head>
+<body class="dark-theme">
     <nav class="navbar">
         <div class="logo">CRIC<span>PULSE</span></div>
         <ul class="nav-links">
@@ -9,136 +14,143 @@
             <li><a href="news.html">NEWS</a></li>
             <li><a href="matches.html">MATCHES</a></li>
             <li><a href="live.html">LIVE</a></li>
-           <li><a href="teams.html">TEAMS</a></li>
+            <li><a href="teams.html">TEAMS</a></li>
             <li><a href="faceoff.html">FACE-OFF</a></li>
         </ul>
     </nav>
-  <div class="news-ticker-container">
-    <div class="ticker-label">🔥 Latest</div>
-    <div class="ticker-wrapper">
-        <div class="ticker-content">
-    <span>💎 Cameron Green becomes most expensive overseas player in IPL history at ₹25.20 Cr!</span>
-    <span>🚑 REPLACEMENT ALERT: Mohammed Siraj joins India squad for Harshit Rana (Knee Injury)</span>
-    <span>🏏 OFFICIAL: SA vs NZ Semi-Final 1 to be held at Eden Gardens, Kolkata (7 PM IST)</span>
-    <span>💸 KKR splurges ₹18 Cr on Matheesha Pathirana; CSK bags uncapped Kartik Sharma for ₹14.2 Cr</span>
-    <span>🏆 Ahmedabad Metro to run 24/7 for the T20 WC Final on March 8!</span>
-    <span>💎 Cameron Green becomes most expensive overseas player in IPL history at ₹25.20 Cr!</span>
-    <span>🚑 REPLACEMENT ALERT: Mohammed Siraj joins India squad for Harshit Rana (Knee Injury)</span>
-    <span>🏏 OFFICIAL: SA vs NZ Semi-Final 1 to be held at Eden Gardens, Kolkata (7 PM IST)</span>
-</div>
+
+    <div class="news-ticker-container">
+        <div class="ticker-label">🔥 Latest</div>
+        <div class="ticker-wrapper">
+            <div class="ticker-content">
+                <span>💎 Cameron Green becomes most expensive overseas player in IPL history at ₹25.20 Cr!</span>
+                <span>🚑 REPLACEMENT ALERT: Mohammed Siraj joins India squad for Harshit Rana</span>
+                <span>🏏 OFFICIAL: SA vs NZ Semi-Final 1 to be held at Eden Gardens, Kolkata</span>
+                <span>🏆 Ahmedabad Metro to run 24/7 for the T20 WC Final on March 8!</span>
+                <span>💎 Cameron Green becomes most expensive overseas player in IPL history at ₹25.20 Cr!</span>
+                <span>🚑 REPLACEMENT ALERT: Mohammed Siraj joins India squad for Harshit Rana</span>
+            </div>
         </div>
     </div>
+
+    <main class="container">
+        <div class="news-header-section">
+            <h1>Tournament <span class="gold-text">Standings</span></h1>
             <p>Final rankings after the Super 8 Stage | 2026 Edition</p>
         </div>
 
-        <h2 class="group-title">Super 8: Group 1</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pos</th>
-                        <th>Team</th>
-                        <th>PL</th>
-                        <th>W</th>
-                        <th>L</th>
-                        <th>PTS</th>
-                        <th>NRR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="qualifier-row">
-                        <td>1</td>
-                        <td>🇿🇦 South Africa (Q)</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>6</td>
-                        <td>+2.259</td>
-                    </tr>
-                    <tr class="qualifier-row">
-                        <td>2</td>
-                        <td>🇮🇳 India (Q)</td>
-                        <td>3</td>
-                        <td>2</td>
-                        <td>1</td>
-                        <td>4</td>
-                        <td>+0.106</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>🌴 West Indies</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>+0.993</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>🇿🇼 Zimbabwe</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>-3.415</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="group-card-wrapper">
+            <h2 class="group-title">Super 8: Group 1</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Team</th>
+                            <th>PL</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PTS</th>
+                            <th>NRR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="qualifier-row">
+                            <td class="rank-pos">1</td>
+                            <td class="team-cell">🇿🇦 South Africa <span class="q-badge">Q</span></td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td class="pts-bold">6</td>
+                            <td class="nrr-plus">+2.259</td>
+                        </tr>
+                        <tr class="qualifier-row">
+                            <td class="rank-pos">2</td>
+                            <td class="team-cell">🇮🇳 India <span class="q-badge">Q</span></td>
+                            <td>3</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td class="pts-bold">4</td>
+                            <td class="nrr-plus">+0.106</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-pos">3</td>
+                            <td class="team-cell">🌴 West Indies</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>2</td>
+                            <td class="pts-bold">2</td>
+                            <td class="nrr-plus">+0.993</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-pos">4</td>
+                            <td class="team-cell">🇿🇼 Zimbabwe</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td class="pts-bold">0</td>
+                            <td class="nrr-minus">-3.415</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <h2 class="group-title" style="margin-top: 40px;">Super 8: Group 2</h2>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Pos</th>
-                        <th>Team</th>
-                        <th>PL</th>
-                        <th>W</th>
-                        <th>L</th>
-                        <th>PTS</th>
-                        <th>NRR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="qualifier-row">
-                        <td>1</td>
-                        <td>🏴󠁧󠁢󠁥󠁮󠁧󠁿 England (Q)</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>6</td>
-                        <td>+1.096</td>
-                    </tr>
-                    <tr class="qualifier-row">
-                        <td>2</td>
-                        <td>🇳🇿 New Zealand (Q)</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>3</td>
-                        <td>+1.390</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>🇵🇰 Pakistan</td>
-                        <td>3</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>3</td>
-                        <td>-0.123</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>🇱🇰 Sri Lanka</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>3</td>
-                        <td>0</td>
-                        <td>-1.950</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="group-card-wrapper">
+            <h2 class="group-title">Super 8: Group 2</h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Pos</th>
+                            <th>Team</th>
+                            <th>PL</th>
+                            <th>W</th>
+                            <th>L</th>
+                            <th>PTS</th>
+                            <th>NRR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="qualifier-row">
+                            <td class="rank-pos">1</td>
+                            <td class="team-cell">🏴󠁧󠁢󠁥󠁮󠁧󠁿 England <span class="q-badge">Q</span></td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td class="pts-bold">6</td>
+                            <td class="nrr-plus">+1.096</td>
+                        </tr>
+                        <tr class="qualifier-row">
+                            <td class="rank-pos">2</td>
+                            <td class="team-cell">🇳🇿 New Zealand <span class="q-badge">Q</span></td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td class="pts-bold">3</td>
+                            <td class="nrr-plus">+1.390</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-pos">3</td>
+                            <td class="team-cell">🇵🇰 Pakistan</td>
+                            <td>3</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td class="pts-bold">3</td>
+                            <td class="nrr-minus">-0.123</td>
+                        </tr>
+                        <tr>
+                            <td class="rank-pos">4</td>
+                            <td class="team-cell">🇱🇰 Sri Lanka</td>
+                            <td>3</td>
+                            <td>0</td>
+                            <td>3</td>
+                            <td class="pts-bold">0</td>
+                            <td class="nrr-minus">-1.950</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
         
         <p class="nrr-note">*Top 2 from each Super 8 Group qualified for Semi-Finals.</p>
