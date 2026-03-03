@@ -147,11 +147,25 @@ body {
 
 .gold-text { color: var(--gold); }
 
-/* The 4x3 Grid Logic */
+/* --- THE NEWS GRID FIX --- */
 .news-grid-4x3 {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+    gap: 20px;
+    padding: 40px 0;
+}
+
+/* Fix for mobile screens so it's not squished */
+@media (max-width: 1024px) {
+    .news-grid-4x3 {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .news-grid-4x3 {
+        grid-template-columns: 1fr; /* 1 column on phones */
+    }
 }
 
 /* Modal Info Fix */
