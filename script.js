@@ -106,16 +106,22 @@ window.onclick = function(event) {
     }
 }
 // Target dates in IST
+// Target dates
 const sf1Date = new Date("March 4, 2026 19:00:00").getTime();
 const sf2Date = new Date("March 5, 2026 19:00:00").getTime();
+const finalDate = new Date("March 8, 2026 19:00:00").getTime();
 
 function updateTimers() {
     const now = new Date().getTime();
 
     function formatTime(target, elementId) {
         const distance = target - now;
+        const element = document.getElementById(elementId);
+        
+        if (!element) return;
+
         if (distance < 0) {
-            document.getElementById(elementId).innerHTML = "LIVE NOW / FINISHED";
+            element.innerHTML = "LIVE / COMPLETED";
             return;
         }
 
@@ -124,12 +130,12 @@ function updateTimers() {
         const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         const s = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById(elementId).innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+        element.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
     }
 
     formatTime(sf1Date, "timer1");
     formatTime(sf2Date, "timer2");
+    formatTime(finalDate, "timerFinal");
 }
 
-// Update every second
 setInterval(updateTimers, 1000);
