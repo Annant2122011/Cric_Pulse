@@ -52,3 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Timer code... (Keep your existing timer logic here)
     console.log("Cric Pulse Script Loaded");
 });
+// Close modal when clicking the dark background
+window.onclick = function(event) {
+    const newsModal = document.getElementById('newsModal');
+    const playerModal = document.getElementById('playerModal');
+    
+    if (event.target == newsModal || event.target == playerModal) {
+        window.closeNews();
+    }
+};
