@@ -603,3 +603,75 @@ details[open] .date-header::after {
     color: #ffd700;
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
 }
+/* Live Container */
+.live-match-container {
+    background: linear-gradient(135deg, #1e1e1e, #111);
+    border: 2px solid #ef4444; /* Red border for Live */
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+}
+
+/* Pulsing Animation */
+.pulse-dot {
+    height: 10px;
+    width: 10px;
+    background-color: #ef4444;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+
+.live-text {
+    color: #ef4444;
+    font-weight: 900;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+/* Score Row Styling */
+.live-score-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.team-name {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: white;
+}
+
+.vs-block {
+    font-weight: bold;
+    color: #555;
+    background: #222;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.notify-btn {
+    width: 100%;
+    background: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.notify-btn:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+}
