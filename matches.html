@@ -1,9 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head><link rel="stylesheet" href="style.css"><title>Matches | Cric Pulse</title></head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament Schedule | CricPulse</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
+
     <nav class="navbar">
-        <div class="logo">CRIC<span>PULSE</span></div>
+       <div class="logo">CRIC<span>PULSE</span></div>
         <ul class="nav-links">
             <li><a href="index.html">HOME</a></li>
             <li><a href="news.html">NEWS</a></li>
@@ -12,17 +19,75 @@
             <li><a href="standings.html">STANDINGS</a></li>
             <li><a href="faceoff.html">FACE-OFF</a></li>
                       <li><a href="teams.html">TEAMS</a></li>
-
         </ul>
     </nav>
-    <div class="container">
-        <h1>Tournament Schedule</h1>
-        <table>
-            <tr><th>Date</th><th>Match</th><th>Venue</th></tr>
-            <tr><td>Mar 05</td><td>IND vs ENG (SF)</td><td>Mumbai</td></tr>
-            <tr><td>Mar 06</td><td>SA vs NZ (SF)</td><td>Adelaide</td></tr>
-            <tr><td>Mar 08</td><td>TBD vs TBD (Final)</td><td>Ahmedabad</td></tr>
-        </table>
-    </div>
+
+    <section class="schedule-section">
+        <div class="container">
+            <h1 class="section-title">Tournament <span class="gold-text">Schedule</span></h1>
+
+            <div class="schedule-group">
+                <h2 class="group-label">Warm-up Matches</h2>
+                <div class="match-list">
+                    <div class="match-row completed">
+                        <div class="m-date">FEB 15</div>
+                        <div class="m-teams"><strong>IND</strong> vs <strong>AUS</strong></div>
+                        <div class="m-venue">Mumbai</div>
+                        <div class="m-status">IND WON BY 20 RUNS</div>
+                    </div>
+                    <div class="match-row completed">
+                        <div class="m-date">FEB 16</div>
+                        <div class="m-teams"><strong>ENG</strong> vs <strong>PAK</strong></div>
+                        <div class="m-venue">Kolkata</div>
+                        <div class="m-status">ENG WON BY 5 WKTS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-group">
+                <h2 class="group-label">Group Stage Highlights</h2>
+                <div class="match-list">
+                    <div class="match-row completed">
+                        <div class="m-date">FEB 20</div>
+                        <div class="m-teams"><strong>IND</strong> vs <strong>PAK</strong></div>
+                        <div class="m-venue">Ahmedabad</div>
+                        <div class="m-status">IND WON BY 7 WKTS</div>
+                    </div>
+                    <div class="match-row completed">
+                        <div class="m-date">FEB 25</div>
+                        <div class="m-teams"><strong>SA</strong> vs <strong>NZ</strong></div>
+                        <div class="m-venue">Bengaluru</div>
+                        <div class="m-status">SA WON BY 12 RUNS</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedule-group">
+                <h2 class="group-label gold-border">Knockout Stage</h2>
+                <div class="match-list">
+                    <div class="match-row live">
+                        <div class="m-date">MAR 04</div>
+                        <div class="m-teams"><strong>SA</strong> vs <strong>NZ</strong> (SF 1)</div>
+                        <div class="m-venue">Kolkata</div>
+                        <div class="m-status">UPCOMING: 19:00 IST</div>
+                    </div>
+                    <div class="match-row live">
+                        <div class="m-date">MAR 05</div>
+                        <div class="m-teams"><strong>IND</strong> vs <strong>ENG</strong> (SF 2)</div>
+                        <div class="m-venue">Mumbai</div>
+                        <div class="m-status">UPCOMING: 19:00 IST</div>
+                    </div>
+                    <div class="match-row grand-final">
+                        <div class="m-date">MAR 08</div>
+                        <div class="m-teams"><strong>TBD</strong> vs <strong>TBD</strong> (FINAL)</div>
+                        <div class="m-venue">Ahmedabad</div>
+                        <div class="m-status">GRAND FINAL</div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
 </body>
 </html>
