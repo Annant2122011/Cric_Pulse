@@ -810,3 +810,32 @@ details[open] .date-header::after {
     font-size: 24px;
     cursor: pointer;
 }
+.modal-title { color: #ffd700; letter-spacing: 2px; margin-bottom: 20px; }
+
+.sf-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.india-sf {
+    border: 1px solid rgba(255, 153, 51, 0.4);
+    background: linear-gradient(145deg, rgba(255, 153, 51, 0.05), rgba(0,0,0,0));
+}
+
+.sf-tag { font-size: 0.7rem; color: #94a3b8; font-weight: bold; margin-bottom: 5px; }
+
+.teams { font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; }
+
+.vs { font-size: 0.9rem; color: #ef4444; margin: 0 10px; }
+
+.countdown-small {
+    font-family: 'Courier New', monospace;
+    color: #ffd700;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-top: 8px;
+}
