@@ -762,194 +762,65 @@ details[open] .date-header::after {
     box-shadow: 0 0 25px rgba(255, 215, 0, 0.8);
     transform: scale(1.05);
 }
-/* Modal Overlay */
+/* --- MODAL SYSTEM --- */
 .modal-overlay {
-    display: none;
+    display: none; /* JavaScript toggles this */
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
-    z-index: 1000;
+    z-index: 2000;
 }
 
-/* Modal Box */
-/* Make the overall box narrower and less tall */
-/* Elaborate Styling */
-.modal-title {
-    font-size: 1.2rem;
-    color: #ffd700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    text-align: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding-bottom: 10px;
-}
-
-.venue-detail {
-    font-size: 0.7rem;
-    color: #94a3b8;
-    margin-top: 5px;
-}
-
-.preview-box {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    padding: 8px;
-    margin-top: 10px;
-    text-align: left;
-    font-size: 0.75rem;
-    border-left: 3px solid #FF9933; /* Saffron border for depth */
-}
-
-.preview-box p {
-    margin: 3px 0;
-    color: #cbd5e1;
-}
-
-.broadcast-info {
-    font-size: 0.7rem;
-    font-weight: bold;
-    color: #ef4444;
-    text-align: center;
-    margin: 15px 0;
-}
-    
-    /* SCROLL SYSTEM */
-    max-height: 80vh;    /* Card won't exceed 80% of screen height */
-    overflow-y: auto;    /* Adds scrollbar only when needed */
-    scrollbar-width: thin; /* Firefox support */
-    scrollbar-color: #FF9933 #111827; /* Saffron thumb, Dark track */
-}
-
-/* Custom Scrollbar for Chrome/Safari/Edge */
-.modal-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.modal-content::-webkit-scrollbar-track {
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background: #111827;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    width: 90%;
+    max-width: 380px;
+    color: white;
+    
+    /* THE SCROLL SYSTEM */
+    max-height: 85vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #FF9933 #111827;
 }
 
-.modal-content::-webkit-scrollbar-thumb {
-    background: #FF9933; /* Saffron to match India's theme */
-    border-radius: 10px;
-}
+/* Custom Scrollbar for Chrome/Safari */
+.modal-content::-webkit-scrollbar { width: 6px; }
+.modal-content::-webkit-scrollbar-track { background: #111827; }
+.modal-content::-webkit-scrollbar-thumb { background: #FF9933; border-radius: 10px; }
 
-.modal-content::-webkit-scrollbar-thumb:hover {
-    background: #FF8000;
-}
-
-/* Slimming down the Final Match card */
-.final-highlight {
-    padding: 12px !important; /* Tightened padding */
-    margin-bottom: 15px !important;
-}
-
-.gold-glow-text {
-    font-size: 1.2rem !important; /* Smaller headline */
-}
-
-.countdown-large {
-    font-size: 1.2rem; /* Matches the text size */
-    margin-top: 5px;
-}
-
-/* Slimming down the Semi-Final cards */
-.sf-card {
-    padding: 10px;
-    margin-bottom: 8px;
-}
-
-.teams {
-    font-size: 1.1rem; /* Smaller team names */
-}
-
-.countdown-small {
-    font-size: 0.9rem; /* Smaller timer */
-    margin-top: 4px;
-}
-
-.modal-subtitle {
-    margin: 10px 0; /* Reduced spacing */
-    font-size: 0.7rem;
-}
-
-/* Adjust the Close button position */
-.close-btn {
-    right: 15px;
-    top: 10px;
-    font-size: 20px;
-}
-.modal-title { color: #ffd700; letter-spacing: 2px; margin-bottom: 20px; }
-
+/* --- MATCH CARDS INSIDE MODAL --- */
 .sf-card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 12px;
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.india-sf {
-    border: 1px solid rgba(255, 153, 51, 0.4);
-    background: linear-gradient(145deg, rgba(255, 153, 51, 0.05), rgba(0,0,0,0));
-}
-
-.sf-tag { font-size: 0.7rem; color: #94a3b8; font-weight: bold; margin-bottom: 5px; }
-
-.teams { font-size: 1.4rem; font-weight: 900; letter-spacing: 1px; }
-
-.vs { font-size: 0.9rem; color: #ef4444; margin: 0 10px; }
-
-.countdown-small {
-    font-family: 'Courier New', monospace;
-    color: #ffd700;
-    font-weight: bold;
-    font-size: 1.1rem;
-    margin-top: 8px;
-}
 .final-highlight {
-    background: linear-gradient(145deg, #2c1f05, #000000) !important;
+    background: linear-gradient(145deg, #2c1f05, #000) !important;
     border: 2px solid #ffd700 !important;
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
-    padding: 20px !important;
-    margin-bottom: 25px !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
 }
 
-.final-badge {
-    background: #ffd700;
-    color: #000;
-    font-size: 0.75rem;
-    font-weight: 900;
-    padding: 4px 12px;
-    border-radius: 20px;
-    display: inline-block;
-    margin-bottom: 10px;
+.india-sf {
+    border-left: 4px solid #FF9933;
+    background: linear-gradient(90deg, rgba(255, 153, 51, 0.1), transparent);
 }
 
-.gold-glow-text {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
-    font-size: 1.6rem !important;
-}
-
-.countdown-large {
-    font-size: 1.5rem;
-    color: #ffd700;
-    font-weight: 900;
-    margin-top: 10px;
-    font-family: 'Courier New', monospace;
-}
-
-.modal-subtitle {
-    font-size: 0.8rem;
-    color: #94a3b8;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-}
+/* --- TEXT STYLES --- */
+.modal-title { color: #ffd700; text-align: center; margin-bottom: 15px; font-weight: 800; }
+.teams { font-size: 1.2rem; font-weight: 900; }
+.countdown-small, .countdown-large { color: #ffd700; font-family: monospace; font-weight: bold; margin-top: 5px; }
+.close-btn { position: absolute; right: 15px; top: 10px; font-size: 24px; cursor: pointer; color: white; }
