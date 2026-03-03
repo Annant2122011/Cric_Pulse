@@ -253,8 +253,6 @@ body {
     to { transform: translateY(0); opacity: 1; }
 }
 
-.modal-info { padding: 30px; }
-.modal-info h2 { color: var(--gold); margin-bottom: 15px; }
 
 .close {
     position: absolute;
