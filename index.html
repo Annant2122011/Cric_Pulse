@@ -46,10 +46,30 @@
                 </div>
             </div>
 
-           <div class="hero-btns">
+          <div class="hero-btns">
     <a href="https://tickets.t20worldcup.com" target="_blank" class="btn btn-primary">BUY TICKETS NOW</a>
-    
-    <a href="https://www.t20worldcup.com/match-center" target="_blank" class="btn btn-secondary">MATCH CENTER</a>
+    <button onclick="showVenuePopup()" class="btn btn-secondary">MATCH CENTER</button>
+</div>
+
+<div id="venuePopup" class="modal-overlay">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeVenuePopup()">&times;</span>
+        <h3>🏆 UPCOMING VENUES</h3>
+        <hr>
+        <div class="venue-item">
+            <strong>SF 1: Eden Gardens</strong>
+            <p>Kolkata | Mar 04</p>
+        </div>
+        <div class="venue-item">
+            <strong>SF 2: Wankhede Stadium</strong>
+            <p>Mumbai | Mar 05 (IND vs ENG)</p>
+        </div>
+        <div class="venue-item highlight-venue">
+            <strong>FINAL: Narendra Modi Stadium</strong>
+            <p>Ahmedabad | Mar 08</p>
+        </div>
+        <button class="btn btn-primary" onclick="closeVenuePopup()" style="width: 100%; margin-top: 15px;">GOT IT!</button>
+    </div>
 </div>
         </div>
     </section>
