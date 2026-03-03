@@ -76,77 +76,81 @@
     </div>
 
   <script>
-    // 1. POPUP LOGIC (Defined globally for the onclick attribute)
-    window.openVenuePopup = function() {
-        const modal = document.getElementById('venuePopup');
-        if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-    };
+// 1. POPUP CONTROLS
+function openVenuePopup() {
+    const modal = document.getElementById('venuePopup');
+    if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+}
 
-    window.closeVenuePopup = function() {
-        const modal = document.getElementById('venuePopup');
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    };
+function closeVenuePopup() {
+    const modal = document.getElementById('venuePopup');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
 
-    // Close on outside click
-    window.addEventListener('click', function(event) {
-        const modal = document.getElementById('venuePopup');
-        if (event.target === modal) closeVenuePopup();
-    });
+// 2. THE MASTER ENGINE (Hero + Popup + Seconds)
+const finalTarget = new Date("March 8, 2026 19:00:00").getTime();
+const sf2Target = new Date("March 5, 2026 19:00:00").getTime();
+const sf1Target = new Date("March 4, 2026 19:00:00").getTime();
 
-    // 2. THE TIMER ENGINE (Self-Contained)
-    const runCricPulseTimer = () => {
-        const now = new Date().getTime();
-        const finalDate = new Date("March 8, 2026 19:00:00").getTime();
-        const sf2Date = new Date("March 5, 2026 19:00:00").getTime();
-        const sf1Date = new Date("March 4, 2026 19:00:00").getTime();
+function updateAllCricPulseTimers() {
+    const now = new Date().getTime();
 
-        try {
-            // HERO SECTION (Big Digit Boxes)
-            const diff = finalDate - now;
-            if (diff > 0) {
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((diff % (1000 * 60)) / 1000);
+    // Helper function to calculate time parts
+    function getTimeParts(target) {
+        const gap = target - now;
+        return {
+            total: gap,
+            d: Math.floor(gap / (1000 * 60 * 60 * 24)),
+            h: Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            m: Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60)),
+            s: Math.floor((gap % (1000 * 60)) / 1000)
+        };
+    }
 
-                if(document.getElementById("days")) document.getElementById("days").innerText = d.toString().padStart(2, '0');
-                if(document.getElementById("hours")) document.getElementById("hours").innerText = h.toString().padStart(2, '0');
-                if(document.getElementById("minutes")) document.getElementById("minutes").innerText = m.toString().padStart(2, '0');
-                if(document.getElementById("seconds")) document.getElementById("seconds").innerText = s.toString().padStart(2, '0');
+    // UPDATE HERO SECTION (Main Page)
+    const hero = getTimeParts(finalTarget);
+    const dEl = document.getElementById("days");
+    if (dEl) {
+        dEl.innerText = hero.d.toString().padStart(2, '0');
+        document.getElementById("hours").innerText = hero.h.toString().padStart(2, '0');
+        document.getElementById("minutes").innerText = hero.m.toString().padStart(2, '0');
+        document.getElementById("seconds").innerText = hero.s.toString().padStart(2, '0');
+    }
+
+    // UPDATE POPUP (Match Center) WITH SECONDS
+    const modalMatches = [
+        { id: "timerFinal", time: hero },
+        { id: "timer2", time: getTimeParts(sf2Target) },
+        { id: "timer1", time: getTimeParts(sf1Target) }
+    ];
+
+    modalMatches.forEach(match => {
+        const el = document.getElementById(match.id);
+        if (el) {
+            if (match.time.total < 0) {
+                el.innerText = "LIVE NOW 🏏";
+                el.style.color = "#ff4d4d"; // Red for live matches
+            } else {
+                // This line now includes seconds for your popup timers
+                el.innerText = `${match.time.d}d ${match.time.h}h ${match.time.m}m ${match.time.s}s`;
             }
-
-            // MODAL TIMERS (Text Display)
-            const updateModalTimer = (id, targetDate) => {
-                const el = document.getElementById(id);
-                if (!el) return;
-                const mDiff = targetDate - now;
-                if (mDiff < 0) {
-                    el.innerText = "LIVE NOW 🏏";
-                } else {
-                    const days = Math.floor(mDiff / (1000 * 60 * 60 * 24));
-                    const hours = Math.floor((mDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                    const mins = Math.floor((mDiff % (1000 * 60 * 60)) / (1000 * 60));
-                    el.innerText = `${days}d ${hours}h ${mins}m`;
-                }
-            };
-
-            updateModalTimer("timerFinal", finalDate);
-            updateModalTimer("timer2", sf2Date);
-            updateModalTimer("timer1", sf1Date);
-
-        } catch (err) {
-            console.error("Timer Error:", err);
         }
-    };
+    });
+}
 
-    // 3. START COMMANDS
-    // This ensures it starts even if the page is still loading images
-    setInterval(runCricPulseTimer, 1000);
-    runCricPulseTimer(); 
+// Start immediately and sync every second
+setInterval(updateAllCricPulseTimers, 1000);
+updateAllCricPulseTimers();
+
+// Close on outside click
+window.onclick = function(event) {
+    const modal = document.getElementById('venuePopup');
+    if (event.target == modal) closeVenuePopup();
+}
 </script>
