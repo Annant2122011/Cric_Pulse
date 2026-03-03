@@ -1199,3 +1199,49 @@ td {
         font-size: 0.55rem;
     }
 }
+/* Standings Accordion Styling */
+details.phase-container {
+    background: var(--navy-light);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+details.phase-container[open] {
+    border-color: var(--gold);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.phase-master-header {
+    padding: 22px;
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Custom Arrow for Standings */
+.phase-master-header::after {
+    content: '▼';
+    font-size: 0.8rem;
+    color: var(--gold);
+    transition: transform 0.3s;
+}
+
+details[open] .phase-master-header::after {
+    transform: rotate(180deg);
+}
+
+/* Row Animation when opening */
+details[open] .table-container {
+    animation: slideDown 0.4s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
