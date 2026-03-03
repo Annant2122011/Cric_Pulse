@@ -149,7 +149,7 @@ function showVenuePopup() {
     function showVenuePopup() {
         const modal = document.getElementById('venuePopup');
         if (modal) {
-            modal.style.display = 'block';
+            modal.style.display = 'flex';
             document.body.style.overflow = 'hidden'; // Stop background scroll
         } else {
             console.error("Error: Could not find an element with id='venuePopup'");
