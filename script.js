@@ -31,12 +31,21 @@ const playerStats = {
 };
 
 // 2. Define the function as a Window property
+// 1. MUST BE AT THE TOP OF SCRIPT.JS
+const playerStats = {
+    "Quinton de Kock": { runs: 312, sr: 148.5, sixes: 12, avg: 39.0, bio: "Veteran opener looking for a final trophy." },
+    "Sanju Samson": { runs: 412, sr: 165.2, sixes: 22, avg: 58.8, bio: "In the form of his life. Key for India." },
+    // ... add your other players here
+};
+
+// 2. THE CLICK FUNCTION
 window.openStats = function(playerName) {
+    console.log("Click detected for: " + playerName); // Check your console!
     const data = playerStats[playerName];
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
 
-  if (data && modal) {
+    if (data && modal) {
         body.innerHTML = `
             <h2 style="color:#f59e0b; margin-bottom:10px;">${playerName}</h2>
             <p style="color:#cbd5e1; font-style:italic; margin-bottom:20px;">${data.bio}</p>
@@ -51,8 +60,11 @@ window.openStats = function(playerName) {
                 </div>
             </div>
         `;
-        modal.style.display = "flex";
-        document.body.style.overflow = "hidden";
+        modal.style.display = "block";
+    } else {
+        console.error("No data found for: " + playerName);
+    }
+};
     }
 };/**
  * CRIC PULSE - MASTER SCRIPT (FINAL FIXED VERSION)
