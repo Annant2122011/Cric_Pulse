@@ -407,3 +407,57 @@ details[open] .date-header::after {
     background: rgba(255, 153, 51, 0.1);
     border-left: 4px solid #FF9933;
 }
+/* Master Header Styling */
+.phase-container {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--gold);
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.phase-master-header {
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(255,215,0,0.1) 0%, transparent 100%);
+}
+
+.status-badge {
+    font-size: 0.8rem;
+    background: #4ade80;
+    color: #062006;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+/* Inner padding for the content when opened */
+.phase-content {
+    padding: 15px;
+}
+
+/* Redefining Date Headers to be slightly smaller than the Master */
+.date-header {
+    padding: 12px 15px;
+    font-size: 1rem;
+    color: var(--gold);
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.date-header::after {
+    content: '+';
+}
+
+details[open] .date-header::after {
+    content: '-';
+}
