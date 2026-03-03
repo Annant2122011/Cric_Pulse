@@ -952,14 +952,14 @@ body {
     display: flex;
     white-space: nowrap;
     /* CHANGE THIS NUMBER: 5s is insanely fast, 8s is standard 'breaking' speed, 12s is smooth */
-    animation: ticker-scroll 12s linear infinite !important; 
+    animation: ticker-scroll 20s linear infinite !important; 
     will-change: transform; 
 }
 
 /* Also update this mobile one at the bottom of your file */
 @media (max-width: 768px) {
     .ticker-content { 
-        animation: ticker-scroll 8s linear infinite !important; 
+        animation: ticker-scroll 15s linear infinite !important; 
     }
 }
 
