@@ -979,7 +979,7 @@ body {
 .ticker-content span {
     color: #fff;
     /* Increase 50px to 100px for a massive gap between news items */
-    padding: 0 100px; 
+    padding: 0 25px; 
     font-size: 0.95rem;
     font-family: 'Arial', sans-serif;
     text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
