@@ -54,21 +54,29 @@
 <div id="venuePopup" class="modal-overlay">
     <div class="modal-content">
         <span class="close-btn" onclick="closeVenuePopup()">&times;</span>
-        <h3 class="modal-title">🏆 SEMI-FINAL COUNTDOWN</h3>
         
+        <div class="sf-card final-highlight">
+            <div class="final-badge">🏆 THE GRAND FINAL</div>
+            <div class="teams gold-glow-text">WINNER SF1 <span class="vs">vs</span> WINNER SF2</div>
+            <div class="sf-tag">AHMEDABAD | MAR 08, 2026</div>
+            <div id="timerFinal" class="countdown-large">Calculating...</div>
+        </div>
+
+        <h4 class="modal-subtitle">UPCOMING SEMI-FINALS</h4>
+
         <div class="sf-card">
-            <div class="sf-tag">SF 1 • KOLKATA</div>
+            <div class="sf-tag">SF 1 • KOLKATA • MAR 04</div>
             <div class="teams">SA <span class="vs">vs</span> NZ</div>
             <div id="timer1" class="countdown-small">Calculating...</div>
         </div>
 
         <div class="sf-card india-sf">
-            <div class="sf-tag">SF 2 • MUMBAI</div>
+            <div class="sf-tag">SF 2 • MUMBAI • MAR 05</div>
             <div class="teams">IND <span class="vs">vs</span> ENG</div>
             <div id="timer2" class="countdown-small">Calculating...</div>
         </div>
 
-        <button class="btn btn-primary" onclick="closeVenuePopup()" style="width: 100%; margin-top: 15px;">CLOSE</button>
+        <button class="btn btn-gold" onclick="closeVenuePopup()" style="width: 100%; margin-top: 10px;">GOT IT!</button>
     </div>
 </div>
         </div>
