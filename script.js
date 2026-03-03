@@ -4,42 +4,45 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+// Function to update the countdown
+function startMainCountdown() {
+    // Set the date we're counting down to (The Final)
+    const countDownDate = new Date("March 8, 2026 19:00:00").getTime();
 
-    // 1. COUNTDOWN LOGIC (Target: March 8, 2026 - T20 WC Final)
-    const targetDate = new Date("March 8, 2026 19:00:00").getTime();
+    // Update the count down every 1 second
+    const x = setInterval(function() {
 
-    const updateCountdown = () => {
+        // Get today's date and time
         const now = new Date().getTime();
-        const distance = targetDate - now;
 
-        // If the date has passed
-        if (distance < 0) {
-            const boxes = document.querySelector(".countdown-boxes");
-            if (boxes) boxes.innerHTML = "<h2 style='color:#f59e0b;'>FINAL IS LIVE!</h2>";
-            return;
-        }
+        // Find the distance between now and the count down date
+        const distance = countDownDate - now;
 
-        // Time calculations
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
+        // Time calculations for days, hours, minutes and seconds
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Leading zero helper
-        const format = (num) => num < 10 ? `0${num}` : num;
-
-        // Update HTML only if elements exist
+        // Output the result in elements with id="days", "hours", etc.
+        // We use .padStart(2, '0') to keep the 05, 04, 03 formatting
         if (document.getElementById("days")) {
-            document.getElementById("days").innerText = format(d);
-            document.getElementById("hours").innerText = format(h);
-            document.getElementById("minutes").innerText = format(m);
-            document.getElementById("seconds").innerText = format(s);
+            document.getElementById("days").innerText = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
         }
-    };
 
-    // Run countdown every second
-    setInterval(updateCountdown, 1000);
-    updateCountdown(); // Initial call
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.querySelector(".countdown-boxes").innerHTML = "<h3>MATCH LIVE!</h3>";
+        }
+    }, 1000);
+}
+
+// Run the function when the page loads
+document.addEventListener('DOMContentLoaded', startMainCountdown);
 
 
     // 2. REVEAL ANIMATION (For cards and sections)
