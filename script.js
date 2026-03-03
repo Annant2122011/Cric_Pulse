@@ -62,28 +62,22 @@ document.addEventListener('DOMContentLoaded', () => {
 // 3. NEWS MODAL FUNCTIONS (Global scope for onclick)
 function openNews(title, desc, img) {
     const modal = document.getElementById('newsModal');
-    const mTitle = document.getElementById('modal-title');
-    const mDesc = document.getElementById('modal-desc');
-    const mImg = document.getElementById('modal-img');
-
-    if (modal && mTitle && mDesc && mImg) {
-        mTitle.innerText = title;
-        mDesc.innerText = desc;
-        mImg.src = img;
+    
+    // Safety check to ensure the modal exists in HTML
+    if (modal) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-desc').innerText = desc;
+        document.getElementById('modal-img').src = img;
         
         modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Stop scrolling
+        document.body.style.overflow = "hidden"; // Lock background scroll
     }
 }
 
 function closeNews() {
-    const modal = document.getElementById('newsModal');
-    if (modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "auto"; // Resume scrolling
-    }
+    document.getElementById('newsModal').style.display = "none";
+    document.body.style.overflow = "auto"; // Unlock background scroll
 }
-
 // Close modal if user clicks outside the content box
 window.onclick = function(event) {
     const modal = document.getElementById('newsModal');
