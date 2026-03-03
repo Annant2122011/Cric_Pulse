@@ -147,27 +147,31 @@ function showVenuePopup() {
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // --- 1. POPUP CONTROLS ---
-    window.openVenuePopup = function() {
-        const modal = document.getElementById('venuePopup');
-        if (modal) {
-            modal.style.display = 'flex'; 
-            document.body.style.overflow = 'hidden'; 
-        }
-    };
+    // Function to open the Match Center Popup
+function openVenuePopup() {
+    const modal = document.getElementById('venuePopup');
+    if (modal) {
+        modal.style.display = 'flex'; // Triggers your CSS flex centering
+        document.body.style.overflow = 'hidden'; // Prevents background scrolling
+    }
+}
 
-    window.closeVenuePopup = function() {
-        const modal = document.getElementById('venuePopup');
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; 
-        }
-    };
+// Function to close the Match Center Popup
+function closeVenuePopup() {
+    const modal = document.getElementById('venuePopup');
+    if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Re-enables scrolling
+    }
+}
 
-    // Close on outside click
-    window.addEventListener('click', (event) => {
-        const modal = document.getElementById('venuePopup');
-        if (event.target === modal) closeVenuePopup();
-    });
+// Close popup if user clicks the dark overlay area
+window.onclick = function(event) {
+    const modal = document.getElementById('venuePopup');
+    if (event.target == modal) {
+        closeVenuePopup();
+    }
+}
 
     // --- 2. THE MASTER TIMER ENGINE ---
     const finalDate = new Date("March 8, 2026 19:00:00").getTime();
