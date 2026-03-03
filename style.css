@@ -995,39 +995,42 @@ body {
     /* ... your existing code ... */
     animation: label-glow 2s ease-in-out infinite;
 }
-/* Master Wrapper */
+/* Container for both SFs side-by-side */
 .sf-master-wrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Exactly side-by-side */
-    gap: 30px;
-    margin-top: 20px;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-top: 30px;
 }
 
-/* Individual SF Containers */
 .sf-box {
     background: #0f172a;
-    border-radius: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .sf-tag-header {
-    background: #334155;
-    color: white;
-    text-align: center;
+    background: #1e293b;
     padding: 10px;
-    font-weight: 900;
+    text-align: center;
+    font-weight: 800;
     font-size: 0.8rem;
-    letter-spacing: 2px;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
 }
 
+/* Specific Highlight for India vs England */
+.india-focus {
+    border: 1px solid #FF9933;
+    box-shadow: 0 0 20px rgba(255, 153, 51, 0.1);
+}
 .ind-header {
     background: linear-gradient(90deg, #FF9933, #d46f00);
-    color: white;
+    color: white !important;
 }
 
-/* Inner Grid */
 .squad-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1035,25 +1038,36 @@ body {
 
 .squad-column {
     padding: 15px;
-    border-right: 1px solid rgba(255,255,255,0.05);
 }
 
 .squad-column h3 {
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 5px;
     text-align: center;
+}
+
+.squad-column ul {
+    list-style: none;
+    padding: 0;
 }
 
 .squad-column li {
-    font-size: 0.85rem;
-    padding: 5px 0;
-    list-style: none;
-    text-align: center;
-    opacity: 0.9;
+    font-size: 0.78rem;
+    padding: 4px 0;
+    color: #cbd5e1;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
 }
 
-/* Mobile: Stack them when screen is too narrow */
-@media (max-width: 900px) {
+/* Star Effect */
+.squad-column li:contains('⭐') {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Mobile: Stack the SFs */
+@media (max-width: 950px) {
     .sf-master-wrapper {
         grid-template-columns: 1fr;
     }
