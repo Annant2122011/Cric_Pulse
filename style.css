@@ -1072,3 +1072,58 @@ body {
         grid-template-columns: 1fr;
     }
 }
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    background: #0f172a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+th {
+    background: #1e293b;
+    color: #94a3b8;
+    text-align: left;
+    padding: 15px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 0.95rem;
+}
+
+.qualifier-row {
+    background: rgba(34, 197, 94, 0.05); /* Subtle green for qualified teams */
+}
+
+.qualifier-row td:first-child {
+    border-left: 4px solid #22c55e;
+}
+
+.gold-text {
+    color: #ffd700;
+}
+
+.nrr-note {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+.group-title {
+    font-size: 1.2rem;
+    color: #fff;
+    border-left: 3px solid #ffd700;
+    padding-left: 10px;
+}
