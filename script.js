@@ -90,3 +90,18 @@ window.onclick = function(event) {
 document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") closeNews();
 });
+function showVenuePopup() {
+    document.getElementById('venuePopup').style.display = 'block';
+}
+
+function closeVenuePopup() {
+    document.getElementById('venuePopup').style.display = 'none';
+}
+
+// Close popup if user clicks outside of it
+window.onclick = function(event) {
+    let modal = document.getElementById('venuePopup');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
