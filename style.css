@@ -877,3 +877,9 @@ details[open] .date-header::after {
     text-align: left;
     color: #cbd5e1;
 }
+.countdown-small, .countdown-large {
+    font-family: 'Courier New', Courier, monospace; /* Keeps numbers from jumping */
+    letter-spacing: 1px;
+    font-weight: bold;
+    color: #ffd700;
+}
