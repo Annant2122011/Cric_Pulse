@@ -1,5 +1,13 @@
 // 1. Define Data at the TOP (Global Scope)
+
+
+/**
+ * CRIC PULSE - MASTER SCRIPT
+ */
+
+// 1. DATA (Keep this at the very top)
 const playerStats = {
+   const playerStats = {
     // SF1: South Africa
     "Quinton de Kock": { runs: 312, sr: 148.5, sixes: 12, avg: 39.0, bio: "Veteran opener looking for a final trophy." },
     "Ryan Rickelton": { runs: 185, sr: 135.2, sixes: 6, avg: 26.4, bio: "Reliable support at the top order." },
@@ -30,162 +38,68 @@ const playerStats = {
 
 };
 
-// 2. Define the function as a Window property
-// 1. MUST BE AT THE TOP OF SCRIPT.JS
-const playerStats = {
-    "Quinton de Kock": { runs: 312, sr: 148.5, sixes: 12, avg: 39.0, bio: "Veteran opener looking for a final trophy." },
-    "Sanju Samson": { runs: 412, sr: 165.2, sixes: 22, avg: 58.8, bio: "In the form of his life. Key for India." },
-    // ... add your other players here
-};
-
-// 2. THE CLICK FUNCTION
+// 2. GLOBAL FUNCTIONS (Available to HTML onclick)
 window.openStats = function(playerName) {
-    console.log("Click detected for: " + playerName); // Check your console!
     const data = playerStats[playerName];
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
 
     if (data && modal) {
         body.innerHTML = `
-            <h2 style="color:#f59e0b; margin-bottom:10px;">${playerName}</h2>
-            <p style="color:#cbd5e1; font-style:italic; margin-bottom:20px;">${data.bio}</p>
-            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; text-align:center;">
-                <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
-                    <span style="display:block; font-size:1.2rem; font-weight:bold;">${data.runs || data.wickets}</span>
-                    <span style="font-size:0.7rem; color:#94a3b8;">${data.runs ? 'RUNS' : 'WKTS'}</span>
-                </div>
-                <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
-                    <span style="display:block; font-size:1.2rem; font-weight:bold;">${data.sr || data.econ}</span>
-                    <span style="font-size:0.7rem; color:#94a3b8;">${data.sr ? 'S/R' : 'ECON'}</span>
+            <div style="text-align:center">
+                <h2 style="color:#f59e0b; margin-bottom:5px; font-size:1.8rem;">${playerName}</h2>
+                <p style="color:#94a3b8; font-style:italic; margin-bottom:20px;">${data.bio}</p>
+                <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+                        <span style="display:block; font-size:1.5rem; font-weight:800; color:white;">${data.runs || data.wickets}</span>
+                        <span style="font-size:0.7rem; color:#f59e0b; font-weight:bold; letter-spacing:1px;">${data.runs ? 'RUNS' : 'WICKETS'}</span>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.05); padding:15px; border-radius:12px; border:1px solid rgba(255,255,255,0.1);">
+                        <span style="display:block; font-size:1.5rem; font-weight:800; color:white;">${data.sr || data.econ}</span>
+                        <span style="font-size:0.7rem; color:#f59e0b; font-weight:bold; letter-spacing:1px;">${data.sr ? 'STR. RATE' : 'ECONOMY'}</span>
+                    </div>
                 </div>
             </div>
         `;
-        modal.style.display = "block";
-    } else {
-        console.error("No data found for: " + playerName);
-    }
-};
-    }
-};/**
- * CRIC PULSE - MASTER SCRIPT (FINAL FIXED VERSION)
- */
-
-// 1. GLOBAL FUNCTIONS (Visible to HTML onclick)
-window.openVenuePopup = function() {
-    const modal = document.getElementById('venuePopup');
-    if (modal) {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-    }
-};
-
-window.closeVenuePopup = function() {
-    const modal = document.getElementById('venuePopup');
-    if (modal) {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-};
-
-window.openNews = function(title, desc, img) {
-    const modal = document.getElementById('newsModal');
-    if (modal) {
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-desc').innerText = desc;
-        document.getElementById('modal-img').src = img;
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     }
 };
 
-window.closeNews = function() {
-    const modal = document.getElementById('newsModal');
+window.closeStats = function() {
+    const modal = document.getElementById("playerModal");
     if (modal) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
 };
 
-// 2. MAIN INITIALIZATION
+// 3. MAIN INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- TIMER CONFIGURATION ---
+    // Timers
     const finalDate = new Date("March 8, 2026 19:00:00").getTime();
-    const sf2Date = new Date("March 5, 2026 19:00:00").getTime();
-    const sf1Date = new Date("March 4, 2026 19:00:00").getTime();
-
-    function updateAllTimers() {
+    
+    function updateTimers() {
         const now = new Date().getTime();
-
-        // A. HERO SECTION (Front Page)
         const distFinal = finalDate - now;
         const daysEl = document.getElementById("days");
-        
         if (daysEl && distFinal > 0) {
             daysEl.innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
             document.getElementById("hours").innerText = Math.floor((distFinal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
             document.getElementById("minutes").innerText = Math.floor((distFinal % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             document.getElementById("seconds").innerText = Math.floor((distFinal % (1000 * 60)) / 1000).toString().padStart(2, '0');
-        } else if (distFinal <= 0 && daysEl) {
-             document.querySelector(".countdown-boxes").innerHTML = "<h3>MATCH LIVE!</h3>";
         }
-
-        // B. MODAL INDIVIDUAL TIMERS (Match Center)
-        const timerConfigs = [
-            { id: "timerFinal", date: finalDate },
-            { id: "timer2", date: sf2Date },
-            { id: "timer1", date: sf1Date }
-        ];
-
-        timerConfigs.forEach(conf => {
-            const el = document.getElementById(conf.id);
-            if (!el) return;
-            const dist = conf.date - now;
-            
-            if (dist < 0) {
-                el.innerHTML = "LIVE NOW 🏏";
-                el.style.color = "#ef4444";
-            } else {
-                const d = Math.floor(dist / (1000 * 60 * 60 * 24));
-                const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((dist % (1000 * 60)) / 1000);
-                el.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-            }
-        });
     }
 
-    // --- REVEAL ANIMATIONS ---
-    const reveal = () => {
-        const reveals = document.querySelectorAll(".reveal");
-        reveals.forEach(el => {
-            const windowHeight = window.innerHeight;
-            const elementTop = el.getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) {
-                el.classList.add("active");
-            }
-        });
-    };
+    // Modal Close logic
+    const closeBtn = document.querySelector(".close-modal");
+    if (closeBtn) closeBtn.onclick = window.closeStats;
 
-    // Close on Outside Click
     window.onclick = function(event) {
-        if (event.target.classList.contains('modal-overlay') || event.target.id === 'newsModal') {
-            closeVenuePopup();
-            closeNews();
-        }
+        const modal = document.getElementById("playerModal");
+        if (event.target == modal) window.closeStats();
     };
 
-    // Close on Escape Key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === "Escape") {
-            closeNews();
-            closeVenuePopup();
-        }
-    });
-
-    // Start Loops
-    setInterval(updateAllTimers, 1000);
-    updateAllTimers();
-    window.addEventListener("scroll", reveal);
-    reveal();
+    setInterval(updateTimers, 1000);
+    updateTimers();
 });
