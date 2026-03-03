@@ -146,7 +146,7 @@ function showVenuePopup() {
 }
 <script>
     // OPEN THE POPUP
-    function showVenuePopup() {
+    function openVenuePopup() {
         const modal = document.getElementById('venuePopup');
         if (modal) {
             modal.style.display = 'flex';
