@@ -8,10 +8,9 @@
 </head>
 <body>
 
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="logo">CRIC<span>PULSE</span></div>
         <ul class="nav-links">
-            
             <li><a href="news.html">NEWS</a></li>
             <li><a href="matches.html">MATCHES</a></li>
             <li><a href="live.html">LIVE</a></li>
@@ -28,68 +27,73 @@
             <p class="hero-subtext">The road to glory ends here. Secure your spot for the Grand Final on March 8th.</p>
 
             <div class="countdown-boxes">
-                <div class="c-box">
-                    <span id="days">05</span>
-                    <p>DAYS</p>
-                </div>
-                <div class="c-box">
-                    <span id="hours">17</span>
-                    <p>HRS</p>
-                </div>
-                <div class="c-box">
-                    <span id="minutes">53</span>
-                    <p>MIN</p>
-                </div>
-                <div class="c-box">
-                    <span id="seconds">15</span>
-                    <p>SEC</p>
-                </div>
+                <div class="c-box"><span id="days">05</span><p>DAYS</p></div>
+                <div class="c-box"><span id="hours">17</span><p>HRS</p></div>
+                <div class="c-box"><span id="minutes">53</span><p>MIN</p></div>
+                <div class="c-box"><span id="seconds">15</span><p>SEC</p></div>
             </div>
 
-          <div class="hero-btns">
-    <a href="https://in.bookmyshow.com/sports/icc-men-s-t20-world-cup-2026-final/ET00476187" target="_blank" class="btn btn-primary">BUY TICKETS NOW</a>
-  <button onclick="openVenuePopup()" class="btn btn-secondary">MATCH CENTER</button>
-</div>
-
-<div id="venuePopup" class="modal-overlay">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeVenuePopup()">&times;</span>
-        
-        <h3 class="modal-title">🏆 KNOCKOUT HUB</h3>
-
-        <div class="sf-card final-highlight">
-            <div class="final-badge">WORLD CUP FINAL</div>
-            <div class="teams gold-glow-text">WINNER SF1 vs SF2</div>
-            <div id="timerFinal" class="countdown-large">0d 0h 0m</div>
-            <div class="venue-detail">📍 Narendra Modi Stadium | 132,000 Fans</div>
-        </div>
-
-        <div class="sf-card india-sf">
-            <div class="sf-tag">SEMI-FINAL 2 • MAR 05 • 7:00 PM</div>
-            <div class="teams">IND <span class="vs">vs</span> ENG</div>
-            <div id="timer2" class="countdown-small">0d 0h 0m</div>
-            
-            <div class="preview-box">
-                <p><strong>Pitch:</strong> Wankhede "Belter" - High Scoring & Spinner friendly late-on.</p>
-                <p><strong>Key Battle:</strong> Bumrah vs Jos Buttler</p>
+            <div class="hero-btns">
+                <a href="https://in.bookmyshow.com/sports/icc-men-s-t20-world-cup-2026-final/ET00476187" target="_blank" class="btn btn-primary">BUY TICKETS NOW</a>
+                <button onclick="openVenuePopup()" class="btn btn-secondary">MATCH CENTER</button>
             </div>
-        </div>
-
-        <div class="sf-card">
-            <div class="sf-tag">SEMI-FINAL 1 • MAR 04 • 7:00 PM</div>
-            <div class="teams">SA <span class="vs">vs</span> NZ</div>
-            <div id="timer1" class="countdown-small">0d 0h 0m</div>
-            
-            <div class="preview-box">
-                <p><strong>Venue:</strong> Eden Gardens, Kolkata (Mecca of Indian Cricket)</p>
-                <p><strong>Fact:</strong> Fast outfield, expect lightning boundaries!</p>
-            </div>
-        </div>
-
-        
-                </details>
         </div>
     </section>
-</main>
+
+    <div id="venuePopup" class="modal-overlay">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeVenuePopup()">&times;</span>
+            
+            <h3 class="modal-title">🏆 KNOCKOUT HUB</h3>
+
+            <div class="sf-card final-highlight">
+                <div class="final-badge">WORLD CUP FINAL</div>
+                <div class="teams gold-glow-text">WINNER SF1 vs SF2</div>
+                <div id="timerFinal" class="countdown-large">0d 0h 0m</div>
+                <div class="venue-detail">📍 Narendra Modi Stadium | 132,000 Fans</div>
+            </div>
+
+            <div class="sf-card india-sf">
+                <div class="sf-tag">SEMI-FINAL 2 • MAR 05 • 7:00 PM</div>
+                <div class="teams">IND <span class="vs">vs</span> ENG</div>
+                <div id="timer2" class="countdown-small">0d 0h 0m</div>
+                <div class="preview-box">
+                    <p><strong>Pitch:</strong> Wankhede "Belter" - High Scoring</p>
+                    <p><strong>Key Battle:</strong> Bumrah vs Buttler</p>
+                </div>
+            </div>
+
+            <div class="sf-card">
+                <div class="sf-tag">SEMI-FINAL 1 • MAR 04 • 7:00 PM</div>
+                <div class="teams">SA <span class="vs">vs</span> NZ</div>
+                <div id="timer1" class="countdown-small">0d 0h 0m</div>
+                <div class="preview-box">
+                    <p><strong>Venue:</strong> Eden Gardens, Kolkata</p>
+                    <p><strong>Fact:</strong> Fast outfield!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openVenuePopup() {
+            document.getElementById('venuePopup').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Stop background scroll
+        }
+
+        function closeVenuePopup() {
+            document.getElementById('venuePopup').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Enable scroll
+        }
+
+        // Close if clicking outside the box
+        window.onclick = function(event) {
+            var modal = document.getElementById('venuePopup');
+            if (event.target == modal) {
+                closeVenuePopup();
+            }
+        }
+    </script>
+
 </body>
 </html>
