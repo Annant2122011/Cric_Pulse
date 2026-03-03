@@ -520,7 +520,85 @@ details[open] .date-header::after {
     font-weight: 800;
     color: #fff;
 }
+/* Gold Championship Container */
+.championship-card {
+    background: linear-gradient(135deg, #1a1a1a, #2c1f05); /* Dark chocolate/black */
+    border: 2px solid #ffd700 !important; /* Gold border */
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+}
 
+/* Trophy & Crown Text */
+.crown-text {
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.trophy-icon {
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 5px gold);
+}
+
+/* Semi-Final Styling */
+.knockout-box {
+    margin: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1px; /* for the inner gradient effect */
+}
+
+.ko-header {
+    background: rgba(255, 215, 0, 0.1);
+    color: #ffd700;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 12px 12px 0 0;
+    font-size: 0.85rem;
+}
+
+/* India SF Highlight */
+.india-focus {
+    border: 1px solid rgba(255, 153, 51, 0.5);
+}
+
+.india-premium {
+    background: linear-gradient(90deg, rgba(255, 153, 51, 0.15), transparent);
+    font-weight: 800;
+}
+
+/* The Final "Gold Glow" */
+.final-box {
+    border: 2px solid #ffd700;
+    animation: borderPulse 2s infinite alternate;
+}
+
+.final-glow {
+    background: #ffd700;
+    color: #000;
+    text-align: center;
+}
+
+.gold-glow-text {
+    color: #fff;
+    text-shadow: 0 0 8px #ffd700, 0 0 15px #ffd700;
+}
+
+@keyframes borderPulse {
+    from { box-shadow: 0 0 10px rgba(255, 215, 0, 0.2); }
+    to { box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
+}
+
+.live-glow {
+    background: #ef4444;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0.6; }
+}
 .gold-text {
     color: #ffd700;
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
