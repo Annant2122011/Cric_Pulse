@@ -1341,3 +1341,123 @@ details[open] .table-container {
     from { opacity: 0; transform: translateY(-10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+/* --- ENHANCED FACE-OFF SECTION --- */
+.faceoff-wrapper {
+    margin-bottom: 50px;
+    background: linear-gradient(145deg, var(--navy-light) 0%, var(--navy) 100%);
+    border-radius: 15px;
+    border: 1px solid var(--glass-border);
+    overflow: hidden;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.faceoff-phase-header {
+    background: #1e293b;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.faceoff-phase-header h2 {
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+/* Specific Highlight for India SF */
+.india-sf-border {
+    border: 1px solid rgba(255, 153, 51, 0.4) !important;
+}
+.ind-header {
+    background: linear-gradient(90deg, #FF9933 0%, #d46f00 100%);
+    color: white !important;
+}
+
+/* Battleground (Side-by-Side Teams) */
+.battleground {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+}
+
+/* Individual Team Columns */
+.faceoff-column {
+    padding: 20px;
+}
+.faceoff-column:first-child { border-right: 1px solid var(--glass-border); }
+
+/* Team Header (Country Name & Flag) */
+.team-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--glass-border);
+}
+
+.team-header h3 {
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Standardized Player Row */
+.player-faceoff-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+.player-faceoff-row:last-child { border-bottom: none; }
+
+/* The Fixed Image Frame (Solves the abv img issue) */
+.faceoff-img-frame {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px; /* Square with rounded corners for robustness */
+    padding: 4px;
+    background: rgba(0,0,0,0.3);
+    border: 2px solid var(--glass-border);
+    flex-shrink: 0; /* Prevents frame from getting squashed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Robust Image Scaling (whether it loads or fails) */
+.faceoff-img-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Good for failing/broken images */
+    border-radius: 4px;
+}
+
+/* Team Specific Identity Glows (Frame colors) */
+.ind-frame { border-color: #FF9933; box-shadow: 0 0 10px rgba(255, 153, 51, 0.3); }
+.eng-frame { border-color: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
+.sa-frame  { border-color: #22c55e; box-shadow: 0 0 10px rgba(34, 197, 94, 0.3); }
+.nz-frame  { border-color: #94a3b8; box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); }
+
+/* Player Text Info */
+.player-text-info h4 {
+    font-size: 0.9rem;
+    color: #fff;
+    margin-bottom: 2px;
+}
+.player-text-info p {
+    font-size: 0.75rem;
+    color: var(--gold);
+    font-weight: 500;
+}
+
+/* Key Player Accent */
+.kp-star { color: var(--gold); margin-right: 5px; }
+
+/* Mobile: Stack them vertically when screen is narrow */
+@media (max-width: 768px) {
+    .battleground { grid-template-columns: 1fr; }
+    .faceoff-column:first-child { border-right: none; border-bottom: 1px solid var(--glass-border); }
+}
