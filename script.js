@@ -105,3 +105,31 @@ window.onclick = function(event) {
         modal.style.display = 'none';
     }
 }
+// Target dates in IST
+const sf1Date = new Date("March 4, 2026 19:00:00").getTime();
+const sf2Date = new Date("March 5, 2026 19:00:00").getTime();
+
+function updateTimers() {
+    const now = new Date().getTime();
+
+    function formatTime(target, elementId) {
+        const distance = target - now;
+        if (distance < 0) {
+            document.getElementById(elementId).innerHTML = "LIVE NOW / FINISHED";
+            return;
+        }
+
+        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById(elementId).innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    }
+
+    formatTime(sf1Date, "timer1");
+    formatTime(sf2Date, "timer2");
+}
+
+// Update every second
+setInterval(updateTimers, 1000);
