@@ -54,21 +54,21 @@
 <div id="venuePopup" class="modal-overlay">
     <div class="modal-content">
         <span class="close-btn" onclick="closeVenuePopup()">&times;</span>
-        <h3>🏆 UPCOMING VENUES</h3>
-        <hr>
-        <div class="venue-item">
-            <strong>SF 1: Eden Gardens</strong>
-            <p>Kolkata | Mar 04</p>
+        <h3 class="modal-title">🏆 SEMI-FINAL COUNTDOWN</h3>
+        
+        <div class="sf-card">
+            <div class="sf-tag">SF 1 • KOLKATA</div>
+            <div class="teams">SA <span class="vs">vs</span> NZ</div>
+            <div id="timer1" class="countdown-small">Calculating...</div>
         </div>
-        <div class="venue-item">
-            <strong>SF 2: Wankhede Stadium</strong>
-            <p>Mumbai | Mar 05 (IND vs ENG)</p>
+
+        <div class="sf-card india-sf">
+            <div class="sf-tag">SF 2 • MUMBAI</div>
+            <div class="teams">IND <span class="vs">vs</span> ENG</div>
+            <div id="timer2" class="countdown-small">Calculating...</div>
         </div>
-        <div class="venue-item highlight-venue">
-            <strong>FINAL: Narendra Modi Stadium</strong>
-            <p>Ahmedabad | Mar 08</p>
-        </div>
-        <button class="btn btn-primary" onclick="closeVenuePopup()" style="width: 100%; margin-top: 15px;">GOT IT!</button>
+
+        <button class="btn btn-primary" onclick="closeVenuePopup()" style="width: 100%; margin-top: 15px;">CLOSE</button>
     </div>
 </div>
         </div>
