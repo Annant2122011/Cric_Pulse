@@ -951,17 +951,16 @@ body {
 .ticker-content {
     display: flex;
     white-space: nowrap;
-    /* FAST SPEED: 12 seconds for a full loop */
-    animation: ticker-scroll 12s linear infinite;
+    /* CHANGE THIS NUMBER: 5s is insanely fast, 8s is standard 'breaking' speed, 12s is smooth */
+    animation: ticker-scroll 12s linear infinite !important; 
     will-change: transform; 
 }
 
-.ticker-content span {
-    color: #fff;
-    padding: 0 50px;
-    font-size: 0.95rem;
-    font-family: 'Arial', sans-serif;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+/* Also update this mobile one at the bottom of your file */
+@media (max-width: 768px) {
+    .ticker-content { 
+        animation: ticker-scroll 8s linear infinite !important; 
+    }
 }
 
 .ticker-content:hover {
