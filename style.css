@@ -782,13 +782,37 @@ details[open] .date-header::after {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #111827; /* Deeper dark for better contrast */
-    padding: 20px;       /* Reduced from 30px */
-    border-radius: 16px;
+    background: #111827;
+    padding: 12px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 215, 0, 0.2);
-    width: 85%;          /* Narrower on mobile */
-    max-width: 300px;    /* Reduced from 400px */
-    color: white;
+    width: 85%;
+    max-width: 340px;
+    
+    /* SCROLL SYSTEM */
+    max-height: 80vh;    /* Card won't exceed 80% of screen height */
+    overflow-y: auto;    /* Adds scrollbar only when needed */
+    scrollbar-width: thin; /* Firefox support */
+    scrollbar-color: #FF9933 #111827; /* Saffron thumb, Dark track */
+}
+
+/* Custom Scrollbar for Chrome/Safari/Edge */
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+    background: #111827;
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+    background: #FF9933; /* Saffron to match India's theme */
+    border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #FF8000;
 }
 
 /* Slimming down the Final Match card */
