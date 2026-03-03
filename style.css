@@ -70,7 +70,12 @@ body {
     color: var(--gold);
     opacity: 1;
 }
-
+/*----Card Hover----*/
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #f59e0b;
+    box-shadow: 0 10px 20px rgba(245, 158, 11, 0.2); /* Soft Gold Glow */
+}
 /* --- HOME PAGE HERO & COUNTDOWN --- */
 .hero-section {
     position: relative;
