@@ -1,26 +1,25 @@
 /**
- * CRIC PULSE - MASTER SCRIPT
- * Combined: Countdown, Modal Controls, and Reveal Animations
+ * CRIC PULSE - MASTER SCRIPT (FINAL FIXED VERSION)
  */
 
-// 1. GLOBAL FUNCTIONS (So HTML onclick can find them)
-function openVenuePopup() {
+// 1. GLOBAL FUNCTIONS (Visible to HTML onclick)
+window.openVenuePopup = function() {
     const modal = document.getElementById('venuePopup');
     if (modal) {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
     }
-}
+};
 
-function closeVenuePopup() {
+window.closeVenuePopup = function() {
     const modal = document.getElementById('venuePopup');
     if (modal) {
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
-}
+};
 
-function openNews(title, desc, img) {
+window.openNews = function(title, desc, img) {
     const modal = document.getElementById('newsModal');
     if (modal) {
         document.getElementById('modal-title').innerText = title;
@@ -29,25 +28,17 @@ function openNews(title, desc, img) {
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
     }
-}
+};
 
-function closeNews() {
+window.closeNews = function() {
     const modal = document.getElementById('newsModal');
     if (modal) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
-}
-
-// 2. SINGLE WINDOW CLICK HANDLER (Prevents conflicts)
-window.onclick = function(event) {
-    const venueModal = document.getElementById('venuePopup');
-    const newsModal = document.getElementById('newsModal');
-    if (event.target == venueModal) closeVenuePopup();
-    if (event.target == newsModal) closeNews();
 };
 
-// 3. INITIALIZATION ON LOAD
+// 2. MAIN INITIALIZATION
 document.addEventListener('DOMContentLoaded', () => {
     
     // --- TIMER CONFIGURATION ---
@@ -58,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateAllTimers() {
         const now = new Date().getTime();
 
-        // A. HERO SECTION COUNTDOWN
+        // A. HERO SECTION (Front Page)
         const distFinal = finalDate - now;
         const daysEl = document.getElementById("days");
         
         if (daysEl && distFinal > 0) {
-            document.getElementById("days").innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            daysEl.innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
             document.getElementById("hours").innerText = Math.floor((distFinal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
             document.getElementById("minutes").innerText = Math.floor((distFinal % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
             document.getElementById("seconds").innerText = Math.floor((distFinal % (1000 * 60)) / 1000).toString().padStart(2, '0');
@@ -71,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
              document.querySelector(".countdown-boxes").innerHTML = "<h3>MATCH LIVE!</h3>";
         }
 
-        // B. MODAL INDIVIDUAL TIMERS
+        // B. MODAL INDIVIDUAL TIMERS (Match Center)
         const timerConfigs = [
             { id: "timerFinal", date: finalDate },
             { id: "timer2", date: sf2Date },
@@ -96,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- REVEAL ANIMATION ---
+    // --- REVEAL ANIMATIONS ---
     const reveal = () => {
         const reveals = document.querySelectorAll(".reveal");
         reveals.forEach(el => {
@@ -108,7 +99,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Keyboard controls
+    // Close on Outside Click
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal-overlay') || event.target.id === 'newsModal') {
+            closeVenuePopup();
+            closeNews();
+        }
+    };
+
+    // Close on Escape Key
     document.addEventListener('keydown', (e) => {
         if (e.key === "Escape") {
             closeNews();
