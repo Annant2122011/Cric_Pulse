@@ -36,14 +36,18 @@ window.openStats = function(playerName) {
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
 
-    if (data && modal) {
+  if (data && modal) {
         body.innerHTML = `
-            <div style="text-align:center;">
-                <h2 style="color:#facc15; font-size:1.8rem;">${playerName}</h2>
-                <p style="color:#94a3b8; font-style:italic; margin-bottom:20px;">${data.bio}</p>
-                <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
-                    <div class="stat-box"><strong>${data.runs || data.wickets}</strong><br>${data.runs ? 'Runs' : 'Wickets'}</div>
-                    <div class="stat-box"><strong>${data.sr || data.econ}</strong><br>${data.sr ? 'S/R' : 'Econ'}</div>
+            <h2 style="color:#f59e0b; margin-bottom:10px;">${playerName}</h2>
+            <p style="color:#cbd5e1; font-style:italic; margin-bottom:20px;">${data.bio}</p>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; text-align:center;">
+                <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
+                    <span style="display:block; font-size:1.2rem; font-weight:bold;">${data.runs || data.wickets}</span>
+                    <span style="font-size:0.7rem; color:#94a3b8;">${data.runs ? 'RUNS' : 'WKTS'}</span>
+                </div>
+                <div style="background:rgba(255,255,255,0.05); padding:10px; border-radius:8px;">
+                    <span style="display:block; font-size:1.2rem; font-weight:bold;">${data.sr || data.econ}</span>
+                    <span style="font-size:0.7rem; color:#94a3b8;">${data.sr ? 'S/R' : 'ECON'}</span>
                 </div>
             </div>
         `;
