@@ -140,13 +140,12 @@ function updateTimers() {
 
 setInterval(updateTimers, 1000);
 function showVenuePopup() {
+    console.log("Opening Popup..."); // This helps you check if the click is working
     document.getElementById('venuePopup').style.display = 'block';
-    // Lock background scroll
     document.body.style.overflow = 'hidden'; 
 }
 
 function closeVenuePopup() {
     document.getElementById('venuePopup').style.display = 'none';
-    // Restore background scroll
     document.body.style.overflow = 'auto';
 }
