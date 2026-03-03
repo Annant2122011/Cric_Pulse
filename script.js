@@ -32,9 +32,7 @@ const playerStats = {
 
 // 2. OPEN STATS
 // 2. OPEN STATS
-// 2. OPEN STATS (Fixed)
 window.openStats = function(name) {
-    console.log("Opening:", name);
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
     const data = playerStats[name];
@@ -57,7 +55,7 @@ window.openStats = function(name) {
     }
 };
 
-// 3. MASTER CLOSE (Unlocks the screen)
+// 3. MASTER CLOSE (Renamed to match your HTML)
 window.closeNews = function() {
     const pModal = document.getElementById("playerModal");
     const nModal = document.getElementById("newsModal");
@@ -66,7 +64,7 @@ window.closeNews = function() {
     document.body.style.overflow = "auto";
 };
 
-// 4. NEWS FUNCTION (Added safety checks to prevent crashes)
+// 4. NEWS FUNCTION (Added safety check)
 window.openNews = function(title, desc, img) {
     const modal = document.getElementById('newsModal');
     const titleEl = document.getElementById('modal-title');
@@ -75,10 +73,11 @@ window.openNews = function(title, desc, img) {
         document.getElementById('modal-desc').innerText = desc;
         document.getElementById('modal-img').src = img;
         modal.style.display = "block";
+        document.body.style.overflow = "hidden";
     }
 };
 
-// Close on background click
+// Background click to close
 window.onclick = function(event) {
     if (event.target.classList.contains('modal')) {
         window.closeNews();
