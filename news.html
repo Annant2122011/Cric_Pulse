@@ -5,15 +5,10 @@
     </div>
 
     <div class="news-grid-4x3">
+        
         <div class="card reveal" onclick="openNews('India vs England: Wankhede Ready', 'The 2nd Semi-Final returns to Mumbai. Curators predict a high-scoring pitch with some dew factor in the second innings.', 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=600')">
             <div class="news-img-container">
                 <img src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=600" alt="Wankhede">
-                <span class="category-tag">SF 2</span>
-            </div>
-           <div class="container">
-    <div class="news-grid-4x3"> <div class="card" onclick="openNews('Title', 'Description', 'image.jpg')">
-            <div class="news-img-container">
-                <img src="image.jpg">
                 <span class="category-tag">SF 2</span>
             </div>
             <div class="news-text">
@@ -21,8 +16,6 @@
                 <p>The 2nd Semi-Final returns to Mumbai...</p>
             </div>
         </div>
-        </div>
-</div>
 
         <div class="card reveal" onclick="openNews('Samson\'s Eden Epic', 'Sanju Samson scored an unbeaten 97 to guide India into the semi-finals, becoming the tournament hero.', 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=600')">
             <div class="news-img-container">
@@ -30,7 +23,7 @@
                 <span class="category-tag">Star Performer</span>
             </div>
             <div class="news-text">
-                <h4>Samson\'s 97* Seals SF Spot</h4>
+                <h4>Samson's 97* Seals SF Spot</h4>
                 <p>A masterclass at Eden Gardens pulls India through...</p>
             </div>
         </div>
@@ -42,7 +35,7 @@
             </div>
             <div class="news-text">
                 <h4>Unbeaten Proteas Face NZ</h4>
-                <p>Can Aiden Markram\'s men break the semi-final jinx?</p>
+                <p>Can Aiden Markram's men break the semi-final jinx?</p>
             </div>
         </div>
 
@@ -145,14 +138,15 @@
             </div>
         </div>
 
-    </div>
-</div>
+    </div> </div>
 
 <div id="newsModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeNews()">&times;</span>
         <img id="modal-img" src="" alt="News Image">
-        <h2 id="modal-title"></h2>
-        <p id="modal-desc"></p>
+        <div class="modal-info">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc"></p>
+        </div>
     </div>
 </div>
