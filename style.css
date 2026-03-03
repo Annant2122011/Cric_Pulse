@@ -670,7 +670,56 @@ details[open] .date-header::after {
     cursor: pointer;
     transition: 0.3s;
 }
+/* Base Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    gap: 8px;
+}
 
+/* Primary Button - "The Hero" (Gold/Saffron) */
+.btn-primary {
+    background: linear-gradient(135deg, #FF9933, #FF8000); /* Saffron/Orange Theme */
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #FF8000, #FF9933);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 153, 51, 0.5);
+}
+
+/* Secondary Button - "The Ghost" (Outline/Subtle) */
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Optional: Championship Gold Version for Finals */
+.btn-gold {
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    color: #000;
+}
 .notify-btn:hover {
     background: #dc2626;
     transform: translateY(-2px);
