@@ -348,3 +348,62 @@ body {
     }
     .m-status { text-align: left; }
 }
+/* Container for each date */
+.date-group {
+    background: rgba(255, 255, 255, 0.03);
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* The clickable header */
+.date-header {
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--gold);
+    cursor: pointer;
+    list-style: none; /* Removes default arrow in some browsers */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Add a custom arrow */
+.date-header::after {
+    content: '▼';
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+details[open] .date-header::after {
+    transform: rotate(180deg);
+}
+
+/* Grid Layout for Matches */
+.match-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    padding: 12px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    align-items: center;
+}
+
+.loc {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+.res {
+    text-align: right;
+    font-weight: 700;
+}
+
+/* Special styling for India's big win */
+.india-win {
+    background: rgba(255, 153, 51, 0.1);
+    border-left: 4px solid #FF9933;
+}
