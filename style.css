@@ -776,39 +776,61 @@ details[open] .date-header::after {
 }
 
 /* Modal Box */
+/* Make the overall box narrower and less tall */
 .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 215, 0, 0.3);
-    width: 90%;
-    max-width: 400px;
+    background: #111827; /* Deeper dark for better contrast */
+    padding: 25px;       /* Reduced from 30px */
+    border-radius: 16px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    width: 85%;          /* Narrower on mobile */
+    max-width: 350px;    /* Reduced from 400px */
     color: white;
-    text-align: center;
 }
 
-.venue-item {
-    margin: 15px 0;
+/* Slimming down the Final Match card */
+.final-highlight {
+    padding: 12px !important; /* Tightened padding */
+    margin-bottom: 15px !important;
+}
+
+.gold-glow-text {
+    font-size: 1.2rem !important; /* Smaller headline */
+}
+
+.countdown-large {
+    font-size: 1.2rem; /* Matches the text size */
+    margin-top: 5px;
+}
+
+/* Slimming down the Semi-Final cards */
+.sf-card {
     padding: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
+    margin-bottom: 8px;
 }
 
-.highlight-venue {
-    border: 1px solid #ffd700;
-    background: rgba(255, 215, 0, 0.1);
+.teams {
+    font-size: 1.1rem; /* Smaller team names */
 }
 
+.countdown-small {
+    font-size: 0.9rem; /* Smaller timer */
+    margin-top: 4px;
+}
+
+.modal-subtitle {
+    margin: 10px 0; /* Reduced spacing */
+    font-size: 0.7rem;
+}
+
+/* Adjust the Close button position */
 .close-btn {
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    font-size: 24px;
-    cursor: pointer;
+    right: 15px;
+    top: 10px;
+    font-size: 20px;
 }
 .modal-title { color: #ffd700; letter-spacing: 2px; margin-bottom: 20px; }
 
