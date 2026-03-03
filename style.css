@@ -905,30 +905,42 @@ details[open] .date-header::after {
     50% { opacity: 0.5; }
     100% { opacity: 1; }
 }
+/* 1. PAGE LAYOUT SYSTEM - Ensures ticker is visible by default */
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 2. THE ATTRACTIVE TICKER */
 .news-ticker-container {
     width: 100%;
-    background: #111;
+    background: rgba(17, 17, 17, 0.95); /* Glass effect */
+    backdrop-filter: blur(10px);
     border-bottom: 2px solid #ffd700;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); /* Gold Glow */
     display: flex;
     align-items: center;
     overflow: hidden;
-    height: 40px;
+    height: 45px;
     position: sticky;
-    top: 70px; /* Adjust this based on your Navbar height */
-    z-index: 99;
+    top: 70px; /* MUST match your Navbar height */
+    z-index: 999;
 }
 
 .ticker-label {
-    background: #ffd700;
+    background: linear-gradient(45deg, #ffd700, #b8860b);
     color: #000;
-    padding: 0 15px;
+    padding: 0 20px;
     height: 100%;
     display: flex;
     align-items: center;
-    font-weight: bold;
-    font-size: 0.9rem;
-    z-index: 100;
-    white-space: nowrap;
+    font-weight: 900;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    z-index: 1000;
+    /* Slanted edge effect */
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0% 100%);
 }
 
 .ticker-wrapper {
@@ -939,17 +951,19 @@ details[open] .date-header::after {
 .ticker-content {
     display: flex;
     white-space: nowrap;
-    animation: ticker-scroll 30s linear infinite;
+    /* FAST SPEED: 12 seconds for a full loop */
+    animation: ticker-scroll 12s linear infinite;
+    will-change: transform; 
 }
 
 .ticker-content span {
     color: #fff;
-    padding: 0 40px;
-    font-size: 0.9rem;
-    font-family: sans-serif;
+    padding: 0 50px;
+    font-size: 0.95rem;
+    font-family: 'Arial', sans-serif;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
-/* Pause when user hovers so they can read a specific news item */
 .ticker-content:hover {
     animation-play-state: paused;
 }
@@ -957,4 +971,9 @@ details[open] .date-header::after {
 @keyframes ticker-scroll {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+}
+
+/* 3. MOBILE SPEED ADJUSTMENT */
+@media (max-width: 768px) {
+    .ticker-content { animation-duration: 8s; }
 }
