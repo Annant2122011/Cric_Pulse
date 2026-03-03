@@ -1404,37 +1404,83 @@ details[open] .table-container {
 }
 
 /* Standardized Player Row */
-.player-faceoff-row {
+/* Premium Glassmorphism Tile */
+.player-faceoff-row, .player-faceoff-rowkp {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 12px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.02);
+    padding: 12px 20px;
+    margin-bottom: 12px;
+    background: rgba(255, 255, 255, 0.03); /* Translucent base */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
-.player-faceoff-row:last-child { border-bottom: none; }
 
-/* The Fixed Image Frame (Solves the abv img issue) */
+/* Hover Effect: Glow & 3D Lift */
+.player-faceoff-row:hover {
+    transform: translateY(-5px) scale(1.02);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--gold); /* Gold glow for the player you pick */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Key Player Star Special Effect */
+.player-faceoff-rowkp {
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(255, 255, 255, 0.03) 100%);
+}
+
+/* Animated Border Light (The "Sweep" Effect) */
+.player-faceoff-row::after {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: 0.6s;
+    pointer-events: none;
+}
+
+.player-faceoff-row:hover::after {
+    left: 120%; /* Moves the light sweep across the tile */
+}
+
+/* Player Image Enhancements */
 .faceoff-img-frame {
-    width: 60px;
-    height: 60px;
-    border-radius: 8px; /* Square with rounded corners for robustness */
-    padding: 4px;
-    background: rgba(0,0,0,0.3);
-    border: 2px solid var(--glass-border);
-    flex-shrink: 0; /* Prevents frame from getting squashed */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    padding: 2px;
+    background: var(--gold); /* Team color ring */
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
 }
 
-/* Robust Image Scaling (whether it loads or fails) */
 .faceoff-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain; /* Good for failing/broken images */
-    border-radius: 4px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #1e293b;
 }
 
+/* Text Styling */
+.player-text-info h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.player-text-info p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 500;
+}
 /* Team Specific Identity Glows (Frame colors) */
 .ind-frame { border-color: #FF9933; box-shadow: 0 0 10px rgba(255, 153, 51, 0.3); }
 .eng-frame { border-color: #3b82f6; box-shadow: 0 0 10px rgba(59, 130, 246, 0.3); }
@@ -1442,16 +1488,7 @@ details[open] .table-container {
 .nz-frame  { border-color: #94a3b8; box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); }
 
 /* Player Text Info */
-.player-text-info h4 {
-    font-size: 0.9rem;
-    color: #fff;
-    margin-bottom: 2px;
-}
-.player-text-info p {
-    font-size: 0.75rem;
-    color: var(--gold);
-    font-weight: 500;
-}
+
 
 /* Key Player Accent */
 .kp-star { color: var(--gold); margin-right: 5px; }
