@@ -145,31 +145,73 @@ function showVenuePopup() {
     document.body.style.overflow = 'hidden'; 
 }
 <script>
-    // OPEN THE POPUP
-    function openVenuePopup() {
+  document.addEventListener('DOMContentLoaded', () => {
+    // --- 1. POPUP CONTROLS ---
+    window.openVenuePopup = function() {
         const modal = document.getElementById('venuePopup');
         if (modal) {
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Stop background scroll
-        } else {
-            console.error("Error: Could not find an element with id='venuePopup'");
+            modal.style.display = 'flex'; 
+            document.body.style.overflow = 'hidden'; 
         }
-    }
+    };
 
-    // CLOSE THE POPUP
-    function closeVenuePopup() {
+    window.closeVenuePopup = function() {
         const modal = document.getElementById('venuePopup');
         if (modal) {
             modal.style.display = 'none';
-            document.body.style.overflow = 'auto'; // Restore background scroll
+            document.body.style.overflow = 'auto'; 
         }
+    };
+
+    // Close on outside click
+    window.addEventListener('click', (event) => {
+        const modal = document.getElementById('venuePopup');
+        if (event.target === modal) closeVenuePopup();
+    });
+
+    // --- 2. THE MASTER TIMER ENGINE ---
+    const finalDate = new Date("March 8, 2026 19:00:00").getTime();
+    const sf2Date = new Date("March 5, 2026 19:00:00").getTime();
+    const sf1Date = new Date("March 4, 2026 19:00:00").getTime();
+
+    function updateAllTimers() {
+        const now = new Date().getTime();
+
+        // A. HERO SECTION COUNTDOWN (Final)
+        const distFinal = finalDate - now;
+        if (distFinal > 0) {
+            document.getElementById("days").innerText = Math.floor(distFinal / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById("hours").innerText = Math.floor((distFinal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById("minutes").innerText = Math.floor((distFinal % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById("seconds").innerText = Math.floor((distFinal % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }
+
+        // B. MODAL INDIVIDUAL TIMERS
+        const timerConfigs = [
+            { id: "timerFinal", date: finalDate },
+            { id: "timer2", date: sf2Date },
+            { id: "timer1", date: sf1Date }
+        ];
+
+        timerConfigs.forEach(conf => {
+            const el = document.getElementById(conf.id);
+            if (!el) return;
+            const dist = conf.date - now;
+            
+            if (dist < 0) {
+                el.innerHTML = "LIVE NOW 🏏";
+                el.style.color = "#ef4444"; // Red for live
+            } else {
+                const d = Math.floor(dist / (1000 * 60 * 60 * 24));
+                const h = Math.floor((dist % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((dist % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((dist % (1000 * 60)) / 1000);
+                el.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+            }
+        });
     }
 
-    // CLOSE IF USER CLICKS OUTSIDE THE BOX
-    window.onclick = function(event) {
-        const modal = document.getElementById('venuePopup');
-        if (event.target == modal) {
-            closeVenuePopup();
-        }
-    }
+    setInterval(updateAllTimers, 1000);
+    updateAllTimers();
+});
 </script>
