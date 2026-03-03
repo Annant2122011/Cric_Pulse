@@ -30,12 +30,19 @@ window.openStats = function(name) {
 };
 
 // 3. CLOSE MODALS
-window.closeAll = function() {
-    document.getElementById("playerModal").style.display = "none";
-    if(document.getElementById("newsModal")) document.getElementById("newsModal").style.display = "none";
+// 3. MASTER CLOSE FUNCTION (Fixed Naming)
+window.closeNews = function() {
+    console.log("Close trigger activated"); // Check F12 to see this
+    
+    const newsModal = document.getElementById("newsModal");
+    const playerModal = document.getElementById("playerModal");
+
+    if (newsModal) newsModal.style.display = "none";
+    if (playerModal) playerModal.style.display = "none";
+    
+    // Re-enable scrolling
     document.body.style.overflow = "auto";
 };
-
 // 4. NEWS FUNCTION (Restored)
 window.openNews = function(title, desc, img) {
     const modal = document.getElementById('newsModal');
