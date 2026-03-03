@@ -1127,3 +1127,75 @@ td {
     border-left: 3px solid #ffd700;
     padding-left: 10px;
 }
+/* --- STANDINGS PAGE ENHANCEMENTS --- */
+.group-card-wrapper {
+    margin-bottom: 50px;
+    animation: slideUp 0.6s ease-out;
+}
+
+.team-cell {
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Qualification Badge */
+.q-badge {
+    background: #22c55e;
+    color: #fff;
+    font-size: 0.65rem;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 900;
+    margin-left: 5px;
+}
+
+/* Position Colors */
+.rank-pos {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-align: center;
+}
+
+.qualifier-row .rank-pos {
+    color: #ffd700;
+}
+
+/* Number Styling */
+.pts-bold {
+    font-weight: 800;
+    color: var(--white);
+}
+
+.nrr-plus {
+    color: #4ade80; /* Light Green */
+    font-family: monospace;
+}
+
+.nrr-minus {
+    color: #f87171; /* Light Red */
+    font-family: monospace;
+}
+
+/* Smooth Entrance Animation */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hover effect for Table Rows */
+.table-container table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+    color: #fff;
+}
+
+/* Responsive Table Fix */
+@media (max-width: 768px) {
+    .table-container table {
+        font-size: 0.85rem;
+    }
+    .q-badge {
+        font-size: 0.55rem;
+    }
+}
