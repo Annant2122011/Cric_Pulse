@@ -107,40 +107,37 @@
         "seconds": "March 8, 2026 19:00:00"
     };
 
-    function updateAllTimers() {
-        const now = new Date().getTime();
+   function updateTimers() {
+    const now = new Date().getTime();
 
-        // Update the Modal Timers (timerFinal, timer1, timer2)
-        ["timerFinal", "timer1", "timer2"].forEach(id => {
-            const target = new Date(matchDates[id]).getTime();
-            const diff = target - now;
-            const el = document.getElementById(id);
-            if (!el) return;
+    // Match Dates
+    const matches = [
+        { id: "timerFinal", date: "March 8, 2026 19:00:00" },
+        { id: "timer2", date: "March 5, 2026 19:00:00" },
+        { id: "timer1", date: "March 4, 2026 19:00:00" }
+    ];
 
+    matches.forEach(match => {
+        const target = new Date(match.date).getTime();
+        const diff = target - now;
+        const display = document.getElementById(match.id);
+
+        if (display) {
             if (diff < 0) {
-                el.innerHTML = "MATCH LIVE 🏏";
+                display.innerHTML = "LIVE NOW 🏏";
             } else {
-                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                el.innerHTML = `${d}d ${h}h ${m}m`;
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                display.innerHTML = `${days}d ${hours}h ${mins}m`;
             }
-        });
-
-        // Update the Hero Section Main Countdown (days, hours, mins, secs)
-        const mainTarget = new Date(matchDates["timerFinal"]).getTime();
-        const mainDiff = mainTarget - now;
-        if (mainDiff > 0) {
-            document.getElementById('days').innerText = Math.floor(mainDiff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
-            document.getElementById('hours').innerText = Math.floor((mainDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = Math.floor((mainDiff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = Math.floor((mainDiff % (1000 * 60)) / 1000).toString().padStart(2, '0');
         }
-    }
+    });
+}
 
-    // Run every second
-    setInterval(updateAllTimers, 1000);
-    updateAllTimers(); // Run once immediately
+// Run every minute to save battery, or every 1000ms for seconds
+setInterval(updateTimers, 1000);
+updateTimers(); // Initial call
 </script>
 </body>
 </html>
