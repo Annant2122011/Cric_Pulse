@@ -1342,33 +1342,35 @@ details[open] .table-container {
     to { opacity: 1; transform: translateY(0); }
 }
 /* --- FIXED & ENHANCED TILES --- */
+/* --- FIXED ATTRACTIVE TILES --- */
 .player-faceoff-row, .player-faceoff-rowkp {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px 15px;
+    padding: 10px 18px;
     margin-bottom: 12px;
     background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 16px;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    overflow: hidden; /* Keeps the sweep effect inside */
+    overflow: hidden;
     cursor: pointer;
-    z-index: 1; /* Base layer */
+    z-index: 1;
 }
 
-/* Ensure the light sweep doesn't block clicks */
+/* Fix: Allowing clicks to pass through the glow effect */
 .player-faceoff-row::after, .player-faceoff-rowkp::after {
     content: '';
     position: absolute;
-    top: 0; left: -150%;
-    width: 100%; height: 100%;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: skewX(-25deg);
     transition: 0.5s;
-    pointer-events: none; /* CRITICAL: Allows clicks to pass through */
+    pointer-events: none; /* CRITICAL: This allows you to click the player! */
     z-index: -1;
 }
 
@@ -1376,59 +1378,34 @@ details[open] .table-container {
     left: 150%;
 }
 
-/* Image Frame Fix - Prevents the "Ugly" stretching */
+.player-faceoff-row:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* Frame Fix: Stop the "Ugly" Stretching */
 .faceoff-img-frame {
-    width: 50px; 
-    height: 50px;
-    min-width: 50px; /* Prevents shrinking */
+    width: 55px; height: 55px;
+    min-width: 55px; /* Keeps it a perfect circle */
     border-radius: 50%;
     padding: 2px;
-    border: 2px solid var(--gold);
-    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    background: #0f172a;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #0f172a;
+    overflow: hidden;
 }
 
 .faceoff-img-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Crops image to circle perfectly */
+    width: 100%; height: 100%;
+    object-fit: cover; /* This makes headshots look professional */
     border-radius: 50%;
 }
 
-/* Text Info Alignment */
-.player-text-info {
-    flex-grow: 1;
-    pointer-events: none; /* Ensures the row gets the click, not the text */
-}
-
-.player-text-info h4 {
-    font-size: 1rem;
-    margin: 0;
-}
-
-.player-text-info p {
-    font-size: 0.8rem;
-    opacity: 0.7;
-    margin: 0;
-}
-
-/* View Stats Badge */
-.view-stats {
-    font-size: 0.7rem;
-    background: rgba(245, 158, 11, 0.2);
-    color: var(--gold);
-    padding: 2px 8px;
-    border-radius: 10px;
-    margin-left: 5px;
-    border: 1px solid rgba(245, 158, 11, 0.3);
-}
-
-/* Hover State */
-.player-faceoff-row:hover, .player-faceoff-rowkp:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateX(5px); /* Subtle slide-in effect */
-    border-color: var(--gold);
-}
+.sa-frame { border-color: #007a4d; }
+.nz-frame { border-color: #ffffff; }
+.ind-frame { border-color: #ff9933; }
+.eng-frame { border-color: #ce1124; }
