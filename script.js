@@ -121,3 +121,34 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener("scroll", reveal);
     reveal();
 });
+const playerStats = {
+    "Abhishek Sharma": { runs: 245, sr: 193.5, sixes: 18, avg: 32.1, bio: "High-risk, high-reward opener." },
+    "Sanju Samson": { runs: 412, sr: 165.2, sixes: 22, avg: 58.5, bio: "In peak form. Most consistent in 2026." },
+    "Jos Buttler": { runs: 342, sr: 158.0, sixes: 14, avg: 42.8, bio: "The dangerous England skipper." }
+};
+
+// Function to open modal
+function openStats(playerName) {
+    const data = playerStats[playerName];
+    const modal = document.getElementById("playerModal");
+    const body = document.getElementById("modalBody");
+
+    if (data) {
+        body.innerHTML = `
+            <h2 style="color:white; margin-bottom:10px;">${playerName}</h2>
+            <p style="color:#94a3b8; font-style:italic; margin-bottom:20px;">${data.bio}</p>
+            <div class="stat-grid">
+                <div class="stat-item"><span class="stat-value">${data.runs}</span><span class="stat-label">Runs</span></div>
+                <div class="stat-item"><span class="stat-value">${data.sr}</span><span class="stat-label">Strike Rate</span></div>
+                <div class="stat-item"><span class="stat-value">${data.sixes}</span><span class="stat-label">Sixes</span></div>
+                <div class="stat-item"><span class="stat-value">${data.avg}</span><span class="stat-label">Average</span></div>
+            </div>
+        `;
+        modal.style.display = "block";
+    }
+}
+
+// Close logic
+document.querySelector(".close-modal").onclick = () => {
+    document.getElementById("playerModal").style.display = "none";
+}
