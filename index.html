@@ -75,25 +75,72 @@
         </div>
     </div>
 
-    <script>
-        function openVenuePopup() {
-            document.getElementById('venuePopup').style.display = 'block';
-            document.body.style.overflow = 'hidden'; // Stop background scroll
-        }
+  <script>
+    // --- 1. POPUP CONTROLS ---
+    function showVenuePopup() {
+        const modal = document.getElementById('venuePopup');
+        modal.style.display = 'flex'; // Uses flex to center
+        document.body.style.overflow = 'hidden'; // Lock main page
+    }
 
-        function closeVenuePopup() {
-            document.getElementById('venuePopup').style.display = 'none';
-            document.body.style.overflow = 'auto'; // Enable scroll
-        }
+    function closeVenuePopup() {
+        const modal = document.getElementById('venuePopup');
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Unlock main page
+    }
 
-        // Close if clicking outside the box
-        window.onclick = function(event) {
-            var modal = document.getElementById('venuePopup');
-            if (event.target == modal) {
-                closeVenuePopup();
+    // Close on outside click
+    window.onclick = function(event) {
+        const modal = document.getElementById('venuePopup');
+        if (event.target == modal) closeVenuePopup();
+    }
+
+    // --- 2. MULTI-COUNTDOWN SYSTEM ---
+    const matchDates = {
+        "timerFinal": "March 8, 2026 19:00:00",
+        "timer2": "March 5, 2026 19:00:00",
+        "timer1": "March 4, 2026 19:00:00",
+        // Hero section main countdown ids:
+        "days": "March 8, 2026 19:00:00", 
+        "hours": "March 8, 2026 19:00:00",
+        "minutes": "March 8, 2026 19:00:00",
+        "seconds": "March 8, 2026 19:00:00"
+    };
+
+    function updateAllTimers() {
+        const now = new Date().getTime();
+
+        // Update the Modal Timers (timerFinal, timer1, timer2)
+        ["timerFinal", "timer1", "timer2"].forEach(id => {
+            const target = new Date(matchDates[id]).getTime();
+            const diff = target - now;
+            const el = document.getElementById(id);
+            if (!el) return;
+
+            if (diff < 0) {
+                el.innerHTML = "MATCH LIVE 🏏";
+            } else {
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                el.innerHTML = `${d}d ${h}h ${m}m`;
             }
-        }
-    </script>
+        });
 
+        // Update the Hero Section Main Countdown (days, hours, mins, secs)
+        const mainTarget = new Date(matchDates["timerFinal"]).getTime();
+        const mainDiff = mainTarget - now;
+        if (mainDiff > 0) {
+            document.getElementById('days').innerText = Math.floor(mainDiff / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+            document.getElementById('hours').innerText = Math.floor((mainDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+            document.getElementById('minutes').innerText = Math.floor((mainDiff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+            document.getElementById('seconds').innerText = Math.floor((mainDiff % (1000 * 60)) / 1000).toString().padStart(2, '0');
+        }
+    }
+
+    // Run every second
+    setInterval(updateAllTimers, 1000);
+    updateAllTimers(); // Run once immediately
+</script>
 </body>
 </html>
