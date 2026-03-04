@@ -6,42 +6,52 @@
     <link rel="stylesheet" href="style.css">
     <title>FaceOff | Cric Pulse</title>
     <style>
-        /* Smooth transition for accordion */
-        details summary {
-            list-style: none;
-            cursor: pointer;
-            outline: none;
+        /* Modern Accordion Styling */
+        details summary { list-style: none; cursor: pointer; outline: none; }
+        details summary::-webkit-details-marker { display: none; }
+
+        .faceoff-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        details summary::-webkit-details-marker {
-            display: none;
+
+        details[open].faceoff-wrapper {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .faceoff-phase-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background 0.3s;
-        }
-
-        .faceoff-phase-header:hover {
-            background: rgba(255, 255, 255, 0.05);
+            padding: 20px 30px;
+            position: relative;
         }
 
         .faceoff-phase-header::after {
-            content: '▼';
-            font-size: 0.8rem;
+            content: '→';
+            font-size: 1.5rem;
             color: var(--gold);
-            transition: transform 0.3s;
-            margin-right: 10px;
+            transition: transform 0.4s ease;
         }
 
         details[open] .faceoff-phase-header::after {
-            transform: rotate(180deg);
+            transform: rotate(90deg);
         }
 
         .battle-grid {
-            padding-top: 20px;
+            padding: 20px;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
@@ -70,182 +80,182 @@
         </div>
     </div>
 
-  <main class="container">
-    <div class="news-header-section">
-        <h1>Knockout <span class="gold-text">Face-Off</span></h1>
-        <p>Tactical matchups: 5 Elite players from each semi-finalist</p>
-    </div>
-
-    <details class="faceoff-wrapper india-sf-border">
-        <summary>
-            <div class="faceoff-phase-header ind-header">
-                <h2>Semi-Final 2: India vs England</h2>
-            </div>
-        </summary>
-        
-        <div class="battle-grid">
-            <div class="battle-pair">
-                <div class="pair-title">TOP ORDER EXPLOSION</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
-                        <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
-                        <span>Abhishek</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card eng-side" onclick="openStats('Phil Salt')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s"></div>
-                        <span>Salt</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">MIDDLE ORDER KINGS</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Suryakumar Yadav')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4exY9iYNVKAm7uBYHZsqFEwqPuwR-iHNaUw&s"></div>
-                        <span>SKY</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card eng-side" onclick="openStats('Jos Buttler')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrhcbCRfw1t6soS3_X5X3TOUgahvIftqZ4g&s"></div>
-                        <span>Buttler</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">ALL-ROUNDER IMPACT</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Hardik Pandya')">
-                        <div class="img-hex"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/1095bd170035599.64573ca6cde3c.jpg"></div>
-                        <span>Hardik</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card eng-side" onclick="openStats('Sam Curran')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWKLzErRU7WvG-1Z-oBRzw5iJgcW-ZEF6LA&s"></div>
-                        <span>Curran</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">PACE SPEARHEADS</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Jasprit Bumrah')">
-                        <div class="img-hex"><img src="https://documents.bcci.tv/resizedimageskirti/1124_compress.png"></div>
-                        <span>Bumrah</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card eng-side" onclick="openStats('Jofra Archer')">
-                        <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/10012.png"></div>
-                        <span>Archer</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">WICKET TAKING THREATS</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Arshdeep Singh')">
-                        <div class="img-hex"><img src="https://images.icc-cricket.com/image/upload/t_player-headshot-portrait-lg-webp/prd/assets/players/8322/67905.png"></div>
-                        <span>Arshdeep</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card eng-side" onclick="openStats('Adil Rashid')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/319700/319741.png"></div>
-                        <span>Rashid</span>
-                    </div>
-                </div>
-            </div>
+    <main class="container">
+        <div class="news-header-section">
+            <h1>Knockout <span class="gold-text">Face-Off</span></h1>
+            <p>Tactical matchups: Elite players from each semi-finalist</p>
         </div>
-    </details>
 
-    <details class="faceoff-wrapper">
-        <summary>
-            <div class="faceoff-phase-header sa-header">
-                <h2>Semi-Final 1: South Africa vs New Zealand</h2>
-            </div>
-        </summary>
-        
-        <div class="battle-grid">
-            <div class="battle-pair">
-                <div class="pair-title">OPENING FIREPOWER</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Quinton de Kock')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
-                        <span>De Kock</span>
+        <details class="faceoff-wrapper">
+            <summary>
+                <div class="faceoff-phase-header sa-header">
+                    <h2>Semi-Final 1: South Africa vs New Zealand</h2>
+                </div>
+            </summary>
+            
+            <div class="battle-grid">
+                <div class="battle-pair">
+                    <div class="pair-title">OPENING FIREPOWER</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Quinton de Kock')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
+                            <span>De Kock</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card nz-side" onclick="openStats('Devon Conway')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCEp_dtmnaDcUuIpBmiEnk-77t7G6sr9gKTw&s"></div>
+                            <span>Conway</span>
+                        </div>
                     </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Devon Conway')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCEp_dtmnaDcUuIpBmiEnk-77t7G6sr9gKTw&s"></div>
-                        <span>Conway</span>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">DESTRUCTIVE FINISHERS</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Heinrich Klaasen')">
+                            <div class="img-hex"><img src="https://api.bdcrictime.com/Profile/heinrich-klaasen-08_10_2023.jpg"></div>
+                            <span>Klaasen</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card nz-side" onclick="openStats('Rachin Ravindra')">
+                            <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/9211.png"></div>
+                            <span>Ravindra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">SPIN ALL-ROUNDERS</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Aiden Markram')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
+                            <span>Markram</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card nz-side" onclick="openStats('Mitchell Santner')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rfPgEjBsSQbbgioBMt9PCiSX5SgU2cqnpA&s"></div>
+                            <span>Santner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">SWING & SPEED</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Kagiso Rabada')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/320300/320376.png"></div>
+                            <span>Rabada</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card nz-side" onclick="openStats('Trent Boult')">
+                            <div class="img-hex"><img src="https://admin.thecricketer.com/weblab/Sites/96c8b790-b593-bfda-0ba4-ecd3a9fdefc2/resources/images/site/trentboultheadshot-min.jpg"></div>
+                            <span>Boult</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">VETERAN STRIKE BOWLERS</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Anrich Nortje')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322080.png"></div>
+                            <span>Nortje</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card nz-side" onclick="openStats('Tim Southee')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4lKrtouuCr6JRqd0pzs8BKqr-VW0Sl0aUQ&s"></div>
+                            <span>Southee</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </details>
 
-            <div class="battle-pair">
-                <div class="pair-title">DESTRUCTIVE FINISHERS</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Heinrich Klaasen')">
-                        <div class="img-hex"><img src="https://api.bdcrictime.com/Profile/heinrich-klaasen-08_10_2023.jpg"></div>
-                        <span>Klaasen</span>
+        <details class="faceoff-wrapper india-sf-border">
+            <summary>
+                <div class="faceoff-phase-header ind-header">
+                    <h2>Semi-Final 2: India vs England</h2>
+                </div>
+            </summary>
+            
+            <div class="battle-grid">
+                <div class="battle-pair">
+                    <div class="pair-title">TOP ORDER EXPLOSION</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
+                            <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
+                            <span>Abhishek</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card eng-side" onclick="openStats('Phil Salt')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s"></div>
+                            <span>Salt</span>
+                        </div>
                     </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Rachin Ravindra')">
-                        <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/9211.png"></div>
-                        <span>Ravindra</span>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">MIDDLE ORDER KINGS</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Suryakumar Yadav')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4exY9iYNVKAm7uBYHZsqFEwqPuwR-iHNaUw&s"></div>
+                            <span>SKY</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card eng-side" onclick="openStats('Jos Buttler')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrhcbCRfw1t6soS3_X5X3TOUgahvIftqZ4g&s"></div>
+                            <span>Buttler</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">ALL-ROUNDER IMPACT</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Hardik Pandya')">
+                            <div class="img-hex"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/1095bd170035599.64573ca6cde3c.jpg"></div>
+                            <span>Hardik</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card eng-side" onclick="openStats('Sam Curran')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWKLzErRU7WvG-1Z-oBRzw5iJgcW-ZEF6LA&s"></div>
+                            <span>Curran</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">PACE SPEARHEADS</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Jasprit Bumrah')">
+                            <div class="img-hex"><img src="https://documents.bcci.tv/resizedimageskirti/1124_compress.png"></div>
+                            <span>Bumrah</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card eng-side" onclick="openStats('Jofra Archer')">
+                            <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/10012.png"></div>
+                            <span>Archer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="battle-pair">
+                    <div class="pair-title">WICKET TAKING THREATS</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Arshdeep Singh')">
+                            <div class="img-hex"><img src="https://images.icc-cricket.com/image/upload/t_player-headshot-portrait-lg-webp/prd/assets/players/8322/67905.png"></div>
+                            <span>Arshdeep</span>
+                        </div>
+                        <div class="vs-circle">VS</div>
+                        <div class="player-card eng-side" onclick="openStats('Adil Rashid')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/319700/319741.png"></div>
+                            <span>Rashid</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">SPIN ALL-ROUNDERS</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Aiden Markram')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
-                        <span>Markram</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Mitchell Santner')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rfPgEjBsSQbbgioBMt9PCiSX5SgU2cqnpA&s"></div>
-                        <span>Santner</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">SWING & SPEED</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Kagiso Rabada')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/320300/320376.png"></div>
-                        <span>Rabada</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Trent Boult')">
-                        <div class="img-hex"><img src="https://admin.thecricketer.com/weblab/Sites/96c8b790-b593-bfda-0ba4-ecd3a9fdefc2/resources/images/site/trentboultheadshot-min.jpg"></div>
-                        <span>Boult</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="battle-pair">
-                <div class="pair-title">VETERAN STRIKE BOWLERS</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Anrich Nortje')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322080.png"></div>
-                        <span>Nortje</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Tim Southee')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4lKrtouuCr6JRqd0pzs8BKqr-VW0Sl0aUQ&s"></div>
-                        <span>Southee</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </details>
-</main>
+        </details>
+    </main>
 
     <div id="playerModal" class="modal">
         <div class="modal-content premium-card">
