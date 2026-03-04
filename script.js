@@ -119,3 +119,4 @@ window.onclick = function(event) {
         window.closeNews();
     }
 };
+window.openStats = window.openNews;
