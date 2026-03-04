@@ -236,25 +236,25 @@ body {
     width: 100%; height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
-    /* This allows clicks to pass through when hidden */
+    
+    /* FIX: This allows you to click buttons UNDER the modal when it's hidden */
     pointer-events: none; 
+    
     justify-content: center;
     align-items: center;
 }
 
-/* 2. THE SECRET SAUCE: Enable clicks ONLY when open */
+/* FIX: This enables clicking ONLY when the modal is actually visible */
 .modal[style*="display: block"], 
 .modal[style*="display: flex"] {
-    pointer-events: auto;
+    pointer-events: auto !important;
 }
 
-/* 3. ENSURE CLOSE BUTTON IS CLICKABLE */
+/* Ensure close buttons are always clickable */
 .close, .close-modal {
-    cursor: pointer;
-    pointer-events: auto;
-    z-index: 10001;
+    cursor: pointer !important;
+    pointer-events: auto !important;
 }
-
 /* 2. ENABLE CLICKS WHEN VISIBLE */
 /* This ensures that when the modal is shown, the buttons inside work */
 .modal[style*="display: block"] {
