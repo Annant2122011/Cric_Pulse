@@ -2137,3 +2137,85 @@ details[open] .faceoff-phase-header::after {
 summary:hover .faceoff-phase-header {
     background: linear-gradient(90deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.8));
 }
+/* ===== Clickable Player / Button Fixes ===== */
+
+/* Ensure interactive tiles are genuinely interactive */
+.player-card,
+.clickable-player {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;     /* allows z-index to work */
+  z-index: 20;            /* bring above low-level overlays */
+  pointer-events: auto !important;  /* override accidental blockers */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  outline: none;          /* visual outline handled by focus-visible */
+  transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+/* Strong focus style for keyboard users */
+.player-card:focus-visible,
+.clickable-player:focus-visible {
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.14), 0 6px 18px rgba(2,6,23,0.5);
+  transform: translateY(-4px);
+  border-color: rgba(245,158,11,0.6);
+  outline: none;
+}
+
+/* Hover/active affordances */
+.player-card:hover,
+.clickable-player:hover {
+  transform: translateY(-6px);
+  filter: brightness(1.06);
+}
+
+/* Active (mouse down) feel */
+.player-card:active,
+.clickable-player:active {
+  transform: translateY(-2px) scale(0.995);
+  transition-duration: 0.12s;
+}
+
+/* If you use an invisible overlay, make sure it doesn't block clicks when hidden */
+.modal,
+.modal-overlay,
+.site-blocker,
+.page-blocker {
+  pointer-events: none; /* default: don't block clicks */
+}
+
+/* When overlay/modal is visible (inline style display or added class), enable pointer events */
+.modal[style*="display: block"],
+.modal[style*="display: flex"],
+.modal-overlay.is-active,
+.modal-overlay[style*="display: block"],
+.modal-overlay[style*="display: flex"],
+.site-blocker.is-active {
+  pointer-events: auto !important;
+}
+
+/* If a hidden overlay exists with height/width but should never block interactions */
+.site-blocker--pass-through {
+  pointer-events: none !important;
+}
+
+/* ensure vs-circle and other tiny elements don't capture pointer-events unintentionally */
+.vs-circle,
+.img-hex,
+.img-hex img {
+  pointer-events: none; /* allow clicks to bubble to the .player-card */
+}
+
+/* But keep the player's visible controls clickable (if you add buttons inside) */
+.player-card button,
+.player-card a {
+  pointer-events: auto;
+}
+
+/* Accessibility helper: visually-hidden but keyboard-focusable helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
