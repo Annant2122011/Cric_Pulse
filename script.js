@@ -85,23 +85,34 @@ window.openNews = function(title, desc, img) {
     }
 };
 
-// 4. CLOSE ALL modals
+// 4. IMPROVED CLOSE ALL (With Safety Reset)
 window.closeAll = function() {
     const pModal = document.getElementById("playerModal");
     const nModal = document.getElementById("newsModal");
     
-    if (pModal) pModal.style.display = "none";
-    if (nModal) nModal.style.display = "none";
+    // Explicitly set display to none and remove any 'active' classes
+    if (pModal) {
+        pModal.style.display = "none";
+        pModal.classList.remove("active"); 
+    }
+    if (nModal) {
+        nModal.style.display = "none";
+    }
     
+    // CRITICAL: Re-enable scrolling on the main page
     document.body.style.overflow = "auto"; 
+    document.body.classList.remove("modal-open");
+    
+    console.log("UI Reset: All modals closed.");
 };
 
-// 5. Global click handler (close when clicking outside modal-content)
+// 5. ENHANCED Click Handler
 window.addEventListener('click', function(event) {
-    if (event.target.classList && (event.target.classList.contains('modal') || event.target.classList.contains('modal-overlay'))) {
+    // If the user clicks the dark background (the modal itself), close it
+    if (event.target.id === 'playerModal' || event.target.id === 'newsModal') {
         window.closeAll();
-        // Make div.player-card keyboard-activatable and add ARIA/tabindex if missing.
-// This is non-destructive: it preserves existing onclick handlers.
+    }
+});
 
 (function () {
   const cards = document.querySelectorAll('.player-card, .clickable-player');
