@@ -167,3 +167,21 @@ window.openNews = function(title, description, imageUrl) {
     // 5. Lock background scrolling
     document.body.style.overflow = "hidden";
 };
+// 6. SCROLL REVEAL ANIMATION
+document.addEventListener("DOMContentLoaded", function() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active");
+            }
+        });
+    }, {
+        threshold: 0.15 // Triggers when 15% of the card is visible
+    });
+
+    reveals.forEach(reveal => {
+        revealObserver.observe(reveal);
+    });
+});
