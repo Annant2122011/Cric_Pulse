@@ -1,4 +1,5 @@
-// 1. DATA - Declared ONLY ONCE
+// Consolidated & fixed script for modals and player stats
+
 // 1. DATA - Declared ONLY ONCE (Updated with all players)
 const playerStats = {
     // BATTERS
@@ -6,12 +7,12 @@ const playerStats = {
     "Devon Conway": { runs: 290, sr: 132.5, avg: 48.3, sixes: 9, high: "74", impact: "85%", bio: "Technical master who anchors the innings." },
     "Heinrich Klaasen": { runs: 288, sr: 188.4, avg: 41.1, sixes: 22, high: "67*", impact: "98%", bio: "The world's most dangerous spin destroyer." },
     "Rachin Ravindra": { runs: 345, sr: 168.2, avg: 43.1, sixes: 15, high: "101*", impact: "95%", bio: "Young phenom with all-round dominance." },
-    
+
     // BOWLERS
     "Kagiso Rabada": { wickets: 13, econ: 7.2, dots: 88, best: "3/18", speed: "148kmh", impact: "89%", bio: "South Africa's premier pace weapon." },
     "Trent Boult": { wickets: 14, econ: 6.8, dots: 94, best: "4/22", speed: "142kmh", impact: "91%", bio: "King of swing and early breakthroughs." },
     "Keshav Maharaj": { wickets: 9, econ: 6.1, dots: 102, best: "2/15", speed: "Spin", impact: "84%", bio: "Unmatched control in the middle overs." },
-    "Mitchell Santner": { wickets: 10, econ: 6.3, dots: 98, best: "3/20", speed: "Spin", impact: "87%", bio: "New Zealand's tactical left-arm genius." }
+    "Mitchell Santner": { wickets: 10, econ: 6.3, dots: 98, best: "3/20", speed: "Spin", impact: "87%", bio: "New Zealand's tactical left-arm genius." },
 
     // INDIA
     "Abhishek Sharma": { runs: 245, sr: 193.5, avg: 35.0, sixes: 24, high: "66", impact: "94%", bio: "India's most explosive powerplay weapon." },
@@ -24,9 +25,9 @@ const playerStats = {
     "Jos Buttler": { runs: 342, sr: 158.0, avg: 52.6, sixes: 14, high: "94*", impact: "96%", bio: "World-class leader and clinical match-winner." },
     "Jofra Archer": { wickets: 11, econ: 7.1, dots: 95, best: "3/19", speed: "151kmh", impact: "93%", bio: "Raw pace capable of breaking any batting lineup." },
     "Mark Wood": { wickets: 9, econ: 7.8, dots: 76, best: "2/30", speed: "155kmh", impact: "88%", bio: "Pure high-velocity bowling and intimidation." }
-
 };
 
+// 2. PLAYER STATS MODAL
 window.openStats = function(name) {
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
@@ -59,13 +60,30 @@ window.openStats = function(name) {
             </div>
         `;
         modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    } else {
+        console.warn('Player stats not found for:', name);
     }
 };
-// 3. MASTER CLOSE (Renamed to match your HTML)
-// Ensure this name matches the 'onclick' in your HTML
-// MASTER CLOSE FUNCTION
-// 3. MASTER CLOSE FUNCTION
-window.closeNews = function() {
+
+// 3. NEWS MODAL
+window.openNews = function(title, desc, img) {
+    const modal = document.getElementById('newsModal');
+    const titleEl = document.getElementById('modal-title');
+    const descEl = document.getElementById('modal-desc');
+    const imgEl = document.getElementById('modal-img');
+
+    if (modal && titleEl) {
+        titleEl.innerText = title || '';
+        if (descEl) descEl.innerText = desc || '';
+        if (imgEl) imgEl.src = img || '';
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+};
+
+// 4. CLOSE ALL modals
+window.closeAll = function() {
     const pModal = document.getElementById("playerModal");
     const nModal = document.getElementById("newsModal");
     
@@ -75,48 +93,9 @@ window.closeNews = function() {
     document.body.style.overflow = "auto"; 
 };
 
-// MOVE THIS OUTSIDE: Now both names work immediately
-window.closeAll = window.closeNews;
-
-// 4. NEWS FUNCTION
-window.openNews = function(title, desc, img) {
-    const modal = document.getElementById('newsModal');
-    const titleEl = document.getElementById('modal-title');
-    const descEl = document.getElementById('modal-desc');
-    const imgEl = document.getElementById('modal-img');
-
-    if (modal && titleEl) {
-        titleEl.innerText = title;
-        if(descEl) descEl.innerText = desc;
-        if(imgEl) imgEl.src = img;
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
+// 5. Global click handler (close when clicking outside modal-content)
+window.addEventListener('click', function(event) {
+    if (event.target.classList && (event.target.classList.contains('modal') || event.target.classList.contains('modal-overlay'))) {
+        window.closeAll();
     }
-};
-
-// Background click to close
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        window.closeNews();
-    }
-};
-// 4. NEWS FUNCTION (Added safety check)
-window.openNews = function(title, desc, img) {
-    const modal = document.getElementById('newsModal');
-    const titleEl = document.getElementById('modal-title');
-    if (modal && titleEl) {
-        titleEl.innerText = title;
-        document.getElementById('modal-desc').innerText = desc;
-        document.getElementById('modal-img').src = img;
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-};
-
-// Background click to close
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        window.closeNews();
-    }
-};
-window.openStats = window.openNews;
+});
