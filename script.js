@@ -141,4 +141,29 @@ window.addEventListener('click', function(event) {
     // (no change; this just avoids double-handling)
   });
 })();
+window.openNews = function(title, description, imageUrl) {
+    // 1. Find the blank elements inside your news modal
+    const modalTitle = document.getElementById("modal-title");
+    const modalDesc = document.getElementById("modal-desc");
+    const modalImg = document.getElementById("modal-img");
+    const newsModal = document.getElementById("newsModal");
 
+    // 2. Inject the data passed from the HTML click
+    if (modalTitle) modalTitle.innerText = title;
+    if (modalDesc) modalDesc.innerText = description;
+    
+    // 3. Handle the image
+    if (modalImg) {
+        modalImg.src = imageUrl;
+        // Optional safety: hide the image tag if no URL is passed
+        modalImg.style.display = imageUrl ? "block" : "none"; 
+    }
+
+    // 4. Open the modal
+    if (newsModal) {
+        newsModal.style.display = "block"; // or "flex", depending on your CSS
+    }
+    
+    // 5. Lock background scrolling
+    document.body.style.overflow = "hidden";
+};
