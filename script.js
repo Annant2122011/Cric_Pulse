@@ -24,10 +24,7 @@ const playerStats = {
     "Jos Buttler": { runs: 342, sr: 158.0, avg: 52.6, sixes: 14, high: "94*", impact: "96%", bio: "World-class leader and clinical match-winner." },
     "Jofra Archer": { wickets: 11, econ: 7.1, dots: 95, best: "3/19", speed: "151kmh", impact: "93%", bio: "Raw pace capable of breaking any batting lineup." },
     "Mark Wood": { wickets: 9, econ: 7.8, dots: 76, best: "2/30", speed: "155kmh", impact: "88%", bio: "Pure high-velocity bowling and intimidation." }
-"Phil Salt": { 
-    runs: 280, sr: 185.0, avg: 31.1, sixes: 21, high: "78", impact: "91%", 
-    bio: "England's most aggressive opener. A powerplay specialist." 
-},
+
 };
 
 window.openStats = function(name) {
@@ -67,6 +64,7 @@ window.openStats = function(name) {
 // 3. MASTER CLOSE (Renamed to match your HTML)
 // Ensure this name matches the 'onclick' in your HTML
 // MASTER CLOSE FUNCTION
+// 3. MASTER CLOSE FUNCTION
 window.closeNews = function() {
     const pModal = document.getElementById("playerModal");
     const nModal = document.getElementById("newsModal");
@@ -74,10 +72,34 @@ window.closeNews = function() {
     if (pModal) pModal.style.display = "none";
     if (nModal) nModal.style.display = "none";
     
-    document.body.style.overflow = "auto"; // Brings back scrolling
-    window.closeAll = window.closeNews; // This makes both names work
+    document.body.style.overflow = "auto"; 
 };
 
+// MOVE THIS OUTSIDE: Now both names work immediately
+window.closeAll = window.closeNews;
+
+// 4. NEWS FUNCTION
+window.openNews = function(title, desc, img) {
+    const modal = document.getElementById('newsModal');
+    const titleEl = document.getElementById('modal-title');
+    const descEl = document.getElementById('modal-desc');
+    const imgEl = document.getElementById('modal-img');
+
+    if (modal && titleEl) {
+        titleEl.innerText = title;
+        if(descEl) descEl.innerText = desc;
+        if(imgEl) imgEl.src = img;
+        modal.style.display = "block";
+        document.body.style.overflow = "hidden";
+    }
+};
+
+// Background click to close
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        window.closeNews();
+    }
+};
 // 4. NEWS FUNCTION (Added safety check)
 window.openNews = function(title, desc, img) {
     const modal = document.getElementById('newsModal');
