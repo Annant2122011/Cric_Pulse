@@ -294,3 +294,57 @@ window.addEventListener('click', function(event) {
         window.closeAll();
     }
 });
+// ==========================================
+// 7. GLOBAL SIDEBAR LOGIC
+// ==========================================
+window.toggleSidebar = function() {
+    const sidebar = document.getElementById('globalSidebar');
+    if (sidebar) {
+        sidebar.classList.toggle('open');
+    }
+};
+
+// ==========================================
+// 8. FLASHBACK KEY MOMENT MODAL LOGIC
+// ==========================================
+window.openKeyMoment = function(title, description) {
+    const modal = document.getElementById("keyMomentModal");
+    const titleEl = document.getElementById("moment-title");
+    const descEl = document.getElementById("moment-desc");
+
+    if (modal && titleEl && descEl) {
+        titleEl.innerText = title;
+        descEl.innerText = description;
+        
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+};
+
+// UPDATE closeAll() to handle the new keyMomentModal
+// (You can replace your current closeAll with this complete version)
+window.closeAll = function() {
+    const modals = [
+        document.getElementById("playerModal"),
+        document.getElementById("newsModal"),
+        document.getElementById("compareModal"),
+        document.getElementById("keyMomentModal") // Added this one
+    ];
+    
+    modals.forEach(modal => {
+        if (modal) {
+            modal.style.display = "none";
+            modal.classList.remove("active");
+        }
+    });
+    
+    document.body.style.overflow = "auto"; 
+    document.body.classList.remove("modal-open");
+};
+
+// Update background click listener to include the new modal
+window.addEventListener('click', function(event) {
+    if (event.target.classList.contains('modal')) {
+        window.closeAll();
+    }
+});
