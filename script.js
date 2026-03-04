@@ -100,5 +100,36 @@ window.closeAll = function() {
 window.addEventListener('click', function(event) {
     if (event.target.classList && (event.target.classList.contains('modal') || event.target.classList.contains('modal-overlay'))) {
         window.closeAll();
+        // Make div.player-card keyboard-activatable and add ARIA/tabindex if missing.
+// This is non-destructive: it preserves existing onclick handlers.
+
+(function () {
+  const cards = document.querySelectorAll('.player-card, .clickable-player');
+
+  cards.forEach(card => {
+    // add tabindex if not present
+    if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+
+    // add role button for screen readers if not present
+    if (!card.hasAttribute('role')) card.setAttribute('role', 'button');
+
+    // forward keyboard (Enter / Space) to click() or existing onclick
+    card.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        // prefer calling onclick if inline exists, else dispatch click
+        if (typeof card.onclick === 'function') {
+          card.onclick();
+        } else {
+          card.click();
+        }
+      }
+    });
+
+    // safety: if player-card contains interactive controls, allow normal tabbing
+    // (no change; this just avoids double-handling)
+  });
+})();
+
     }
 });
