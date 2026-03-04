@@ -185,3 +185,112 @@ document.addEventListener("DOMContentLoaded", function() {
         revealObserver.observe(reveal);
     });
 });
+// Variable to hold the chart instance so we can destroy/rebuild it on new clicks
+let compareChart = null;
+
+// 1. RADAR CHART MODAL LOGIC
+window.openComparison = function(player1, player2) {
+    const modal = document.getElementById("compareModal");
+    const titleEl = document.getElementById("compare-title");
+    const ctx = document.getElementById('radarChart').getContext('2d');
+    
+    // Fetch data from your existing playerStats object
+    const p1Data = playerStats[player1];
+    const p2Data = playerStats[player2];
+    
+    if (!p1Data || !p2Data) {
+        console.warn("Player data missing for comparison!");
+        return;
+    }
+    
+    titleEl.innerText = `${player1} vs ${player2}`;
+    
+    // Convert text percentages ("99%") to numbers, and normalize stats for the radar graph (0-100 scale)
+    const getImpactNum = (impactStr) => parseInt(impactStr.replace('%', '')) || 85;
+    
+    // We create pseudo-metrics based on their stats so both batters and bowlers look good on a radar
+    const p1Metrics = [
+        getImpactNum(p1Data.impact), 
+        p1Data.sr ? Math.min(parseInt(p1Data.sr) * 0.6, 100) : 100 - (parseFloat(p1Data.econ) * 5), // Aggression/Control
+        90, // Consistency (Placeholder or calculate from Avg/Dots)
+        95, // Form
+        88  // X-Factor
+    ];
+    
+    const p2Metrics = [
+        getImpactNum(p2Data.impact), 
+        p2Data.sr ? Math.min(parseInt(p2Data.sr) * 0.6, 100) : 100 - (parseFloat(p2Data.econ) * 5),
+        85, 
+        92, 
+        90  
+    ];
+
+    // Destroy the old chart before drawing a new one to prevent glitching
+    if(compareChart) {
+        compareChart.destroy();
+    }
+    
+    // Draw the new Radar Chart
+    compareChart = new Chart(ctx, {
+        type: 'radar',
+        data: {
+            labels: ['Impact Rating', 'Aggression/Control', 'Consistency', 'Current Form', 'X-Factor'],
+            datasets: [{
+                label: player1,
+                data: p1Metrics,
+                backgroundColor: 'rgba(255, 153, 51, 0.3)', // India Orange
+                borderColor: '#FF9933',
+                pointBackgroundColor: '#FF9933',
+                borderWidth: 2
+            }, {
+                label: player2,
+                data: p2Metrics,
+                backgroundColor: 'rgba(59, 130, 246, 0.3)', // England/Blue
+                borderColor: '#3b82f6',
+                pointBackgroundColor: '#3b82f6',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                r: {
+                    angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    pointLabels: { color: '#ffd700', font: { size: 11, weight: 'bold' } },
+                    ticks: { display: false, min: 0, max: 100 }
+                }
+            },
+            plugins: {
+                legend: { labels: { color: 'white', font: { size: 14 } } }
+            },
+            maintainAspectRatio: false
+        }
+    });
+
+    // Show the modal
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+};
+
+// 2. UPDATE YOUR CLOSE ALL FUNCTION
+// Find your existing window.closeAll function and update it to include the compareModal
+window.closeAll = function() {
+    const pModal = document.getElementById("playerModal");
+    const nModal = document.getElementById("newsModal");
+    const cModal = document.getElementById("compareModal"); // Added this line
+    
+    if (pModal) { pModal.style.display = "none"; pModal.classList.remove("active"); }
+    if (nModal) { nModal.style.display = "none"; }
+    if (cModal) { cModal.style.display = "none"; } // Added this line
+    
+    document.body.style.overflow = "auto"; 
+    document.body.classList.remove("modal-open");
+};
+
+// 3. UPDATE YOUR CLICK HANDLER
+// Update your background click listener to also close the compare modal
+window.addEventListener('click', function(event) {
+    if (event.target.id === 'playerModal' || event.target.id === 'newsModal' || event.target.id === 'compareModal') {
+        window.closeAll();
+    }
+});
