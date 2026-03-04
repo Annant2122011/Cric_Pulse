@@ -2,31 +2,34 @@
 
 // 1. DATA - Declared ONLY ONCE (Updated with all players)
 const playerStats = {
-    // INDIA
-    "Abhishek Sharma": { runs: 245, sr: 193.5, avg: 35.0, sixes: 24, high: "66", impact: "94%", bio: "India's most explosive powerplay weapon." },
-    "Suryakumar Yadav": { runs: 310, sr: 175.4, avg: 44.2, sixes: 19, high: "82*", impact: "97%", bio: "The 360-degree magician and Indian captain." },
-    "Jasprit Bumrah": { wickets: 12, econ: 5.4, dots: 110, best: "3/11", speed: "145kmh", impact: "99%", bio: "The world's undisputed king of death bowling." },
-    "Mohammed Siraj": { wickets: 8, econ: 7.8, dots: 82, best: "2/24", speed: "142kmh", impact: "82%", bio: "The Miya-Magic pace spearhead for the powerplay." },
+    // --- INDIA ---
+    "Suryakumar Yadav": { runs: 2432, sr: 167.7, avg: 43.4, sixes: 136, high: "117", impact: "99%", bio: "World No. 1 T20 batter. Known for 360-degree strokeplay." }, // Batter
+    "Abhishek Sharma": { runs: 159, sr: 172.8, avg: 22.7, sixes: 12, high: "100", impact: "92%", bio: "Aggressive young opener with a century in his 2nd T20I." }, // Batter
+    "Hardik Pandya": { runs: 1523, wickets: 86, sr: 139.1, econ: 8.1, high: "71*", impact: "95%", bio: "Premier all-rounder. India's go-to man for finishing and breakthroughs." }, // All-Rounder
+    "Jasprit Bumrah": { wickets: 89, econ: 6.27, dots: 1050, best: "3/11", speed: "145kmh", impact: "99%", bio: "The gold standard of T20 bowling. Lethal at the death." }, // Bowler
+    "Arshdeep Singh": { wickets: 87, econ: 8.35, dots: 820, best: "4/37", speed: "140kmh", impact: "88%", bio: "Leading left-arm pacer and powerplay specialist." }, // Bowler
 
-    // ENGLAND
-    "Phil Salt": { runs: 280, sr: 185.0, avg: 31.1, sixes: 21, high: "78", impact: "91%", bio: "Fearless opener who strikes from ball one." },
-    "Jos Buttler": { runs: 342, sr: 158.0, avg: 52.6, sixes: 14, high: "94*", impact: "96%", bio: "World-class leader and clinical match-winner." },
-    "Jofra Archer": { wickets: 11, econ: 7.1, dots: 95, best: "3/19", speed: "151kmh", impact: "93%", bio: "Raw pace capable of breaking any batting lineup." },
-    "Mark Wood": { wickets: 9, econ: 7.8, dots: 76, best: "2/30", speed: "155kmh", impact: "88%", bio: "Pure high-velocity bowling and intimidation." },
+    // --- ENGLAND ---
+    "Jos Buttler": { runs: 3140, sr: 144.6, avg: 35.6, sixes: 123, high: "101*", impact: "98%", bio: "One of the greatest white-ball keepers of all time." }, // Batter
+    "Phil Salt": { runs: 885, sr: 165.1, avg: 34.0, sixes: 58, high: "119", impact: "94%", bio: "Explosive opener with back-to-back T20I centuries." }, // Batter
+    "Sam Curran": { runs: 330, wickets: 52, sr: 121.3, econ: 8.0, high: "27", impact: "89%", bio: "T20 WC 2022 Player of the Tournament. Elite swing bowler." }, // All-Rounder
+    "Adil Rashid": { wickets: 122, econ: 7.38, dots: 1120, best: "4/2", speed: "Spin", impact: "93%", bio: "England's most successful T20I leg-spinner." }, // Bowler
+    "Jofra Archer": { wickets: 35, econ: 7.55, dots: 420, best: "3/19", speed: "152kmh", impact: "91%", bio: "Raw pace and bounce. A threat in any condition." }, // Bowler
 
-    // SOUTH AFRICA
-    "Quinton de Kock": { runs: 312, sr: 148.5, avg: 39.0, sixes: 18, high: "81*", impact: "92%", bio: "Aggressive opener who targets the powerplay." },
-    "Heinrich Klaasen": { runs: 288, sr: 188.4, avg: 41.1, sixes: 22, high: "67*", impact: "98%", bio: "The world's most dangerous spin destroyer." },
-    "Kagiso Rabada": { wickets: 13, econ: 7.2, dots: 88, best: "3/18", speed: "148kmh", impact: "89%", bio: "South Africa's premier pace weapon." },
-    "Keshav Maharaj": { wickets: 9, econ: 6.1, dots: 102, best: "2/15", speed: "Spin", impact: "84%", bio: "Unmatched control in the middle overs." },
+    // --- SOUTH AFRICA ---
+    "Quinton de Kock": { runs: 2584, sr: 137.3, avg: 32.7, sixes: 114, high: "100", impact: "92%", bio: "Veteran wicket-keeper batter with immense power." }, // Batter
+    "Heinrich Klaasen": { runs: 912, sr: 142.7, avg: 23.4, sixes: 45, high: "81", impact: "96%", bio: "The most destructive batter against spin in middle overs." }, // Batter
+    "Aiden Markram": { runs: 1150, wickets: 11, sr: 145.2, econ: 7.5, high: "70", impact: "90%", bio: "Reliable middle-order batter and handy off-spin option." }, // All-Rounder
+    "Kagiso Rabada": { wickets: 71, econ: 8.52, dots: 840, best: "3/18", speed: "148kmh", impact: "93%", bio: "Spearhead of the Proteas pace attack." }, // Bowler
+    "Anrich Nortje": { wickets: 51, econ: 7.15, dots: 580, best: "4/7", speed: "155kmh", impact: "94%", bio: "Express pace capable of clocking 150kmh+ consistently." }, // Bowler
 
-    // NEW ZEALAND
-    "Devon Conway": { runs: 290, sr: 132.5, avg: 48.3, sixes: 9, high: "74", impact: "85%", bio: "Technical master who anchors the innings." },
-    "Rachin Ravindra": { runs: 345, sr: 168.2, avg: 43.1, sixes: 15, high: "101*", impact: "95%", bio: "Young phenom with all-round dominance." },
-    "Trent Boult": { wickets: 14, econ: 6.8, dots: 94, best: "4/22", speed: "142kmh", impact: "91%", bio: "King of swing and early breakthroughs." },
-    "Mitchell Santner": { wickets: 10, econ: 6.3, dots: 98, best: "3/20", speed: "Spin", impact: "87%", bio: "New Zealand's tactical left-arm genius." }
+    // --- NEW ZEALAND ---
+    "Devon Conway": { runs: 1408, sr: 126.3, avg: 38.0, sixes: 34, high: "99*", impact: "88%", bio: "Technically sound opener who anchors the Kiwis." }, // Batter
+    "Rachin Ravindra": { runs: 231, sr: 134.3, avg: 16.5, sixes: 12, high: "68", impact: "85%", bio: "Rising star with exceptional timing and strokeplay." }, // Batter
+    "Mitchell Santner": { runs: 658, wickets: 115, sr: 122.3, econ: 7.02, high: "77*", impact: "92%", bio: "Economical left-arm spinner and handy lower-order hitter." }, // All-Rounder
+    "Trent Boult": { wickets: 83, econ: 7.76, dots: 910, best: "4/13", speed: "142kmh", impact: "95%", bio: "Renowned for early swing and precision at the death." }, // Bowler
+    "Tim Southee": { wickets: 164, econ: 8.13, dots: 1340, best: "5/18", speed: "138kmh", impact: "94%", bio: "The leading wicket-taker in T20I history." } // Bowler
 };
-
 // 2. PLAYER STATS MODAL
 window.openStats = function(name) {
     const modal = document.getElementById("playerModal");
