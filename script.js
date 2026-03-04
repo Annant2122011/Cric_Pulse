@@ -63,10 +63,10 @@ window.openStats = function(name) {
 // 3. MASTER CLOSE (Renamed to match your HTML)
 window.closeNews = function() {
     const pModal = document.getElementById("playerModal");
-    const nModal = document.getElementById("newsModal");
-    if (pModal) pModal.style.display = "none";
-    if (nModal) nModal.style.display = "none";
-    document.body.style.overflow = "auto";
+    if (pModal) {
+        pModal.style.display = "none";
+        document.body.style.overflow = "auto"; // Re-enable background scroll
+    }
 };
 
 // 4. NEWS FUNCTION (Added safety check)
