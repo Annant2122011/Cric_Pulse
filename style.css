@@ -1498,18 +1498,14 @@ details[open] .table-container {
     backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;
-    /* CHANGE THIS: */
-    pointer-events: auto; 
+    /* FIX: Allow clicks inside the modal */
+    pointer-events: auto !important; 
 }
 
 .close-modal {
-    cursor: pointer !important;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 30px;
-    color: white;
-    z-index: 10001; /* Stay on top */
+    cursor: pointer;
+    z-index: 10001;
+    pointer-events: auto;
 }
 /* Premium Modal Styling */
 .faceoff-modal-container {
