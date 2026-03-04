@@ -24,6 +24,10 @@ const playerStats = {
     "Jos Buttler": { runs: 342, sr: 158.0, avg: 52.6, sixes: 14, high: "94*", impact: "96%", bio: "World-class leader and clinical match-winner." },
     "Jofra Archer": { wickets: 11, econ: 7.1, dots: 95, best: "3/19", speed: "151kmh", impact: "93%", bio: "Raw pace capable of breaking any batting lineup." },
     "Mark Wood": { wickets: 9, econ: 7.8, dots: 76, best: "2/30", speed: "155kmh", impact: "88%", bio: "Pure high-velocity bowling and intimidation." }
+"Phil Salt": { 
+    runs: 280, sr: 185.0, avg: 31.1, sixes: 21, high: "78", impact: "91%", 
+    bio: "England's most aggressive opener. A powerplay specialist." 
+},
 };
 
 window.openStats = function(name) {
