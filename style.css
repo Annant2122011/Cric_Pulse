@@ -1772,3 +1772,8 @@ details[open] .table-container {
     display: flex !important;
     pointer-events: auto !important;
 }
+/* This "unlocks" the page so you can click the buttons */
+.modal[style*="display: block"], 
+.modal[style*="display: flex"] {
+    pointer-events: auto !important;
+}
