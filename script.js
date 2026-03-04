@@ -61,11 +61,12 @@ window.openStats = function(name) {
     }
 };
 // 3. MASTER CLOSE (Renamed to match your HTML)
+// Ensure this name matches the 'onclick' in your HTML
 window.closeNews = function() {
     const pModal = document.getElementById("playerModal");
     if (pModal) {
         pModal.style.display = "none";
-        document.body.style.overflow = "auto"; // Re-enable background scroll
+        document.body.style.overflow = "auto";
     }
 };
 
