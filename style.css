@@ -1759,3 +1759,16 @@ details[open] .table-container {
 .modal[style*="display: flex"] {
     pointer-events: auto !important;
 }
+.modal {
+    z-index: 99999 !important; /* Higher than everything else */
+    display: none; 
+    position: fixed;
+    pointer-events: none;
+}
+
+/* This is the most important line for clicking */
+.modal[style*="display: flex"], 
+.modal[style*="display: block"] {
+    display: flex !important;
+    pointer-events: auto !important;
+}
