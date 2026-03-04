@@ -75,10 +75,8 @@ window.closeNews = function() {
     if (nModal) nModal.style.display = "none";
     
     document.body.style.overflow = "auto"; // Brings back scrolling
+    window.closeAll = window.closeNews; // This makes both names work
 };
-
-// Make sure closeAll does the exact same thing
-window.closeAll = window.closeNews;
 
 // 4. NEWS FUNCTION (Added safety check)
 window.openNews = function(title, desc, img) {
