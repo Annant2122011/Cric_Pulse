@@ -64,22 +64,31 @@
             <span class="status-badge live-glow">March 5</span>
         </div>
         <div class="battle-grid">
-            <div class="battle-pair">
-                <div class="pair-title">POWERPLAY AGGRESSORS</div>
-                <div class="side-by-side">
-                    <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
-                        <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
-                        <span>Abhishek</span>
-                    </div>
-                   <div class="player-card eng-side" onclick="openStats('Phil Salt')">
-    <div class="img-hex">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s" alt="Phil Salt">
+           <div class="battle-pair">
+    <div class="pair-title">POWERPLAY AGGRESSORS</div>
+    <div class="side-by-side">
+        <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
+            <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
+            <span>Abhishek</span>
+        </div>
+        
+        <div class="vs-circle">VS</div>
+
+        <div class="player-card eng-side" onclick="openStats('Phil Salt')">
+            <div class="img-hex">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s" alt="Phil Salt">
+            </div>
+            <span>Salt</span>
+        </div>
     </div>
-    <span>Salt</span>
 </div>
-                </div>
-            </div>
-            </div>
+
+<div id="playerModal" class="modal">
+    <div class="modal-content premium-card">
+        <span class="close-modal" onclick="closeNews()">&times;</span>
+        <div id="modalBody"></div>
+    </div>
+</div>
     </div>
 </main>
 
