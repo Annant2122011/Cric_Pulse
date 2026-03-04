@@ -64,16 +64,16 @@ window.openStats = function(name) {
 // Ensure this name matches the 'onclick' in your HTML
 // MASTER CLOSE FUNCTION
 window.closeNews = function() {
-    const newsModal = document.getElementById("newsModal");
-    const playerModal = document.getElementById("playerModal");
+    const pModal = document.getElementById("playerModal");
+    const nModal = document.getElementById("newsModal");
     
-    if (newsModal) newsModal.style.display = "none";
-    if (playerModal) playerModal.style.display = "none";
+    if (pModal) pModal.style.display = "none";
+    if (nModal) nModal.style.display = "none";
     
-    document.body.style.overflow = "auto"; // Re-enable scrolling
+    document.body.style.overflow = "auto"; // Brings back scrolling
 };
 
-// Make sure closeAll also does the same thing
+// Make sure closeAll does the exact same thing
 window.closeAll = window.closeNews;
 
 // 4. NEWS FUNCTION (Added safety check)
