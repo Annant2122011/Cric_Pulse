@@ -1754,3 +1754,8 @@ details[open] .table-container {
     filter: brightness(1.1); /* Adds a slight highlight */
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+/* Add this so both Flex and Block modals allow clicks */
+.modal[style*="display: block"], 
+.modal[style*="display: flex"] {
+    pointer-events: auto !important;
+}
