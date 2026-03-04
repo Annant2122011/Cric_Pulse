@@ -35,41 +35,28 @@ window.openStats = function(name) {
     const body = document.getElementById("modalBody");
     const data = playerStats[name];
 
-    if (data && modal && body) {
-        // We are creating a 'Comparison' look even for single clicks
+    if (data) {
         body.innerHTML = `
-            <div class=\"faceoff-modal-container\">
-                <div class=\"stat-header\">
-                    <span class=\"live-badge\">PLAYER PROFILE</span>
-                    <h2 class=\"player-name-main\">${name}</h2>
-                </div>
+            <div style="text-align:center">
+                <span style="color:var(--gold); font-weight:800; font-size:0.8rem;">OFFICIAL PLAYER CARD</span>
+                <h2 style="font-size:2rem; margin:10px 0;">${name}</h2>
+                <p style="color:#94a3b8; font-style:italic; margin-bottom:20px;">"${data.bio}"</p>
                 
-                <div class=\"comparison-grid\">
-                    <div class=\"stat-card active\">
-                        <div class=\"stat-value\">${data.runs || data.wickets}</div>
-                        <div class=\"stat-label\">${data.runs ? 'TOTAL RUNS' : 'TOTAL WKTS'}</div>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:15px;">
+                    <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; border:1px solid rgba(255,255,255,0.1);">
+                        <div style="font-size:2.2rem; font-weight:900; color:white;">${data.runs || data.wickets}</div>
+                        <div style="font-size:0.7rem; color:var(--gold); letter-spacing:1px;">${data.runs ? 'TOTAL RUNS' : 'WICKETS'}</div>
                     </div>
-                    <div class=\"stat-card active\">
-                        <div class=\"stat-value\">${data.sr || data.econ}</div>
-                        <div class=\"stat-label\">${data.sr ? 'STRIKE RATE' : 'ECONOMY'}</div>
+                    <div style="background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; border:1px solid rgba(255,255,255,0.1);">
+                        <div style="font-size:2.2rem; font-weight:900; color:white;">${data.sr || data.econ}</div>
+                        <div style="font-size:0.7rem; color:var(--gold); letter-spacing:1px;">${data.sr ? 'STRIKE RATE' : 'ECONOMY'}</div>
                     </div>
-                </div>
-
-                <div class=\"bio-section\">
-                    <h4>SCOUTING REPORT</h4>
-                    <p>${data.bio}</p>
-                </div>
-
-                <div class=\"modal-footer-brand\">
-                    CRIC<span>PULSE</span> PREMIUM STATS
                 </div>
             </div>
         `;
-        modal.style.display = "flex"; // Changed to flex for centering
-        document.body.style.overflow = "hidden";
+        modal.style.display = "block";
     }
 };
-
 // 3. MASTER CLOSE (Renamed to match your HTML)
 window.closeNews = function() {
     const pModal = document.getElementById("playerModal");
