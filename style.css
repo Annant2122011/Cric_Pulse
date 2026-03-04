@@ -1936,3 +1936,108 @@ td {
     margin-bottom: 10px;
     letter-spacing: 2px;
 }
+/* --- PREMIUM ACCORDION (DETAILS/SUMMARY) STYLING --- */
+
+/* 1. Remove default browser arrows */
+details summary {
+    list-style: none;
+    cursor: pointer;
+    outline: none;
+}
+details summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 2. Wrapper Styling - Glass Effect */
+.faceoff-wrapper {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glow effect when open */
+details[open].faceoff-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(245, 158, 11, 0.3); /* Gold border when open */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 3. Header Customization */
+.faceoff-phase-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    background: linear-gradient(90deg, rgba(15, 23, 42, 0.9), rgba(2, 6, 23, 0.8));
+    position: relative;
+}
+
+.faceoff-phase-header h2 {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* 4. The Animated Arrow */
+.faceoff-phase-header::after {
+    content: '→'; /* Modern arrow */
+    font-size: 1.5rem;
+    color: var(--gold);
+    transition: transform 0.4s ease;
+    font-weight: bold;
+}
+
+details[open] .faceoff-phase-header::after {
+    transform: rotate(90deg); /* Points down when open */
+}
+
+/* 5. Content Animation */
+.battle-grid {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    /* Animation for the content appearance */
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 6. Individual Player Card Polish */
+.player-card {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.player-card:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* 7. Team Specific Accents */
+.india-sf-border {
+    border-left: 5px solid #ff9933 !important;
+}
+
+/* Decorative Status Badge */
+.status-badge {
+    background: rgba(245, 158, 11, 0.1);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 15px;
+}
+
+/* Hover effect for the whole header */
+summary:hover .faceoff-phase-header {
+    background: linear-gradient(90deg, rgba(30, 41, 59, 0.9), rgba(15, 23, 42, 0.8));
+}
