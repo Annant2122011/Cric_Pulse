@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>FaceOff | Cric Pulse</title>
 </head>
@@ -29,69 +31,73 @@
         </div>
     </div>
 
- <main class="container">
-    <div class="news-header-section">
-        <h1>Knockout <span class="gold-text">Face-Off</span></h1>
-        <p>Tactical matchups: 2 Elite Batters & 2 Lethal Bowlers per side</p>
-    </div>
-
-    <div class="faceoff-wrapper">
-        <div class="faceoff-phase-header sa-nz-header">
-            <h2>Semi-Final 1: Proteas vs BlackCaps</h2>
-            <span class="status-badge live-glow">March 4</span>
+    <main class="container">
+        <div class="news-header-section">
+            <h1>Knockout <span class="gold-text">Face-Off</span></h1>
+            <p>Tactical matchups: 2 Elite Batters & 2 Lethal Bowlers per side</p>
         </div>
-        <div class="battle-grid">
-            <div class="battle-pair">
-                <div class="pair-title">THE TOP ORDER BATTLE</div>
-                <div class="side-by-side">
-                    <div class="player-card sa-side" onclick="openStats('Quinton de Kock')">
-                        <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
-                        <span>De Kock</span>
-                    </div>
-                    <div class="vs-circle">VS</div>
-                    <div class="player-card nz-side" onclick="openStats('Devon Conway')">
-                        <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCEp_dtmnaDcUuIpBmiEnk-77t7G6sr9gKTw&s"></div>
-                        <span>Conway</span>
+
+        <div class="faceoff-wrapper">
+            <div class="faceoff-phase-header sa-nz-header">
+                <h2>Semi-Final 1: Proteas vs BlackCaps</h2>
+                <span class="status-badge live-glow">March 4</span>
+            </div>
+            <div class="battle-grid">
+                <div class="battle-pair">
+                    <div class="pair-title">THE TOP ORDER BATTLE</div>
+                    <div class="side-by-side">
+                        <div class="player-card sa-side" onclick="openStats('Quinton de Kock')">
+                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png" alt="Quinton de Kock"></div>
+                            <span>De Kock</span>
+                        </div>
+
+                        <div class="vs-circle">VS</div>
+
+                        <div class="player-card nz-side" onclick="openStats('Devon Conway')">
+                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCEp_dtmnaDcUuIpBmiEnk-77t7G6sr9gKTw&s" alt="Devon Conway"></div>
+                            <span>Conway</span>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div class="faceoff-wrapper india-sf-border">
+            <div class="faceoff-phase-header ind-header">
+                <h2>Semi-Final 2: India vs England</h2>
+                <span class="status-badge live-glow">March 5</span>
             </div>
-    </div>
+            <div class="battle-grid">
+                <div class="battle-pair">
+                    <div class="pair-title">POWERPLAY AGGRESSORS</div>
+                    <div class="side-by-side">
+                        <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
+                            <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg" alt="Abhishek Sharma"></div>
+                            <span>Abhishek</span>
+                        </div>
 
-    <div class="faceoff-wrapper india-sf-border">
-        <div class="faceoff-phase-header ind-header">
-            <h2>Semi-Final 2: India vs England</h2>
-            <span class="status-badge live-glow">March 5</span>
-        </div>
-        <div class="battle-grid">
-           <div class="battle-pair">
-    <div class="pair-title">POWERPLAY AGGRESSORS</div>
-    <div class="side-by-side">
-        <div class="player-card ind-side" onclick="openStats('Abhishek Sharma')">
-            <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
-            <span>Abhishek</span>
-        </div>
-        
-        <div class="vs-circle">VS</div>
+                        <div class="vs-circle">VS</div>
 
-        <div class="player-card eng-side" onclick="openStats('Phil Salt')">
-            <div class="img-hex">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s" alt="Phil Salt">
+                        <div class="player-card eng-side" onclick="openStats('Phil Salt')">
+                            <div class="img-hex">
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s" alt="Phil Salt">
+                            </div>
+                            <span>Salt</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <span>Salt</span>
+        </div>
+    </main>
+
+    <!-- Player modal (used by faceoff & other player cards) -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content premium-card">
+            <span class="close-modal" onclick="closeAll()">&times;</span>
+            <div id="modalBody"></div>
         </div>
     </div>
-</div>
 
-</div> </main>
-
-<div id="playerModal" class="modal">
-    <div class="modal-content premium-card">
-        <span class="close-modal" onclick="closeAll()">&times;</span>
-        <div id="modalBody"></div>
-    </div>
-</div>
-
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
