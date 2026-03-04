@@ -3,110 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>FaceOff | CricPulse</title>
+    <title>Fan Zone | CricPulse</title>
     <link rel="stylesheet" href="style.css">
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <style>
-        /* --- ADVANCED UI ANIMATIONS --- */
-        details summary { list-style: none; cursor: pointer; outline: none; }
-        details summary::-webkit-details-marker { display: none; }
-
-        .faceoff-wrapper {
-            background: rgba(15, 23, 42, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            margin-bottom: 40px;
-            overflow: hidden;
-            position: relative; 
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        /* --- FEATURED SECTION: INDIA VS ENGLAND --- */
-        .featured-sf {
-            border: 2px solid rgba(255, 153, 51, 0.4);
-            box-shadow: 0 0 30px rgba(255, 153, 51, 0.15);
-        }
-
-        /* Moving Neon Border Animation */
-        .featured-sf::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 3px;
-            background: linear-gradient(90deg, transparent, #ff9933, #ffffff, #128807, transparent);
-            animation: neonFlow 4s linear infinite;
-            z-index: 5;
-        }
-
-        @keyframes neonFlow {
-            0% { left: -100%; }
-            100% { left: 100%; }
-        }
-
-        .faceoff-phase-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 35px;
-            transition: 0.3s;
-        }
-
-        .faceoff-phase-header h2 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin: 0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-        }
-
-        .faceoff-phase-header::after {
-            content: '▼';
-            font-size: 1.2rem;
-            color: var(--gold);
-            transition: 0.4s;
-        }
-
-        details[open] .faceoff-phase-header::after {
-            transform: rotate(180deg);
-        }
-
-        /* Fixed Modal Styling */
-        .modal {
-            display: none; 
-            position: fixed;
-            z-index: 3000; 
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            backdrop-filter: blur(8px);
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal-content {
-            position: relative;
-            background: var(--navy-light);
-            border: 1px solid var(--gold);
-            border-radius: 20px;
-            padding: 20px;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        /* Adjustments for player names to look better with form indicators */
-        .player-card h4 {
-            color: white; 
-            margin: 10px 0 5px 0;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        
-        .battle-pair {
-            cursor: pointer; /* Makes the whole card click-friendly for the radar chart */
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar">
@@ -117,392 +15,125 @@
             <li><a href="matches.html">MATCHES</a></li>
             <li><a href="live.html">LIVE</a></li>
             <li><a href="standings.html">STANDINGS</a></li>
-            <li><a href="faceoff.html" class="active">FACE-OFF</a></li>
-            <li><a href="teams.html">TEAMS</a></li>
+            <li><a href="faceoff.html">FACE-OFF</a></li>
+            <li><a href="fanzone.html" class="active">FAN ZONE</a></li>
         </ul>
     </nav>
 
-    <div class="news-ticker-container">
-        <div class="ticker-label">🔥 Latest</div>
-        <div class="ticker-wrapper">
-            <div class="ticker-content">
-                <span>💎 Cameron Green: ₹25.20 Cr</span>
-                <span>🚑 Siraj joins India squad</span>
-                <span>🏏 SA vs NZ @ Eden Gardens</span>
-                <span>🏆 Metro 24/7 for Final!</span>
+    <div id="globalSidebar" class="stats-sidebar">
+        <div class="sidebar-header">
+            <h3>🔥 LIVE HUB</h3>
+            <button onclick="toggleSidebar()" class="close-sidebar">&times;</button>
+        </div>
+        <div class="sidebar-content">
+            <div class="side-widget">
+                <h4>Top Run Scorer</h4>
+                <p class="gold-text">Suryakumar Yadav</p>
+                <span>342 Runs | 185.4 SR</span>
+            </div>
+            <div class="side-widget">
+                <h4>Top Wicket Taker</h4>
+                <p class="gold-text">Jasprit Bumrah</p>
+                <span>14 Wickets | 5.8 Econ</span>
+            </div>
+            <div class="side-widget live-widget">
+                <h4>Next Match</h4>
+                <p>IND vs ENG (SF 2)</p>
+                <span class="pulse-text">Starts in: 14h 22m</span>
             </div>
         </div>
     </div>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">📊 STATS</button>
 
     <main class="container">
-        <div class="news-header-section">
-            <h1>Knockout <span class="gold-text">Face-Off</span></h1>
-            <p>Tactical matchups between the world's best 20 players</p>
+        <div class="news-header-section" style="margin-top: 40px;">
+            <h1>The <span class="gold-text">Hype Train</span></h1>
+            <p>Milestones and records on the verge of being shattered.</p>
         </div>
 
-        <details class="faceoff-wrapper">
-            <summary>
-                <div class="faceoff-phase-header sa-header">
-                    <div>
-                        <span class="status-badge">MARCH 4</span>
-                        <h2>Semi-Final 1: South Africa vs New Zealand</h2>
+        <div class="milestone-container">
+            <div class="milestone-card">
+                <div class="ms-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4exY9iYNVKAm7uBYHZsqFEwqPuwR-iHNaUw&s" alt="SKY" class="ms-avatar">
+                    <div class="ms-info">
+                        <h3>Suryakumar Yadav</h3>
+                        <p>Needs <span class="gold-text">4 Sixes</span> to reach 150 T20I Career Sixes</p>
                     </div>
                 </div>
-            </summary>
-            
-            <div class="battle-grid">
-                
-                <div class="battle-pair" onclick="openComparison('Quinton de Kock', 'Devon Conway')">
-                    <div class="matchup-badge">Explosive Power vs Technical Anchor</div>
-                    <div class="side-by-side">
-                        <div class="player-card sa-side">
-                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
-                            <h4>De Kock</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card nz-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCEp_dtmnaDcUuIpBmiEnk-77t7G6sr9gKTw&s"></div>
-                            <h4>Conway</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Powerplay Aggression</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 65%; background: #007a4d;"></div><div class="bar-right" style="width: 35%; background: #000;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Innings Building</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 40%; background: #007a4d;"></div><div class="bar-right" style="width: 60%; background: #000;"></div></div>
-                        </div>
-                    </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 96%;">146 / 150</div>
                 </div>
-
-                <div class="battle-pair" onclick="openComparison('Heinrich Klaasen', 'Rachin Ravindra')">
-                    <div class="matchup-badge">Spin Destruction vs Young Maestro</div>
-                    <div class="side-by-side">
-                        <div class="player-card sa-side">
-                            <div class="img-hex"><img src="https://api.bdcrictime.com/Profile/heinrich-klaasen-08_10_2023.jpg"></div>
-                            <h4>Klaasen</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card nz-side">
-                            <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/9211.png"></div>
-                            <h4>Ravindra</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Spin Dominance</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 70%; background: #007a4d;"></div><div class="bar-right" style="width: 30%; background: #000;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Timing & Placement</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 45%; background: #007a4d;"></div><div class="bar-right" style="width: 55%; background: #000;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Aiden Markram', 'Mitchell Santner')">
-                    <div class="matchup-badge">Middle Overs Control</div>
-                    <div class="side-by-side">
-                        <div class="player-card sa-side">
-                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322067.png"></div>
-                            <h4>Markram</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card nz-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4rfPgEjBsSQbbgioBMt9PCiSX5SgU2cqnpA&s"></div>
-                            <h4>Santner</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Batting Impact</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 60%; background: #007a4d;"></div><div class="bar-right" style="width: 40%; background: #000;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Bowling Economy</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 45%; background: #007a4d;"></div><div class="bar-right" style="width: 55%; background: #000;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Kagiso Rabada', 'Trent Boult')">
-                    <div class="matchup-badge">Express Pace vs Early Swing</div>
-                    <div class="side-by-side">
-                        <div class="player-card sa-side">
-                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/320300/320376.png"></div>
-                            <h4>Rabada</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card nz-side">
-                            <div class="img-hex"><img src="https://admin.thecricketer.com/weblab/Sites/96c8b790-b593-bfda-0ba4-ecd3a9fdefc2/resources/images/site/trentboultheadshot-min.jpg"></div>
-                            <h4>Boult</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Pace & Bounce</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 65%; background: #007a4d;"></div><div class="bar-right" style="width: 35%; background: #000;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Powerplay Wickets</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 40%; background: #007a4d;"></div><div class="bar-right" style="width: 60%; background: #000;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Anrich Nortje', 'Tim Southee')">
-                    <div class="matchup-badge">Sheer Speed vs Cunning Variations</div>
-                    <div class="side-by-side">
-                        <div class="player-card sa-side">
-                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/322000/322080.png"></div>
-                            <h4>Nortje</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card nz-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTc4lKrtouuCr6JRqd0pzs8BKqr-VW0Sl0aUQ&s"></div>
-                            <h4>Southee</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Raw Speed</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 80%; background: #007a4d;"></div><div class="bar-right" style="width: 20%; background: #000;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Variations & Cutters</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 35%; background: #007a4d;"></div><div class="bar-right" style="width: 65%; background: #000;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </details>
 
-        <details class="faceoff-wrapper featured-sf" open>
-            <summary>
-                <div class="faceoff-phase-header ind-header">
-                    <div>
-                        <span class="status-badge pulse-live">LIVE TOMORROW</span>
-                        <h2>Semi-Final 2: India vs England</h2>
+            <div class="milestone-card">
+                <div class="ms-header">
+                    <img src="https://documents.bcci.tv/resizedimageskirti/1124_compress.png" alt="Bumrah" class="ms-avatar">
+                    <div class="ms-info">
+                        <h3>Jasprit Bumrah</h3>
+                        <p>Needs <span class="gold-text">2 Wickets</span> to reach 100 T20I Wickets</p>
                     </div>
                 </div>
-            </summary>
-            
-            <div class="battle-grid">
-                
-                <div style="grid-column: 1 / -1;">
-                    <div class="win-predictor">
-                        <div class="team-prob ind-prob" style="width: 58%;">IND 58%</div>
-                        <div class="team-prob eng-prob" style="width: 42%;">ENG 42%</div>
-                    </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 98%; background: linear-gradient(90deg, #3b82f6, #60a5fa);">98 / 100</div>
                 </div>
-
-                <div class="battle-pair" onclick="openComparison('Abhishek Sharma', 'Phil Salt')">
-                    <div class="matchup-badge">Fearless Youth vs Aggressive Intent</div>
-                    <div class="side-by-side">
-                        <div class="player-card ind-side">
-                            <div class="img-hex"><img src="https://i.pinimg.com/736x/01/b3/64/01b364e771cb93ffc4c91a9f4b0cd953.jpg"></div>
-                            <h4>Abhishek</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card eng-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCON1kVM-hsfw5sqaLK1Lpju16jZujMJ1r9A&s"></div>
-                            <h4>Salt</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Spin Hitting</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 60%;"></div><div class="bar-right" style="width: 40%;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Pace Hitting</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 45%;"></div><div class="bar-right" style="width: 55%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Suryakumar Yadav', 'Jos Buttler')">
-                    <div class="matchup-badge">360° Mastery vs White-Ball Legend</div>
-                    <div class="side-by-side">
-                        <div class="player-card ind-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4exY9iYNVKAm7uBYHZsqFEwqPuwR-iHNaUw&s"></div>
-                            <h4>SKY</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card eng-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrhcbCRfw1t6soS3_X5X3TOUgahvIftqZ4g&s"></div>
-                            <h4>Buttler</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Unorthodox Innovation</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 75%;"></div><div class="bar-right" style="width: 25%;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Big Match Temperament</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 48%;"></div><div class="bar-right" style="width: 52%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Hardik Pandya', 'Sam Curran')">
-                    <div class="matchup-badge">Clutch Match-Winners</div>
-                    <div class="side-by-side">
-                        <div class="player-card ind-side">
-                            <div class="img-hex"><img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/1095bd170035599.64573ca6cde3c.jpg"></div>
-                            <h4>Hardik</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card eng-side">
-                            <div class="img-hex"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdWKLzErRU7WvG-1Z-oBRzw5iJgcW-ZEF6LA&s"></div>
-                            <h4>Curran</h4>
-                            <div class="form-indicator">
-                                <span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Finishing Power</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 65%;"></div><div class="bar-right" style="width: 35%;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Bowling Versatility</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 45%;"></div><div class="bar-right" style="width: 55%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Jasprit Bumrah', 'Jofra Archer')">
-                    <div class="matchup-badge">The Ultimate Pace Battle</div>
-                    <div class="side-by-side">
-                        <div class="player-card ind-side">
-                            <div class="img-hex"><img src="https://documents.bcci.tv/resizedimageskirti/1124_compress.png"></div>
-                            <h4>Bumrah</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card eng-side">
-                            <div class="img-hex"><img src="https://d13ir53smqqeyp.cloudfront.net/fc-player-images/10012.png"></div>
-                            <h4>Archer</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Death Overs Economy</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 75%;"></div><div class="bar-right" style="width: 25%;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Bounce & Carry</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 45%;"></div><div class="bar-right" style="width: 55%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="battle-pair" onclick="openComparison('Arshdeep Singh', 'Adil Rashid')">
-                    <div class="matchup-badge">Death Specialist vs Middle Over Magician</div>
-                    <div class="side-by-side">
-                        <div class="player-card ind-side">
-                            <div class="img-hex"><img src="https://images.icc-cricket.com/image/upload/t_player-headshot-portrait-lg-webp/prd/assets/players/8322/67905.png"></div>
-                            <h4>Arshdeep</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                        <div class="vs-circle">VS</div>
-                        <div class="player-card eng-side">
-                            <div class="img-hex"><img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/319700/319741.png"></div>
-                            <h4>Rashid</h4>
-                            <div class="form-indicator">
-                                <span class="form-w">W</span><span class="form-w">W</span><span class="form-w">W</span><span class="form-l">L</span><span class="form-w">W</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="h2h-stats">
-                        <div class="stat-row">
-                            <span class="stat-lbl">Pace Impact</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 80%;"></div><div class="bar-right" style="width: 20%;"></div></div>
-                        </div>
-                        <div class="stat-row">
-                            <span class="stat-lbl">Spin Impact</span>
-                            <div class="bar-container"><div class="bar-left" style="width: 20%;"></div><div class="bar-right" style="width: 80%;"></div></div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </details>
+
+            <div class="milestone-card">
+                <div class="ms-header">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrhcbCRfw1t6soS3_X5X3TOUgahvIftqZ4g&s" alt="Buttler" class="ms-avatar">
+                    <div class="ms-info">
+                        <h3>Jos Buttler</h3>
+                        <p>Needs <span class="gold-text">45 Runs</span> to become England's all-time leading T20 scorer</p>
+                    </div>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill" style="width: 85%; background: linear-gradient(90deg, #ef4444, #f87171);">3140 / 3185</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news-header-section" style="margin-top: 80px;">
+            <h1>Classic <span class="gold-text">Encounters</span></h1>
+            <p>From the vault: Matches that defined generations.</p>
+        </div>
+
+        <div class="flashback-grid">
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://static.cricbuzz.com/a/img/v1/1080x608/i1/c245906/virat-kohli-pulled-off-a-miracle-in-melbourne.jpg" alt="IND vs PAK 2022">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-info">
+                    <span class="match-year">T20 WC 2022</span>
+                    <h3>The Melbourne Miracle</h3>
+                    <p>India vs Pakistan. 28 needed off 8 balls. Enter Virat Kohli.</p>
+                    <button class="btn btn-secondary key-moment-btn" onclick="openKeyMoment('Kohli\'s Shot of the Century', 'With 28 needed off 8 balls against Haris Rauf, Kohli hit a backfoot punch straight back over the bowler\'s head for a six. It mathematically shifted the win probability and broke the bowler\'s spirit.')">🔑 Key Moment</button>
+                </div>
+            </div>
+
+            <div class="video-card">
+                <div class="video-thumbnail">
+                    <img src="https://img1.hscicdn.com/image/upload/f_auto,t_ds_w_1200,q_60/lsci/db/PICTURES/CMS/349400/349449.jpg" alt="ENG vs NZ 2019">
+                    <div class="play-overlay">▶</div>
+                </div>
+                <div class="video-info">
+                    <span class="match-year">ODI WC 2019</span>
+                    <h3>The Barest of Margins</h3>
+                    <p>England vs New Zealand. A tied super over decides the World Cup.</p>
+                    <button class="btn btn-secondary key-moment-btn" onclick="openKeyMoment('The Deflection', 'In the final over of the chase, Martin Guptill threw the ball from the deep, which deflected off a diving Ben Stokes\' bat and raced to the boundary for an accidental 4 overthrows.')">🔑 Key Moment</button>
+                </div>
+            </div>
+        </div>
     </main>
 
-    <div id="compareModal" class="modal" onclick="closeAll()">
-        <div class="modal-content premium-card" onclick="event.stopPropagation()" style="max-width: 500px;">
-            <span class="close-modal" onclick="closeAll()">&times;</span>
-            <h2 class="modal-title" id="compare-title" style="color: #ffd700; text-align: center; margin-bottom: 10px;">Tale of the Tape</h2>
-            
-            <div style="position: relative; height: 300px; width: 100%; margin-top: 20px;">
-                <canvas id="radarChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <div id="playerModal" class="modal" onclick="closeAll()">
+    <div id="keyMomentModal" class="modal" onclick="closeAll()">
         <div class="modal-content premium-card" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeAll()">&times;</span>
-            <div id="modalBody"></div>
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🔑</div>
+                <h2 class="modal-title" id="moment-title" style="color: #ffd700;"></h2>
+                <p id="moment-desc" style="color: #cbd5e1; font-size: 1rem; line-height: 1.6; margin-top: 15px; text-align: left; border-left: 3px solid #ffd700; padding-left: 15px; background: rgba(0,0,0,0.3); padding: 15px;"></p>
+            </div>
         </div>
     </div>
 
