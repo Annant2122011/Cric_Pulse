@@ -330,8 +330,8 @@
         </details>
     </main>
 
-    <div id="playerModal" class="modal">
-        <div class="modal-content premium-card">
+  <div id="playerModal" class="modal" onclick="closeAll()">
+        <div class="modal-content premium-card" onclick="event.stopPropagation()">
             <span class="close-modal" onclick="closeAll()">&times;</span>
             <div id="modalBody"></div>
         </div>
