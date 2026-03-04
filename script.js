@@ -30,27 +30,42 @@ const playerStats = {
     "Mark Wood": { wickets: 9, econ: 7.8, bio: "Pure high-velocity bowling from the North." }
 };
 
-// 2. OPEN STATS
-// 2. OPEN STATS
 window.openStats = function(name) {
     const modal = document.getElementById("playerModal");
     const body = document.getElementById("modalBody");
     const data = playerStats[name];
 
     if (data && modal && body) {
+        // We are creating a 'Comparison' look even for single clicks
         body.innerHTML = `
-            <h2 style="color:#f59e0b">${name}</h2>
-            <p style="margin:15px 0; color:#cbd5e1">${data.bio}</p>
-            <div style="display:flex; gap:10px; justify-content:center;">
-                <div style="background:#0f172a; padding:10px; border-radius:8px; flex:1; border:1px solid #334155;">
-                    <b style="font-size:1.2rem">${data.runs || 'N/A'}</b><br><small>RUNS</small>
+            <div class=\"faceoff-modal-container\">
+                <div class=\"stat-header\">
+                    <span class=\"live-badge\">PLAYER PROFILE</span>
+                    <h2 class=\"player-name-main\">${name}</h2>
                 </div>
-                <div style="background:#0f172a; padding:10px; border-radius:8px; flex:1; border:1px solid #334155;">
-                    <b style="font-size:1.2rem">${data.sr || 'N/A'}</b><br><small>S/R</small>
+                
+                <div class=\"comparison-grid\">
+                    <div class=\"stat-card active\">
+                        <div class=\"stat-value\">${data.runs || data.wickets}</div>
+                        <div class=\"stat-label\">${data.runs ? 'TOTAL RUNS' : 'TOTAL WKTS'}</div>
+                    </div>
+                    <div class=\"stat-card active\">
+                        <div class=\"stat-value\">${data.sr || data.econ}</div>
+                        <div class=\"stat-label\">${data.sr ? 'STRIKE RATE' : 'ECONOMY'}</div>
+                    </div>
+                </div>
+
+                <div class=\"bio-section\">
+                    <h4>SCOUTING REPORT</h4>
+                    <p>${data.bio}</p>
+                </div>
+
+                <div class=\"modal-footer-brand\">
+                    CRIC<span>PULSE</span> PREMIUM STATS
                 </div>
             </div>
         `;
-        modal.style.display = "block";
+        modal.style.display = "flex"; // Changed to flex for centering
         document.body.style.overflow = "hidden";
     }
 };
