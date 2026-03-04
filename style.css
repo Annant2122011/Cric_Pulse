@@ -1582,3 +1582,23 @@ details[open] .table-container {
     border-radius: 4px;
     font-weight: 900;
 }
+.side-by-side {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.vs-divider {
+    font-weight: 900;
+    color: #f59e0b;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+.matchup-container {
+    background: var(--glass);
+    padding: 15px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
