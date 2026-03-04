@@ -28,47 +28,69 @@ body {
     padding: 20px;
 }
 
-/* --- 2. NAVIGATION BAR --- */
+/* --- CLASSIC & COMPACT NAVIGATION BAR --- */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background: var(--navy-light);
-    border-bottom: 1px solid var(--glass-border);
+    /* Reduced padding to make it small and tight to the top */
+    padding: 10px 5%; 
+    background: #020617; /* Deep solid navy for a classic look */
+    border-bottom: 1px solid rgba(255, 215, 0, 0.2); /* Subtle gold border */
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
+    height: 60px; /* Forces a small, fixed height */
 }
 
 .logo {
-    font-weight: 800;
-    font-size: 1.6rem;
-    letter-spacing: -1px;
+    font-weight: 900;
+    font-size: 1.4rem;
+    color: #f8fafc;
+    letter-spacing: 1px;
 }
 
 .logo span {
-    color: var(--gold);
+    color: #ffd700; /* Gold */
 }
 
+/* This fixes the bullet points */
 .nav-links {
     display: flex;
-    list-style: none;
-    gap: 25px;
+    list-style: none !important; 
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
+.nav-links li {
+    display: inline-block;
+}
+
+/* This fixes the purple underlines */
 .nav-links a {
-    color: var(--white);
-    text-decoration: none;
-    font-size: 0.9rem;
+    color: #f8fafc;
+    text-decoration: none !important; 
+    font-size: 0.85rem; /* Small, classic font size */
     font-weight: 600;
-    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
     opacity: 0.8;
 }
 
-.nav-links a:hover {
-    color: var(--gold);
+/* Classic hover effect */
+.nav-links a:hover, 
+.nav-links a.active {
+    color: #ffd700;
     opacity: 1;
+}
+
+/* Mobile Responsiveness for the smaller navbar */
+@media (max-width: 900px) {
+    .nav-links {
+        display: none; /* Hides menu on mobile (needs a hamburger menu) */
+    }
 }
 /*----Card Hover----*/
 .card:hover {
