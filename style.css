@@ -1739,3 +1739,18 @@ details[open] .table-container {
     font-size: 0.7rem;
     z-index: 2;
 }
+.gold-text {
+    color: #ffd700;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    /* This adds a subtle "glow" to the gold */
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.4); 
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: #f59e0b;
+    box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+    filter: brightness(1.1); /* Adds a slight highlight */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
