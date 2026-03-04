@@ -2219,3 +2219,96 @@ summary:hover .faceoff-phase-header {
   padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
+/* --- 1. WIN PROBABILITY METER --- */
+.win-predictor {
+    display: flex;
+    height: 35px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto 30px auto;
+    font-weight: 900;
+    font-size: 0.85rem;
+    color: white;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    max-width: 600px;
+}
+.team-prob {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1px;
+}
+.ind-prob { background: linear-gradient(90deg, #FF9933, #d46f00); }
+.eng-prob { background: linear-gradient(90deg, #001240, #00247d); }
+
+/* --- 2. KEY MATCHUP BADGES --- */
+.matchup-badge {
+    text-align: center;
+    background: rgba(255, 215, 0, 0.1);
+    color: var(--gold);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: -5px auto 15px auto;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    letter-spacing: 1.5px;
+    display: inline-block;
+    width: 100%;
+}
+
+/* --- 3. FORM INDICATORS (L-W-W-L-W) --- */
+.form-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 10px;
+}
+.form-indicator span {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.5rem;
+    font-weight: 900;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+}
+.form-w { background: #22c55e; border: 1px solid #16a34a; } /* Green for Win */
+.form-l { background: #ef4444; border: 1px solid #dc2626; } /* Red for Loss */
+
+/* --- 4. H2H STATISTICAL PROGRESS BARS --- */
+.h2h-stats {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+}
+.stat-row {
+    margin-bottom: 12px;
+}
+.stat-lbl {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    text-align: center;
+    display: block;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.bar-container {
+    display: flex;
+    height: 8px;
+    background: #0f172a;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+}
+/* Left side fills from left-to-right, Right side fills from right-to-left intrinsically based on flexbox */
+.bar-left { background: #FF9933; border-radius: 4px 0 0 4px; }
+.bar-right { background: #3b82f6; border-radius: 0 4px 4px 0; }
