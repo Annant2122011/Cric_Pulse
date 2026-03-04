@@ -1719,3 +1719,23 @@ details[open] .table-container {
     font-size: 0.6rem;
     font-weight: 900;
 }
+.battle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    padding: 15px;
+}
+
+.ind-side .img-hex { border: 3px solid #ff9933; box-shadow: 0 0 10px rgba(255, 153, 51, 0.3); }
+.eng-side .img-hex { border: 3px solid #00247d; box-shadow: 0 0 10px rgba(0, 36, 125, 0.3); }
+
+.vs-circle {
+    background: #f59e0b;
+    color: #000;
+    font-weight: 900;
+    width: 35px; height: 35px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    font-size: 0.7rem;
+    z-index: 2;
+}
